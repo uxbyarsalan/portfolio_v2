@@ -2,6 +2,7 @@ import Nav from "@/components/Nav";
 import Footer from "@/components/Footer";
 import ProjectCard from "@/components/ProjectCard";
 import AnimateIn from "@/components/AnimateIn";
+import Link from "next/link";
 import { projects } from "@/lib/projects";
 
 // Using .wrapper class from globals.css
@@ -159,7 +160,7 @@ export default function Home() {
             <div className="h-[1px] bg-[var(--color-border)] mb-6" />
             <div className="flex flex-wrap items-baseline gap-x-2 gap-y-1">
               <span className="text-[13px] uppercase tracking-[0.15em] text-[var(--color-text-subtle)]">Previously</span>
-              <span className="text-[14px] text-[var(--color-text-muted)]">Sport.CC (2013–16)</span>
+              <span className="text-[14px] text-[var(--color-text-muted)]">Sport.CC (2012–16)</span>
               <span className="text-[14px] text-[var(--color-border-hover)]">|</span>
               <span className="text-[14px] text-[var(--color-text-muted)]">Sixlogics (2010–13)</span>
             </div>
@@ -204,6 +205,26 @@ export default function Home() {
               ))}
             </div>
           </div>
+        </section>
+
+        {/* ============================================ */}
+        {/* MAKING OF — Above footer                     */}
+        {/* ============================================ */}
+        <section className="wrapper py-20">
+          <AnimateIn>
+            <Link href="/making-of" className="group block bg-[var(--color-bg-card)] hover:bg-[var(--color-bg-card-hover)] rounded-2xl p-8 md:p-10 transition-all duration-500">
+              <p className="text-[11px] uppercase tracking-[0.25em] text-[var(--color-text-subtle)] mb-3">Behind the scenes</p>
+              <h3 className="text-xl md:text-2xl font-semibold tracking-tight mb-2 group-hover:opacity-70 transition-opacity">
+                Curious how this portfolio was built?
+              </h3>
+              <p className="text-sm text-[var(--color-text-muted)] leading-relaxed mb-4 max-w-xl">
+                From content audit to live site &mdash; a human-AI collaboration using Claude, Gemini, ChatGPT, and Google Antigravity.
+              </p>
+              <span className="text-sm font-medium text-[var(--color-text)] group-hover:translate-x-1 inline-block transition-transform">
+                Read the story &rarr;
+              </span>
+            </Link>
+          </AnimateIn>
         </section>
       </main>
       <Footer />

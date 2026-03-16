@@ -23,7 +23,7 @@ export default function Nav() {
     <nav className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${scrolled ? "bg-[var(--color-bg)]/90 backdrop-blur-md border-b border-[var(--color-border)]" : ""}`}>
       <div className="wrapper flex items-center justify-between" style={{ paddingTop: 0, paddingBottom: 0, height: "64px" }}>
         <Link href="/" className="hover:opacity-60 transition-opacity">
-          <Image src="/images/logo-aa.png" alt="Arsalan Aslam" width={48} height={32} className="h-8 w-auto" />
+          <Image src="/images/logo-aa.svg" alt="Arsalan Aslam" width={48} height={32} className="h-8 w-auto" />
         </Link>
 
         <div className="hidden md:flex items-center gap-8">

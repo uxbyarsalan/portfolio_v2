@@ -42,7 +42,7 @@ export default function Resume() {
             <AnimateIn>
               <Section label="Summary">
                 <p className="text-[15px] text-[var(--color-text-muted)] leading-[1.8]">
-                  Lead Product Designer with 14+ years of experience designing public-sector platforms used by over 20 million citizens. Progressed from UX Designer to Program Manager &mdash; Design at Punjab Information Technology Board, leading design strategy across 10+ government platforms and driving the digital transformation of 76 government services across 168 departments. Skilled in design systems, user research, prototyping, and stakeholder alignment. Now based in Gothenburg, bringing a decade of large-scale design leadership to new challenges.
+                  Lead Product Designer with 14+ years of experience designing public-sector platforms used by over 20 million citizens. Progressed from UX Designer to Program Manager &mdash; Design at Punjab Information Technology Board, leading design strategy across 10+ government platforms and driving the digital transformation of 76 government services across 168 departments. Experienced in designing AI-powered interfaces &mdash; from automated citizen dispatch to environmental health prediction &mdash; and leveraging AI tools to accelerate design workflows. Now based in Gothenburg, bringing a decade of large-scale design leadership to new challenges.
                 </p>
               </Section>
             </AnimateIn>
@@ -192,6 +192,17 @@ export default function Resume() {
                     <span key={t} className="text-[11px] text-[var(--color-text-muted)] border border-[var(--color-border)] rounded-full px-3 py-1.5">{t}</span>
                   ))}
                 </div>
+              </Section>
+            </AnimateIn>
+
+            <AnimateIn delay={0.17}>
+              <Section label="AI & emerging tools">
+                <div className="flex flex-wrap gap-2">
+                  {["Claude", "ChatGPT", "Gemini", "Midjourney", "GitHub Copilot", "Google Antigravity"].map((t) => (
+                    <span key={t} className="text-[11px] text-[var(--color-text-muted)] border border-[var(--color-border)] rounded-full px-3 py-1.5">{t}</span>
+                  ))}
+                </div>
+                <p className="text-xs text-[var(--color-text-subtle)] mt-3 leading-relaxed">AI-assisted prototyping, prompt engineering for design workflows, designing interfaces for AI-powered systems</p>
               </Section>
             </AnimateIn>
 
