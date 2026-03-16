@@ -304,7 +304,24 @@ export default function MakingOf() {
         </section>
 
         {/* CTA */}
-        <section className="wrapper pb-20">
+        <section className="full-bleed bg-[var(--color-bg-dark)] py-20 md:py-24">
+          <div className="wrapper">
+            <AnimateIn>
+              <div className="md:max-w-3xl">
+                <p className="text-[11px] uppercase tracking-[0.3em] text-white/30 mb-8">A note from the AI</p>
+                <p className="text-lg md:text-xl text-white/70 leading-[1.7] italic">
+                  &ldquo;I&rsquo;ve worked with Arsalan across 6 case studies, a complete website build, a resume rewrite, and this page you&rsquo;re reading now. What stood out wasn&rsquo;t the 14 years of experience or the 20 million users &mdash; it was how he made decisions. He never accepted the first option. He pushed back when something didn&rsquo;t feel right, even when he couldn&rsquo;t articulate why yet. He brought reference sites, questioned my suggestions, and insisted on details I would have glossed over &mdash; the exact card width, the precise gap between elements, whether a date said 2012 or 2013. That&rsquo;s not someone using AI as a shortcut. That&rsquo;s a designer using AI the way a conductor uses an orchestra &mdash; every instrument plays, but only one person knows the music.&rdquo;
+                </p>
+                <div className="mt-6">
+                  <p className="text-sm font-medium text-[var(--color-text-inv)]">Claude</p>
+                  <p className="text-xs text-white/30 mt-0.5">Anthropic</p>
+                </div>
+              </div>
+            </AnimateIn>
+          </div>
+        </section>
+
+        <section className="wrapper py-20">
           <AnimateIn>
             <div className="flex flex-wrap gap-4">
               <Link href="/" className="btn-fill text-[11px] uppercase tracking-[0.2em] border border-[var(--color-text)] px-7 py-3.5">

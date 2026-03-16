@@ -3,7 +3,7 @@ import AnimateIn from "./AnimateIn";
 
 export default function Footer() {
   return (
-    <footer className="border-t border-[var(--color-border)] mt-40">
+    <footer className="border-t border-[var(--color-border)] mt-16">
       <div className="wrapper py-20">
         <AnimateIn>
           <p className="text-3xl md:text-5xl font-medium tracking-tight max-w-2xl leading-[1.1]">

@@ -210,7 +210,7 @@ export default function Home() {
         {/* ============================================ */}
         {/* MAKING OF — Above footer                     */}
         {/* ============================================ */}
-        <section className="wrapper py-20">
+        <section className="wrapper pt-16 pb-0">
           <AnimateIn>
             <Link href="/making-of" className="group block bg-[var(--color-bg-card)] hover:bg-[var(--color-bg-card-hover)] rounded-2xl p-8 md:p-10 transition-all duration-500">
               <p className="text-[11px] uppercase tracking-[0.25em] text-[var(--color-text-subtle)] mb-3">Behind the scenes</p>
