@@ -61,7 +61,7 @@ export default function AQICaseStudy() {
         </section>
 
         {/* Data to Action Pipeline */}
-        <section className="wrapper py-16 border-t border-[var(--color-border)]">
+        <section className="max-w-3xl mx-auto px-6 md:px-12 py-16 border-t border-[var(--color-border)]">
           <AnimateIn>
             <p className="text-[11px] uppercase tracking-[0.3em] text-[var(--color-text-subtle)] mb-3">The design challenge &mdash; bridging three gaps</p>
           </AnimateIn>

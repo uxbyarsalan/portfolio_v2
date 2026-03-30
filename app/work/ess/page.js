@@ -61,7 +61,7 @@ export default function ESSCaseStudy() {
         </section>
 
         {/* Personas + Journey + Community */}
-        <section className="wrapper py-16 border-t border-[var(--color-border)]">
+        <section className="max-w-3xl mx-auto px-6 md:px-12 py-16 border-t border-[var(--color-border)]">
           <AnimateIn>
             <p className="text-[11px] uppercase tracking-[0.3em] text-[var(--color-text-subtle)] mb-6">User research</p>
           </AnimateIn>
