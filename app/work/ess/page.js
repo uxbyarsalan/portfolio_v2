@@ -60,7 +60,155 @@ export default function ESSCaseStudy() {
           </AnimateIn>
         </section>
 
-        <AnimateIn><ImageBlock label="User journey &mdash; employee persona, admin flows, community features" aspect="aspect-[2.5/1]" /></AnimateIn>
+        {/* Personas + Journey + Community */}
+        <section className="wrapper py-16 border-t border-[var(--color-border)]">
+          <AnimateIn>
+            <p className="text-[11px] uppercase tracking-[0.3em] text-[var(--color-text-subtle)] mb-6">User research</p>
+          </AnimateIn>
+
+          {/* Two personas */}
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-12">
+            {/* Zohaib */}
+            <AnimateIn delay={0.05}>
+              <div className="border border-[var(--color-border)] rounded-2xl overflow-hidden">
+                <div className="bg-[#E6F1FB] px-5 py-4">
+                  <div className="flex items-center gap-3 mb-2">
+                    <div className="w-10 h-10 rounded-full bg-[#85B7EB] flex items-center justify-center text-sm font-medium text-[#042C53]">ZN</div>
+                    <div>
+                      <p className="text-sm font-medium text-[#042C53]">Zohaib Naeem</p>
+                      <p className="text-[11px] text-[#185FA5]">Software Developer &middot; PITB</p>
+                    </div>
+                  </div>
+                  <p className="text-[10px] text-[#0C447C]">Age: Late 20s &middot; Tech: High</p>
+                </div>
+                <div className="px-5 py-4">
+                  <p className="text-xs text-[var(--color-text-muted)] leading-relaxed mb-3">Tech-savvy developer who wants workplace tools that match consumer apps. Uses ESS daily for check-ins but stays for the community features.</p>
+                  <p className="text-[10px] uppercase tracking-widest text-[var(--color-text-subtle)] mb-1">Goals</p>
+                  <div className="text-xs text-[var(--color-text-muted)] leading-relaxed mb-3 space-y-0.5">
+                    <p>&bull; Quick daily check-in without hassle</p>
+                    <p>&bull; Apply for leave without paperwork</p>
+                    <p>&bull; Access HR services on the go</p>
+                    <p>&bull; Find a carpool ride to work</p>
+                  </div>
+                  <p className="text-[10px] uppercase tracking-widest text-[var(--color-text-subtle)] mb-1">Pain points</p>
+                  <div className="text-xs text-[var(--color-text-muted)] leading-relaxed mb-3 space-y-0.5">
+                    <p>&bull; Desktop-only portal, can&rsquo;t use on phone</p>
+                    <p>&bull; Paper leave forms take days</p>
+                    <p>&bull; No visibility into request status</p>
+                    <p>&bull; No community connection with colleagues</p>
+                  </div>
+                  <p className="text-[10px] uppercase tracking-widest text-[var(--color-text-subtle)] mb-1">Before ESS</p>
+                  <div className="flex flex-wrap gap-1.5 mb-3">
+                    {["Desktop HRIS", "Paper forms", "WhatsApp", "Email"].map((t) => (
+                      <span key={t} className="text-[10px] text-[#0C447C] bg-[#E6F1FB] rounded-full px-2 py-0.5">{t}</span>
+                    ))}
+                  </div>
+                  <div className="bg-[var(--color-bg-card)] rounded-lg p-3 border-l-2 border-[#85B7EB]">
+                    <p className="text-[11px] text-[var(--color-text-muted)] italic leading-relaxed">&ldquo;I build apps for citizens all day &mdash; why is the app I use at work worse than what I build?&rdquo;</p>
+                  </div>
+                </div>
+              </div>
+            </AnimateIn>
+
+            {/* Ahmed Adeel */}
+            <AnimateIn delay={0.1}>
+              <div className="border border-[var(--color-border)] rounded-2xl overflow-hidden">
+                <div className="bg-[#EEEDFE] px-5 py-4">
+                  <div className="flex items-center gap-3 mb-2">
+                    <div className="w-10 h-10 rounded-full bg-[#AFA9EC] flex items-center justify-center text-sm font-medium text-[#26215C]">AS</div>
+                    <div>
+                      <p className="text-sm font-medium text-[#26215C]">Ahmed Adeel Sarwar</p>
+                      <p className="text-[11px] text-[#534AB7]">Director HR &middot; PITB</p>
+                    </div>
+                  </div>
+                  <p className="text-[10px] text-[#3C3489]">Age: Mid 30s &middot; Tech: Medium</p>
+                </div>
+                <div className="px-5 py-4">
+                  <p className="text-xs text-[var(--color-text-muted)] leading-relaxed mb-3">Director HR managing attendance, leave, and resources for 3,500+ employees. Needs real-time visibility and reporting.</p>
+                  <p className="text-[10px] uppercase tracking-widest text-[var(--color-text-subtle)] mb-1">Goals</p>
+                  <div className="text-xs text-[var(--color-text-muted)] leading-relaxed mb-3 space-y-0.5">
+                    <p>&bull; Approve/reject leave requests efficiently</p>
+                    <p>&bull; Monitor team attendance in real-time</p>
+                    <p>&bull; Generate reports without manual counting</p>
+                    <p>&bull; Track employee performance metrics</p>
+                  </div>
+                  <p className="text-[10px] uppercase tracking-widest text-[var(--color-text-subtle)] mb-1">Pain points</p>
+                  <div className="text-xs text-[var(--color-text-muted)] leading-relaxed mb-3 space-y-0.5">
+                    <p>&bull; Processing paper leave forms manually</p>
+                    <p>&bull; Reports from scattered data sources</p>
+                    <p>&bull; Approvals buried in email chains</p>
+                    <p>&bull; Managing resource escalations</p>
+                  </div>
+                  <div className="bg-[var(--color-bg-card)] rounded-lg p-3 border-l-2 border-[#AFA9EC]">
+                    <p className="text-[11px] text-[var(--color-text-muted)] italic leading-relaxed">&ldquo;I spend my mornings chasing attendance data instead of making HR decisions.&rdquo;</p>
+                  </div>
+                </div>
+              </div>
+            </AnimateIn>
+          </div>
+
+          {/* Role-based views */}
+          <AnimateIn delay={0.12}>
+            <p className="text-[10px] uppercase tracking-widest text-[var(--color-text-subtle)] mb-3">Role-based progressive disclosure &mdash; same data, four views</p>
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-3 mb-12">
+              {[
+                { role: "Employee", desc: "Personal dashboard, own attendance, leave balance" },
+                { role: "Supervisor", desc: "Team view, approve leave, team attendance" },
+                { role: "HOD", desc: "Department patterns, escalations, reports" },
+                { role: "HR", desc: "Org-wide ops, analytics, policy management" },
+              ].map((r) => (
+                <div key={r.role} className="bg-[var(--color-bg-card)] rounded-xl p-4 text-center">
+                  <p className="text-sm font-medium">{r.role}</p>
+                  <p className="text-[10px] text-[var(--color-text-subtle)] mt-1 leading-relaxed">{r.desc}</p>
+                </div>
+              ))}
+            </div>
+          </AnimateIn>
+
+          {/* Daily journey */}
+          <AnimateIn delay={0.14}>
+            <p className="text-[10px] uppercase tracking-widest text-[var(--color-text-subtle)] mb-3">Employee daily journey</p>
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-3 mb-12">
+              {[
+                { time: "Morning", items: ["Swipe to check-in", "View daily tasks", "Check carpool rides"] },
+                { time: "Midday", items: ["Book meeting room", "Browse marketplace", "Check announcements"] },
+                { time: "When needed", items: ["Apply for leave", "Request approval", "Report lost item"] },
+                { time: "Evening", items: ["Swipe to check-out", "Offer carpool ride", "View leave status"] },
+              ].map((j) => (
+                <div key={j.time} className="rounded-xl overflow-hidden border border-[var(--color-border)]">
+                  <div className="bg-[#E6F1FB] px-3 py-2">
+                    <p className="text-[11px] font-medium text-[#042C53]">{j.time}</p>
+                  </div>
+                  <div className="px-3 py-2">
+                    {j.items.map((item) => (
+                      <p key={item} className="text-[10px] text-[var(--color-text-muted)] leading-relaxed">{item}</p>
+                    ))}
+                  </div>
+                </div>
+              ))}
+            </div>
+          </AnimateIn>
+
+          {/* Help Buddy */}
+          <AnimateIn delay={0.16}>
+            <p className="text-[10px] uppercase tracking-widest text-[var(--color-text-subtle)] mb-3">Help Buddy &mdash; community features that drove voluntary engagement</p>
+            <div className="grid grid-cols-3 md:grid-cols-5 gap-3 mb-4">
+              {[
+                { name: "Carpooling", desc: "Share rides to work", bg: "bg-[#E1F5EE]", tc: "text-[#04342C]", sc: "text-[#085041]" },
+                { name: "Marketplace", desc: "Buy & sell among staff", bg: "bg-[#FAEEDA]", tc: "text-[#412402]", sc: "text-[#633806]" },
+                { name: "Blood donors", desc: "Emergency donor match", bg: "bg-[#FCEBEB]", tc: "text-[#501313]", sc: "text-[#791F1F]" },
+                { name: "Fundraising", desc: "Collective support", bg: "bg-[#EEEDFE]", tc: "text-[#26215C]", sc: "text-[#3C3489]" },
+                { name: "Lost & found", desc: "Recover lost items", bg: "bg-[#E6F1FB]", tc: "text-[#042C53]", sc: "text-[#0C447C]" },
+              ].map((f) => (
+                <div key={f.name} className={`${f.bg} rounded-xl p-3 text-center`}>
+                  <p className={`text-[11px] font-medium ${f.tc}`}>{f.name}</p>
+                  <p className={`text-[10px] ${f.sc} mt-0.5`}>{f.desc}</p>
+                </div>
+              ))}
+            </div>
+            <p className="text-xs text-[var(--color-text-subtle)] italic text-center">An app that only handles admin tasks gets opened when you have to. One that helps you find a ride gets opened because you want to.</p>
+          </AnimateIn>
+        </section>
 
         <section className="max-w-3xl mx-auto px-6 md:px-12 py-16">
           <AnimateIn><p className="text-[11px] uppercase tracking-[0.3em] text-[var(--color-text-subtle)] mb-10">Key design decisions</p></AnimateIn>

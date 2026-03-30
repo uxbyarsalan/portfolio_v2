@@ -69,7 +69,153 @@ export default function PunjabJobsCaseStudy() {
           </div>
         </section>
 
-        <AnimateIn><ImageBlock label="Before/after &mdash; old homepage vs. redesigned homepage, old CV builder vs. new" aspect="aspect-[2.5/1]" /></AnimateIn>
+        {/* Before state + Personas + Two-sided platform */}
+        <section className="wrapper py-16 border-t border-[var(--color-border)]">
+          <AnimateIn>
+            <p className="text-[11px] uppercase tracking-[0.3em] text-[var(--color-text-subtle)] mb-3">Before &mdash; what was broken</p>
+          </AnimateIn>
+          <AnimateIn delay={0.05}>
+            <div className="grid grid-cols-2 gap-3 mb-12">
+              <div className="bg-[#FCEBEB] rounded-xl px-5 py-4">
+                <div className="text-xs text-[#791F1F] space-y-1.5">
+                  <p>&bull; Job cards missing salary info</p>
+                  <p>&bull; 10-tab CV builder</p>
+                  <p>&bull; No mobile app</p>
+                </div>
+              </div>
+              <div className="bg-[#FCEBEB] rounded-xl px-5 py-4">
+                <div className="text-xs text-[#791F1F] space-y-1.5">
+                  <p>&bull; No error handling during apply</p>
+                  <p>&bull; Recruiters on spreadsheets</p>
+                  <p>&bull; Cluttered layout with ads</p>
+                </div>
+              </div>
+            </div>
+          </AnimateIn>
+
+          {/* Two personas */}
+          <AnimateIn delay={0.08}>
+            <p className="text-[10px] uppercase tracking-widest text-[var(--color-text-subtle)] mb-6">Two audiences, two personas</p>
+          </AnimateIn>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-12">
+            {/* Aryan Khan */}
+            <AnimateIn delay={0.1}>
+              <div className="border border-[var(--color-border)] rounded-2xl overflow-hidden">
+                <div className="bg-[#E1F5EE] px-5 py-4">
+                  <div className="flex items-center gap-3 mb-2">
+                    <div className="w-10 h-10 rounded-full bg-[#5DCAA5] flex items-center justify-center text-sm font-medium text-[#04342C]">AK</div>
+                    <div>
+                      <p className="text-sm font-medium text-[#04342C]">Aryan Khan</p>
+                      <p className="text-[11px] text-[#0F6E56]">Job seeker &middot; Early 30s</p>
+                    </div>
+                  </div>
+                  <p className="text-[10px] text-[#085041]">Tech: High &middot; Searches on phone</p>
+                </div>
+                <div className="px-5 py-4">
+                  <p className="text-xs text-[var(--color-text-muted)] leading-relaxed mb-3">Tech-savvy professional searching for government jobs during his commute. Frustrated by inconsistent interfaces and zero feedback after applying.</p>
+                  <p className="text-[10px] uppercase tracking-widest text-[var(--color-text-subtle)] mb-1">Needs</p>
+                  <div className="text-xs text-[var(--color-text-muted)] leading-relaxed mb-3 space-y-0.5">
+                    <p>&bull; Salary info upfront on job cards</p>
+                    <p>&bull; Simple CV builder, not 10 tabs</p>
+                    <p>&bull; Mobile app for search on the go</p>
+                  </div>
+                  <p className="text-[10px] uppercase tracking-widest text-[var(--color-text-subtle)] mb-1">Frustrations</p>
+                  <div className="text-xs text-[var(--color-text-muted)] leading-relaxed mb-3 space-y-0.5">
+                    <p>&bull; No feedback after applying</p>
+                    <p>&bull; Can&rsquo;t identify what went wrong</p>
+                    <p>&bull; Inconsistent interface wastes time</p>
+                  </div>
+                  <div className="bg-[var(--color-bg-card)] rounded-lg p-3 border-l-2 border-[#5DCAA5]">
+                    <p className="text-[11px] text-[var(--color-text-muted)] italic leading-relaxed">&ldquo;I search for jobs on my commute &mdash; the portal doesn&rsquo;t even work on my phone.&rdquo;</p>
+                  </div>
+                </div>
+              </div>
+            </AnimateIn>
+
+            {/* Ahmed Adeel Sarwar */}
+            <AnimateIn delay={0.13}>
+              <div className="border border-[var(--color-border)] rounded-2xl overflow-hidden">
+                <div className="bg-[#EEEDFE] px-5 py-4">
+                  <div className="flex items-center gap-3 mb-2">
+                    <div className="w-10 h-10 rounded-full bg-[#AFA9EC] flex items-center justify-center text-sm font-medium text-[#26215C]">AS</div>
+                    <div>
+                      <p className="text-sm font-medium text-[#26215C]">Ahmed Adeel Sarwar</p>
+                      <p className="text-[11px] text-[#534AB7]">Director HR &middot; PITB</p>
+                    </div>
+                  </div>
+                  <p className="text-[10px] text-[#3C3489]">Age: Mid 30s &middot; Tech: Medium</p>
+                </div>
+                <div className="px-5 py-4">
+                  <p className="text-xs text-[var(--color-text-muted)] leading-relaxed mb-3">Director HR managing recruitment across 168 departments. Lives in spreadsheets and email chains. Needs a centralized system.</p>
+                  <p className="text-[10px] uppercase tracking-widest text-[var(--color-text-subtle)] mb-1">Goals</p>
+                  <div className="text-xs text-[var(--color-text-muted)] leading-relaxed mb-3 space-y-0.5">
+                    <p>&bull; Full pipeline view (Pending/Rejected/Hired)</p>
+                    <p>&bull; Coordinate with department hiring managers</p>
+                    <p>&bull; Generate recruitment reports instantly</p>
+                  </div>
+                  <p className="text-[10px] uppercase tracking-widest text-[var(--color-text-subtle)] mb-1">Pain points</p>
+                  <div className="text-xs text-[var(--color-text-muted)] leading-relaxed mb-3 space-y-0.5">
+                    <p>&bull; No centralized application pipeline</p>
+                    <p>&bull; Tracking candidates in spreadsheets</p>
+                    <p>&bull; Can&rsquo;t collaborate with hiring managers</p>
+                    <p>&bull; Reports take hours to generate</p>
+                  </div>
+                  <div className="bg-[var(--color-bg-card)] rounded-lg p-3 border-l-2 border-[#AFA9EC]">
+                    <p className="text-[11px] text-[var(--color-text-muted)] italic leading-relaxed">&ldquo;I manage hiring for 168 departments with Excel and email. Every position is a new spreadsheet.&rdquo;</p>
+                  </div>
+                </div>
+              </div>
+            </AnimateIn>
+          </div>
+
+          {/* Two-sided solution */}
+          <AnimateIn delay={0.15}>
+            <p className="text-[10px] uppercase tracking-widest text-[var(--color-text-subtle)] mb-3">After &mdash; two audiences, one design language, zero compromise</p>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-8">
+              <div className="border border-[var(--color-border)] rounded-xl overflow-hidden">
+                <div className="bg-[#E1F5EE] px-4 py-3">
+                  <p className="text-sm font-medium text-[#04342C]">Job seeker experience</p>
+                  <p className="text-[10px] text-[#085041] italic">Simplicity &amp; speed</p>
+                </div>
+                <div className="px-4 py-3 text-xs text-[var(--color-text-muted)] space-y-1">
+                  <p>&bull; Redesigned cards with salary</p>
+                  <p>&bull; Streamlined CV builder</p>
+                  <p>&bull; Basic / Advanced filters</p>
+                  <p>&bull; Native mobile app</p>
+                </div>
+              </div>
+              <div className="border border-[var(--color-border)] rounded-xl overflow-hidden">
+                <div className="bg-[#EEEDFE] px-4 py-3">
+                  <p className="text-sm font-medium text-[#26215C]">Recruiter experience</p>
+                  <p className="text-[10px] text-[#3C3489] italic">Depth &amp; control</p>
+                </div>
+                <div className="px-4 py-3 text-xs text-[var(--color-text-muted)] space-y-1">
+                  <p>&bull; Centralized applicant tracking</p>
+                  <p>&bull; Pipeline view with statuses</p>
+                  <p>&bull; Quick-view with PDF viewer</p>
+                  <p>&bull; Bulk actions &amp; reporting</p>
+                </div>
+              </div>
+            </div>
+          </AnimateIn>
+
+          {/* Benchmarked against */}
+          <AnimateIn delay={0.17}>
+            <div className="grid grid-cols-3 gap-3">
+              {[
+                { name: "LinkedIn", desc: "Salary, cards, save" },
+                { name: "Indeed", desc: "Quick apply, filters" },
+                { name: "Punjab Jobs (old)", desc: "Baseline — what to fix" },
+              ].map((b) => (
+                <div key={b.name} className="bg-[var(--color-bg-card)] rounded-xl px-4 py-3 text-center">
+                  <p className="text-xs font-medium">{b.name}</p>
+                  <p className="text-[10px] text-[var(--color-text-subtle)] mt-0.5">{b.desc}</p>
+                </div>
+              ))}
+            </div>
+          </AnimateIn>
+        </section>
 
         <section className="max-w-3xl mx-auto px-6 md:px-12 py-16">
           <AnimateIn><p className="text-[11px] uppercase tracking-[0.3em] text-[var(--color-text-subtle)] mb-10">Key design decisions</p></AnimateIn>

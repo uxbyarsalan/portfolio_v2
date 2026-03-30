@@ -38,7 +38,7 @@ export default function Home() {
                 {[
                   { n: "14+", l: "years in design" },
                   { n: "76", l: "services digitized" },
-                  { n: "22+", l: "platforms shipped" },
+                  { n: "20+", l: "platforms shipped" },
                 ].map((s) => (
                   <div key={s.l} className="flex items-baseline gap-1.5">
                     <span className="text-base font-semibold tracking-tight stat-number">{s.n}</span>
@@ -120,11 +120,6 @@ export default function Home() {
                   </p>
                 </div>
               </AnimateIn>
-              <AnimateIn delay={0.15}>
-                <a href="/resume" className="btn-fill inline-block mt-8 text-[11px] uppercase tracking-[0.2em] border border-[var(--color-text)] px-7 py-3.5">
-                  Download resume
-                </a>
-              </AnimateIn>
             </div>
           </div>
         </section>
@@ -147,7 +142,7 @@ export default function Home() {
                 </span>
               </div>
               <div className="flex flex-wrap gap-2.5 mt-4">
-                {["Program Manager — Design", "Principal UX/UI", "Sr. UX/UI", "UX/UI Designer"].map((role) => (
+                {["UX/UI Designer", "Sr. UX/UI", "Principal UX/UI", "Program Manager — Design"].map((role) => (
                   <span key={role} className="text-[11px] text-[var(--color-text-subtle)] border border-[var(--color-border)] rounded-full px-3.5 py-1.5">
                     {role}
                   </span>
@@ -160,9 +155,7 @@ export default function Home() {
             <div className="h-[1px] bg-[var(--color-border)] mb-6" />
             <div className="flex flex-wrap items-baseline gap-x-2 gap-y-1">
               <span className="text-[13px] uppercase tracking-[0.15em] text-[var(--color-text-subtle)]">Previously</span>
-              <span className="text-[14px] text-[var(--color-text-muted)]">Sport.CC (2012–16)</span>
-              <span className="text-[14px] text-[var(--color-border-hover)]">|</span>
-              <span className="text-[14px] text-[var(--color-text-muted)]">Sixlogics (2010–13)</span>
+              <span className="text-[14px] text-[var(--color-text-muted)]">Sport.CC, Denmark (2012–16)</span>
             </div>
           </AnimateIn>
         </section>

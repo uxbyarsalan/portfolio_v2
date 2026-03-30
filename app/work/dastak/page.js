@@ -11,7 +11,7 @@ export const metadata = {
 function Stat({ value, label }) {
   return (
     <div className="py-3">
-      <span className="text-3xl md:text-5xl font-semibold tracking-tight stat-number">{value}</span>
+      <span className="text-3xl md:text-5xl font-semibold tracking-tight stat-number" style={{ whiteSpace: "nowrap" }}>{value}</span>
       <p className="text-xs text-[var(--color-text-muted)] mt-1.5">{label}</p>
     </div>
   );
@@ -161,7 +161,60 @@ export default function DastakCaseStudy() {
           </Decision>
         </section>
 
-        {/* Solution visuals — full width */}
+        {/* Ecosystem diagram */}
+        <section className="wrapper py-16 border-t border-[var(--color-border)]">
+          <AnimateIn>
+            <p className="text-[11px] uppercase tracking-[0.3em] text-[var(--color-text-subtle)] mb-10">How Dastak works — end-to-end service delivery</p>
+          </AnimateIn>
+
+          {/* Flow steps */}
+          <AnimateIn delay={0.05}>
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-3 mb-4">
+              {[
+                { n: "1", title: "Citizen", sub: "Requests service", color: "bg-[#E1F5EE] text-[#04342C]", subColor: "text-[#0F6E56]" },
+                { n: "2", title: "CRM", sub: "Routes & assigns", color: "bg-[#E6F1FB] text-[#042C53]", subColor: "text-[#185FA5]" },
+                { n: "3", title: "Facilitator", sub: "Visits doorstep", color: "bg-[#FAEEDA] text-[#412402]", subColor: "text-[#854F0B]" },
+                { n: "4", title: "Delivered", sub: "Verified & closed", color: "bg-[#E1F5EE] text-[#04342C]", subColor: "text-[#0F6E56]" },
+              ].map((step) => (
+                <div key={step.n} className={`${step.color} rounded-xl p-4`}>
+                  <p className="text-sm font-semibold">{step.n}. {step.title}</p>
+                  <p className={`text-xs mt-0.5 ${step.subColor}`}>{step.sub}</p>
+                </div>
+              ))}
+            </div>
+          </AnimateIn>
+
+          {/* Context below each step */}
+          <AnimateIn delay={0.1}>
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-3 mb-8">
+              {[
+                { text: "Selects from 76 services. No login required — just CNIC & phone number.", note: "Accessibility-first" },
+                { text: "Auto-assigns nearest facilitator by district, service type, and load.", note: "Like ride-hailing for government services" },
+                { text: "Receives assignment on mobile app. Visits citizen, collects docs, processes.", note: "No office visit needed" },
+                { text: "Document delivered to citizen's door. Status updated, feedback collected.", note: "No paperwork lost" },
+              ].map((c, i) => (
+                <div key={i}>
+                  <p className="text-xs text-[var(--color-text-muted)] leading-relaxed">{c.text}</p>
+                  <p className="text-xs text-[var(--color-text-subtle)] italic mt-2">{c.note}</p>
+                </div>
+              ))}
+            </div>
+          </AnimateIn>
+
+          {/* Before vs After */}
+          <AnimateIn delay={0.15}>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-3 mb-8">
+              <div className="bg-[#FCEBEB] rounded-xl px-5 py-4 flex items-center gap-3">
+                <span className="text-sm font-semibold text-[#501313]">Before</span>
+                <span className="text-xs text-[#791F1F]">Visit office → wait in line → repeat</span>
+              </div>
+              <div className="bg-[#E1F5EE] rounded-xl px-5 py-4 flex items-center gap-3">
+                <span className="text-sm font-semibold text-[#04342C]">After</span>
+                <span className="text-xs text-[#0F6E56]">Request → facilitator visits → done</span>
+              </div>
+            </div>
+          </AnimateIn>
+        </section>
         <section className="wrapper pb-16">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
             {["Citizen web portal", "Citizen mobile app", "Facilitator / Muavin app", "CRM dashboard"].map((label, i) => (

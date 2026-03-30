@@ -60,7 +60,96 @@ export default function AQICaseStudy() {
           </AnimateIn>
         </section>
 
-        <AnimateIn><ImageBlock label="Real-time dashboard &mdash; map view, city cards, station rankings" aspect="aspect-[2.5/1]" /></AnimateIn>
+        {/* Data to Action Pipeline */}
+        <section className="wrapper py-16 border-t border-[var(--color-border)]">
+          <AnimateIn>
+            <p className="text-[11px] uppercase tracking-[0.3em] text-[var(--color-text-subtle)] mb-3">The design challenge &mdash; bridging three gaps</p>
+          </AnimateIn>
+
+          {/* Three gaps */}
+          <AnimateIn delay={0.05}>
+            <div className="grid grid-cols-3 gap-3 mb-12">
+              <div className="bg-[var(--color-bg-card)] rounded-xl p-5 text-center">
+                <p className="text-3xl font-semibold tracking-tight mb-1">194</p>
+                <p className="text-[10px] text-[var(--color-text-subtle)]">Raw number</p>
+                <p className="text-[10px] text-[var(--color-text-subtle)] italic mt-1">Means nothing to citizens</p>
+              </div>
+              <div className="rounded-xl p-5 text-center" style={{ background: "#FFCCBC" }}>
+                <p className="text-3xl font-semibold tracking-tight mb-1" style={{ color: "#4A1B0C" }}>194</p>
+                <p className="text-[10px]" style={{ color: "#712B13" }}>Color = severity</p>
+                <p className="text-[10px] italic mt-1" style={{ color: "#712B13" }}>Instant comprehension</p>
+              </div>
+              <div className="bg-[#FCEBEB] rounded-xl p-5 text-center">
+                <p className="text-lg font-semibold text-[#501313] mb-1">Asthma alert</p>
+                <p className="text-[10px] text-[#791F1F]">Personalized action</p>
+                <p className="text-[10px] text-[#791F1F] italic mt-1">Protects people</p>
+              </div>
+            </div>
+          </AnimateIn>
+
+          {/* Color severity system */}
+          <AnimateIn delay={0.08}>
+            <p className="text-[10px] uppercase tracking-widest text-[var(--color-text-subtle)] mb-3">Color as communication &mdash; the universal language</p>
+            <div className="grid grid-cols-6 gap-1.5 mb-12">
+              {[
+                { label: "Good", range: "0–50", bg: "#9DF9B7", tc: "#173404" },
+                { label: "Moderate", range: "51–100", bg: "#F7CA5E", tc: "#412402" },
+                { label: "USG", range: "101–150", bg: "#F96424", tc: "#fff" },
+                { label: "Unhealthy", range: "151–200", bg: "#E24B4A", tc: "#fff" },
+                { label: "Very bad", range: "201–300", bg: "#7F77DD", tc: "#fff" },
+                { label: "Hazardous", range: "300+", bg: "#501313", tc: "#fff" },
+              ].map((c) => (
+                <div key={c.label} className="rounded-lg px-3 py-2.5 text-center" style={{ background: c.bg }}>
+                  <p className="text-xs font-medium" style={{ color: c.tc }}>{c.label}</p>
+                  <p className="text-[9px] mt-0.5" style={{ color: c.tc, opacity: 0.8 }}>{c.range}</p>
+                </div>
+              ))}
+            </div>
+          </AnimateIn>
+
+          {/* Health conditions */}
+          <AnimateIn delay={0.1}>
+            <p className="text-[10px] uppercase tracking-widest text-[var(--color-text-subtle)] mb-3">Health precautions by condition &mdash; design that protects people</p>
+            <div className="grid grid-cols-3 md:grid-cols-6 gap-2 mb-4">
+              {["Asthma", "Heart", "Allergies", "Sinus", "Cold/Flu", "COPD"].map((condition) => (
+                <div key={condition} className="border border-[var(--color-border)] rounded-xl px-3 py-3 text-center">
+                  <p className="text-xs font-medium">{condition}</p>
+                </div>
+              ))}
+            </div>
+            <p className="text-[10px] text-[var(--color-text-subtle)] italic text-center mb-12">Same AQI level, different advice per condition. Designed with EPD domain experts.</p>
+          </AnimateIn>
+
+          {/* 5 Modules */}
+          <AnimateIn delay={0.12}>
+            <p className="text-[10px] uppercase tracking-widest text-[var(--color-text-subtle)] mb-3">5 modules &mdash; layered information disclosure</p>
+            <div className="grid grid-cols-2 md:grid-cols-5 gap-2 mb-8">
+              {[
+                { name: "Dashboard", desc: "Real-time map, city cards", audience: "everyone" },
+                { name: "Historical", desc: "Heatmap calendar, daily AQI", audience: "pattern seekers" },
+                { name: "Statistics", desc: "Station-level pollutants", audience: "researchers" },
+                { name: "Safeguards", desc: "Health precautions", audience: "patients" },
+                { name: "Trends", desc: "Annual calendar, patterns", audience: "policymakers" },
+              ].map((m) => (
+                <div key={m.name} className="bg-[var(--color-bg-card)] rounded-xl p-3">
+                  <p className="text-xs font-medium">{m.name}</p>
+                  <p className="text-[10px] text-[var(--color-text-subtle)] mt-0.5 leading-relaxed">{m.desc}</p>
+                  <p className="text-[9px] text-[var(--color-text-subtle)] italic mt-1">For: {m.audience}</p>
+                </div>
+              ))}
+            </div>
+          </AnimateIn>
+
+          {/* Pollutants */}
+          <AnimateIn delay={0.14}>
+            <div className="flex flex-wrap gap-1.5">
+              {["PM2.5", "PM10", "CO", "SO₂", "NO₂", "O₃"].map((p) => (
+                <span key={p} className="text-[10px] text-[var(--color-text-muted)] bg-[var(--color-bg-card)] rounded-full px-2.5 py-1">{p}</span>
+              ))}
+              <span className="text-[10px] text-[var(--color-text-subtle)] ml-2 self-center">tracked in real-time across 36 districts</span>
+            </div>
+          </AnimateIn>
+        </section>
 
         <section className="max-w-3xl mx-auto px-6 md:px-12 py-16">
           <AnimateIn><p className="text-[11px] uppercase tracking-[0.3em] text-[var(--color-text-subtle)] mb-10">Key design decisions</p></AnimateIn>

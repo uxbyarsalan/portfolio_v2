@@ -153,7 +153,7 @@ export default function Resume() {
                     { n: "20M+", l: "citizens impacted" },
                     { n: "76", l: "government services digitized" },
                     { n: "168", l: "departments served" },
-                    { n: "22+", l: "platforms shipped" },
+                    { n: "20+", l: "platforms shipped" },
                     { n: "14+", l: "years in design" },
                   ].map((s) => (
                     <div key={s.l} className="flex items-baseline gap-2">

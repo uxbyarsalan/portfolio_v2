@@ -68,16 +68,130 @@ export default function CityWatchCaseStudy() {
           </AnimateIn>
         </section>
 
-        <AnimateIn><ImageBlock label="Research insights &mdash; survey data, personas, card sorting" aspect="aspect-[2.5/1]" /></AnimateIn>
+        {/* Research insights + Personas */}
+        <section className="wrapper py-16 border-t border-[var(--color-border)]">
+          <AnimateIn>
+            <p className="text-[11px] uppercase tracking-[0.3em] text-[var(--color-text-subtle)] mb-10">What the research revealed</p>
+          </AnimateIn>
 
-        <section className="max-w-3xl mx-auto px-6 md:px-12 py-16">
-          <AnimateIn><p className="text-[11px] uppercase tracking-[0.3em] text-[var(--color-text-subtle)] mb-6">What the research revealed</p></AnimateIn>
+          {/* Survey stats */}
           <AnimateIn delay={0.05}>
-            <div className="grid grid-cols-3 gap-6 mb-10">
-              <Stat value="79%" label="identified communication as critical" />
-              <Stat value="84%" label="needed a unified dashboard" />
-              <Stat value="73%" label="struggled coordinating teams" />
+            <div className="grid grid-cols-3 gap-4 mb-12">
+              {[
+                { v: "79%", l: "identified communication as critical", color: "bg-[#E6F1FB]", tc: "text-[#042C53]", lc: "text-[#185FA5]" },
+                { v: "84%", l: "needed a unified dashboard", color: "bg-[#E6F1FB]", tc: "text-[#042C53]", lc: "text-[#185FA5]" },
+                { v: "73%", l: "struggled coordinating teams", color: "bg-[#E6F1FB]", tc: "text-[#042C53]", lc: "text-[#185FA5]" },
+              ].map((s) => (
+                <div key={s.l} className={`${s.color} rounded-xl p-5`}>
+                  <span className={`text-2xl md:text-3xl font-semibold ${s.tc}`}>{s.v}</span>
+                  <p className={`text-xs mt-1 ${s.lc}`}>{s.l}</p>
+                </div>
+              ))}
             </div>
+          </AnimateIn>
+
+          {/* Personas */}
+          <AnimateIn delay={0.1}>
+            <p className="text-[11px] uppercase tracking-[0.3em] text-[var(--color-text-subtle)] mb-3">Personas</p>
+            <p className="text-xs text-[var(--color-text-subtle)] italic mb-6">Fictional names representing real PSCA personnel</p>
+          </AnimateIn>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-12">
+            {/* Ali Khan */}
+            <AnimateIn delay={0.12}>
+              <div className="border border-[var(--color-border)] rounded-2xl overflow-hidden">
+                <div className="bg-[#E1F5EE] px-5 py-4">
+                  <div className="flex items-center gap-3 mb-2">
+                    <div className="w-10 h-10 rounded-full bg-[#5DCAA5] flex items-center justify-center text-sm font-medium text-[#04342C]">AK</div>
+                    <div>
+                      <p className="text-sm font-medium text-[#04342C]">Ali Khan</p>
+                      <p className="text-[11px] text-[#0F6E56]">Field Inspector</p>
+                    </div>
+                  </div>
+                  <p className="text-[10px] text-[#085041]">Age: 40+ &middot; Exp: 10-15 yrs &middot; Tech: Medium</p>
+                </div>
+                <div className="px-5 py-4">
+                  <p className="text-xs text-[var(--color-text-muted)] leading-relaxed mb-3">Veteran inspector managing on-ground deployments. Comfortable with basic apps but not a power user.</p>
+                  <p className="text-[10px] uppercase tracking-widest text-[var(--color-text-subtle)] mb-1">Goals</p>
+                  <div className="text-xs text-[var(--color-text-muted)] leading-relaxed mb-3 space-y-0.5">
+                    <p>&bull; Respond to threats with real-time data</p>
+                    <p>&bull; Monitor zone without being everywhere</p>
+                    <p>&bull; Seamless control room coordination</p>
+                  </div>
+                  <p className="text-[10px] uppercase tracking-widest text-[var(--color-text-subtle)] mb-1">Pain points</p>
+                  <div className="text-xs text-[var(--color-text-muted)] leading-relaxed mb-3 space-y-0.5">
+                    <p>&bull; Managing large areas manually</p>
+                    <p>&bull; No real-time information in the field</p>
+                    <p>&bull; Identifying threats without live support</p>
+                  </div>
+                  <p className="text-[10px] uppercase tracking-widest text-[var(--color-text-subtle)] mb-1">Current tools</p>
+                  <div className="flex flex-wrap gap-1.5 mb-3">
+                    {["Radio", "WhatsApp", "Phone calls", "Paper plans"].map((t) => (
+                      <span key={t} className="text-[10px] text-[#085041] bg-[#E1F5EE] rounded-full px-2 py-0.5">{t}</span>
+                    ))}
+                  </div>
+                  <div className="bg-[var(--color-bg-card)] rounded-lg p-3 border-l-2 border-[#5DCAA5]">
+                    <p className="text-[11px] text-[var(--color-text-muted)] italic leading-relaxed">&ldquo;I need to know what&rsquo;s happening in my zone without calling 10 people. By the time I get answers, the situation has already changed.&rdquo;</p>
+                  </div>
+                </div>
+              </div>
+            </AnimateIn>
+
+            {/* Sarah Ahmed */}
+            <AnimateIn delay={0.15}>
+              <div className="border border-[var(--color-border)] rounded-2xl overflow-hidden">
+                <div className="bg-[#FAEEDA] px-5 py-4">
+                  <div className="flex items-center gap-3 mb-2">
+                    <div className="w-10 h-10 rounded-full bg-[#EF9F27] flex items-center justify-center text-sm font-medium text-[#412402]">SA</div>
+                    <div>
+                      <p className="text-sm font-medium text-[#412402]">Sarah Ahmed</p>
+                      <p className="text-[11px] text-[#854F0B]">Operations Coordinator</p>
+                    </div>
+                  </div>
+                  <p className="text-[10px] text-[#633806]">Age: Late 20s &middot; Exp: 2-5 yrs &middot; Tech: High</p>
+                </div>
+                <div className="px-5 py-4">
+                  <p className="text-xs text-[var(--color-text-muted)] leading-relaxed mb-3">Young coordinator managing event planning and multi-team deployments. Tech-savvy — frustrated by outdated systems.</p>
+                  <p className="text-[10px] uppercase tracking-widest text-[var(--color-text-subtle)] mb-1">Goals</p>
+                  <div className="text-xs text-[var(--color-text-muted)] leading-relaxed mb-3 space-y-0.5">
+                    <p>&bull; Full visibility of all resources during events</p>
+                    <p>&bull; Track deployments without calling each team</p>
+                    <p>&bull; Learn from past events to improve planning</p>
+                  </div>
+                  <p className="text-[10px] uppercase tracking-widest text-[var(--color-text-subtle)] mb-1">Pain points</p>
+                  <div className="text-xs text-[var(--color-text-muted)] leading-relaxed mb-3 space-y-0.5">
+                    <p>&bull; No unified view of all deployments</p>
+                    <p>&bull; Spreadsheets failing at scale</p>
+                    <p>&bull; Can&rsquo;t track multiple teams at once</p>
+                  </div>
+                  <p className="text-[10px] uppercase tracking-widest text-[var(--color-text-subtle)] mb-1">Current tools</p>
+                  <div className="flex flex-wrap gap-1.5 mb-3">
+                    {["Vendor system", "Excel", "WhatsApp", "Phone calls"].map((t) => (
+                      <span key={t} className="text-[10px] text-[#633806] bg-[#FAEEDA] rounded-full px-2 py-0.5">{t}</span>
+                    ))}
+                  </div>
+                  <div className="bg-[var(--color-bg-card)] rounded-lg p-3 border-l-2 border-[#EF9F27]">
+                    <p className="text-[11px] text-[var(--color-text-muted)] italic leading-relaxed">&ldquo;I manage 15 teams with a spreadsheet and a phone. During a live event, that&rsquo;s not coordination &mdash; that&rsquo;s guessing.&rdquo;</p>
+                  </div>
+                </div>
+              </div>
+            </AnimateIn>
+          </div>
+
+          {/* Card sorting insight */}
+          <AnimateIn delay={0.18}>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
+              <div className="bg-[#EEEDFE] rounded-xl px-5 py-4">
+                <p className="text-sm font-medium text-[#26215C]">Field operations</p>
+                <p className="text-xs text-[#534AB7] mt-0.5">Live map, deployment, alerts</p>
+              </div>
+              <div className="bg-[#FAECE7] rounded-xl px-5 py-4">
+                <p className="text-sm font-medium text-[#4A1B0C]">Control room</p>
+                <p className="text-xs text-[#993C1D] mt-0.5">Monitoring, coordination, planning</p>
+              </div>
+            </div>
+            <p className="text-xs text-[var(--color-text-subtle)] italic text-center mb-2">Hybrid card sort: users grouped features by role, not by function</p>
+            <p className="text-sm text-[var(--color-text-muted)] text-center">This shaped the layered dashboard &mdash; map-centric default with role-specific panels</p>
           </AnimateIn>
         </section>
 
