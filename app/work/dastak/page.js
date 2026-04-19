@@ -2,6 +2,7 @@ import Nav from "@/components/Nav";
 import Footer from "@/components/Footer";
 import AnimateIn from "@/components/AnimateIn";
 import Link from "next/link";
+import Image from "next/image";
 
 export const metadata = {
   title: "Maryam Ki Dastak — Case Study | Arsalan Aslam",
@@ -68,8 +69,15 @@ export default function DastakCaseStudy() {
 
         {/* Hero image — full bleed */}
         <AnimateIn delay={0.3}>
-          <div className="full-bleed aspect-[2.2/1] bg-[var(--color-bg-card)] flex items-center justify-center text-[var(--color-text-subtle)] text-xs uppercase tracking-[0.2em]">
-            Hero image &mdash; Dastak doorstep delivery
+          <div className="full-bleed aspect-[2.2/1] relative overflow-hidden">
+            <Image
+              src="/images/dastak/dastak_hero.jpg"
+              alt="Maryam ki Dastak — citizen and facilitator apps"
+              fill
+              priority
+              sizes="100vw"
+              className="object-cover"
+            />
           </div>
         </AnimateIn>
 
@@ -213,10 +221,21 @@ export default function DastakCaseStudy() {
 
         <section className="wrapper pb-16">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-            {["Citizen web portal", "Citizen mobile app", "Facilitator / Muavin app", "CRM dashboard"].map((label, i) => (
-              <AnimateIn key={label} delay={i * 0.06}>
-                <div className="bg-[var(--color-bg-card)] rounded-2xl aspect-[4/3] flex items-center justify-center text-[var(--color-text-subtle)] text-xs uppercase tracking-[0.2em] overflow-hidden">
-                  {label}
+            {[
+              { label: "Citizen web portal", src: "/images/dastak/dastak_tile_1_web_portal.jpg" },
+              { label: "Citizen mobile app", src: "/images/dastak/dastak_tile_2_citizen_app.jpg" },
+              { label: "Facilitator / Muavin app", src: "/images/dastak/dastak_tile_3_facilitator_app.jpg" },
+              { label: "CRM dashboard", src: "/images/dastak/dastak_tile_4_crm.jpg" },
+            ].map((tile, i) => (
+              <AnimateIn key={tile.label} delay={i * 0.06}>
+                <div className="bg-[var(--color-bg-card)] rounded-2xl aspect-[4/3] relative overflow-hidden">
+                  <Image
+                    src={tile.src}
+                    alt={tile.label}
+                    fill
+                    sizes="(min-width: 768px) 50vw, 100vw"
+                    className="object-cover"
+                  />
                 </div>
               </AnimateIn>
             ))}
