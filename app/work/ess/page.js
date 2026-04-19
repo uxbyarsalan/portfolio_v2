@@ -97,7 +97,7 @@ export default function ESSCaseStudy() {
                     <p>&bull; No visibility into request status</p>
                     <p>&bull; No community connection with colleagues</p>
                   </div>
-                  <p className="text-[10px] uppercase tracking-widest text-[var(--color-text-subtle)] mb-1">Before ESS</p>
+                  <p className="text-[10px] uppercase tracking-widest text-[var(--color-text-subtle)] mb-1">Before</p>
                   <div className="flex flex-wrap gap-1.5 mb-3">
                     {["Desktop HRIS", "Paper forms", "WhatsApp", "Email"].map((t) => (
                       <span key={t} className="text-[10px] text-[#0C447C] bg-[#E6F1FB] rounded-full px-2 py-0.5">{t}</span>
@@ -138,6 +138,12 @@ export default function ESSCaseStudy() {
                     <p>&bull; Reports from scattered data sources</p>
                     <p>&bull; Approvals buried in email chains</p>
                     <p>&bull; Managing resource escalations</p>
+                  </div>
+                  <p className="text-[10px] uppercase tracking-widest text-[var(--color-text-subtle)] mb-1">Before</p>
+                  <div className="flex flex-wrap gap-1.5 mb-3">
+                    {["Desktop HRIS", "Paper forms", "Email", "Excel"].map((t) => (
+                      <span key={t} className="text-[10px] text-[#26215C] bg-[#EEEDFE] rounded-full px-2 py-0.5">{t}</span>
+                    ))}
                   </div>
                   <div className="bg-[var(--color-bg-card)] rounded-lg p-3 border-l-2 border-[#AFA9EC]">
                     <p className="text-[11px] text-[var(--color-text-muted)] italic leading-relaxed">&ldquo;I spend my mornings chasing attendance data instead of making HR decisions.&rdquo;</p>

@@ -114,13 +114,13 @@ export default function PunjabJobsCaseStudy() {
                 </div>
                 <div className="px-5 py-4">
                   <p className="text-xs text-[var(--color-text-muted)] leading-relaxed mb-3">Tech-savvy professional searching for government jobs during his commute. Frustrated by inconsistent interfaces and zero feedback after applying.</p>
-                  <p className="text-[10px] uppercase tracking-widest text-[var(--color-text-subtle)] mb-1">Needs</p>
+                  <p className="text-[10px] uppercase tracking-widest text-[var(--color-text-subtle)] mb-1">Goals</p>
                   <div className="text-xs text-[var(--color-text-muted)] leading-relaxed mb-3 space-y-0.5">
                     <p>&bull; Salary info upfront on job cards</p>
                     <p>&bull; Simple CV builder, not 10 tabs</p>
                     <p>&bull; Mobile app for search on the go</p>
                   </div>
-                  <p className="text-[10px] uppercase tracking-widest text-[var(--color-text-subtle)] mb-1">Frustrations</p>
+                  <p className="text-[10px] uppercase tracking-widest text-[var(--color-text-subtle)] mb-1">Pain points</p>
                   <div className="text-xs text-[var(--color-text-muted)] leading-relaxed mb-3 space-y-0.5">
                     <p>&bull; No feedback after applying</p>
                     <p>&bull; Can&rsquo;t identify what went wrong</p>

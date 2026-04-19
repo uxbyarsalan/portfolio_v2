@@ -122,46 +122,7 @@ export default function DastakCaseStudy() {
           </AnimateIn>
         </section>
 
-        {/* Visual break — full bleed */}
-        <AnimateIn>
-          <ImageBlock label="Ecosystem diagram &mdash; Citizen → CRM → Facilitator → Delivery" aspect="aspect-[2.5/1]" />
-        </AnimateIn>
-
-        {/* Key Decisions — narrow */}
-        <section className="max-w-3xl mx-auto px-6 md:px-12 py-16">
-          <AnimateIn>
-            <p className="text-[11px] uppercase tracking-[0.3em] text-[var(--color-text-subtle)] mb-10">Key design decisions</p>
-          </AnimateIn>
-
-          <Decision title="No login required for service booking">
-            <p>
-              A deliberate accessibility decision. CNIC-based identification
-              with SMS OTP removes every barrier for first-time digital users.
-              Every additional registration step is a drop-off point for
-              citizens who&rsquo;ve never booked a government service online.
-            </p>
-          </Decision>
-
-          <Decision title="Automated dispatch with manual fallback">
-            <p>
-              Citizens book &rarr; nearby facilitators get alerts (like
-              ride-hailing) &rarr; automated assignment. If no one accepts, the call
-              center manually assigns. This ensured no request went unfulfilled,
-              even in early stages with low facilitator density.
-            </p>
-          </Decision>
-
-          <Decision title="Five modules, one design language">
-            <p>
-              As design strategist across 20+ people, I established a shared
-              framework &mdash; common patterns, consistent terminology, unified
-              information architecture &mdash; so that a citizen&rsquo;s booking
-              flows seamlessly through CRM to facilitator to delivery.
-            </p>
-          </Decision>
-        </section>
-
-        {/* Ecosystem diagram */}
+        {/* Ecosystem diagram — between Challenge and Key Decisions */}
         <section className="max-w-3xl mx-auto px-6 md:px-12 py-16 border-t border-[var(--color-border)]">
           <AnimateIn>
             <p className="text-[11px] uppercase tracking-[0.3em] text-[var(--color-text-subtle)] mb-10">How Dastak works — end-to-end service delivery</p>
@@ -215,6 +176,41 @@ export default function DastakCaseStudy() {
             </div>
           </AnimateIn>
         </section>
+
+        {/* Key Decisions — narrow */}
+        <section className="max-w-3xl mx-auto px-6 md:px-12 py-16">
+          <AnimateIn>
+            <p className="text-[11px] uppercase tracking-[0.3em] text-[var(--color-text-subtle)] mb-10">Key design decisions</p>
+          </AnimateIn>
+
+          <Decision title="No login required for service booking">
+            <p>
+              A deliberate accessibility decision. CNIC-based identification
+              with SMS OTP removes every barrier for first-time digital users.
+              Every additional registration step is a drop-off point for
+              citizens who&rsquo;ve never booked a government service online.
+            </p>
+          </Decision>
+
+          <Decision title="Automated dispatch with manual fallback">
+            <p>
+              Citizens book &rarr; nearby facilitators get alerts (like
+              ride-hailing) &rarr; automated assignment. If no one accepts, the call
+              center manually assigns. This ensured no request went unfulfilled,
+              even in early stages with low facilitator density.
+            </p>
+          </Decision>
+
+          <Decision title="Five modules, one design language">
+            <p>
+              As design strategist across 20+ people, I established a shared
+              framework &mdash; common patterns, consistent terminology, unified
+              information architecture &mdash; so that a citizen&rsquo;s booking
+              flows seamlessly through CRM to facilitator to delivery.
+            </p>
+          </Decision>
+        </section>
+
         <section className="wrapper pb-16">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
             {["Citizen web portal", "Citizen mobile app", "Facilitator / Muavin app", "CRM dashboard"].map((label, i) => (

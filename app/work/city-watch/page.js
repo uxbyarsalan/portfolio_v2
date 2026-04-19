@@ -124,7 +124,7 @@ export default function CityWatchCaseStudy() {
                     <p>&bull; No real-time information in the field</p>
                     <p>&bull; Identifying threats without live support</p>
                   </div>
-                  <p className="text-[10px] uppercase tracking-widest text-[var(--color-text-subtle)] mb-1">Current tools</p>
+                  <p className="text-[10px] uppercase tracking-widest text-[var(--color-text-subtle)] mb-1">Before</p>
                   <div className="flex flex-wrap gap-1.5 mb-3">
                     {["Radio", "WhatsApp", "Phone calls", "Paper plans"].map((t) => (
                       <span key={t} className="text-[10px] text-[#085041] bg-[#E1F5EE] rounded-full px-2 py-0.5">{t}</span>
@@ -164,7 +164,7 @@ export default function CityWatchCaseStudy() {
                     <p>&bull; Spreadsheets failing at scale</p>
                     <p>&bull; Can&rsquo;t track multiple teams at once</p>
                   </div>
-                  <p className="text-[10px] uppercase tracking-widest text-[var(--color-text-subtle)] mb-1">Current tools</p>
+                  <p className="text-[10px] uppercase tracking-widest text-[var(--color-text-subtle)] mb-1">Before</p>
                   <div className="flex flex-wrap gap-1.5 mb-3">
                     {["Vendor system", "Excel", "WhatsApp", "Phone calls"].map((t) => (
                       <span key={t} className="text-[10px] text-[#633806] bg-[#FAEEDA] rounded-full px-2 py-0.5">{t}</span>

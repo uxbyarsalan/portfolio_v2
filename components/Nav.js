@@ -20,7 +20,7 @@ export default function Nav() {
   ];
 
   return (
-    <nav className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${scrolled ? "bg-[var(--color-bg)]/90 backdrop-blur-md border-b border-[var(--color-border)]" : ""}`}>
+    <nav className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 border-b ${scrolled ? "bg-[var(--color-bg)]/90 backdrop-blur-md border-[var(--color-border)]" : "border-transparent"}`}>
       <div className="wrapper flex items-center justify-between" style={{ paddingTop: 0, paddingBottom: 0, height: "64px" }}>
         <Link href="/" className="hover:opacity-60 transition-opacity">
           <Image src="/images/logo-aa.svg" alt="Arsalan Aslam" width={48} height={32} className="h-8 w-auto" />

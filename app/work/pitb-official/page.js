@@ -50,7 +50,7 @@ export default function PITBOfficialCaseStudy() {
         {/* Design showcase — visual-heavy */}
         <section className="wrapper pb-16">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-            {["Full homepage design", "Highlights / News section", "Digital Footprint page", "Color palette & typography"].map((label, i) => (
+            {["Full homepage design", "Highlights / News section", "Digital Footprint page", "Sector categories page"].map((label, i) => (
               <AnimateIn key={label} delay={i * 0.06}><div className="bg-[var(--color-bg-card)] rounded-2xl aspect-[4/3] flex items-center justify-center text-[var(--color-text-subtle)] text-xs uppercase tracking-[0.2em]">{label}</div></AnimateIn>
             ))}
           </div>
