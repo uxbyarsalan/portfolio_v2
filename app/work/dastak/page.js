@@ -222,9 +222,9 @@ export default function DastakCaseStudy() {
         <section className="wrapper pb-16">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
             {[
-              { label: "Citizen web portal", src: "/images/dastak/dastak_tile_1_web_portal.jpg" },
-              { label: "Citizen mobile app", src: "/images/dastak/dastak_tile_2_citizen_app.jpg" },
-              { label: "Facilitator / Muavin app", src: "/images/dastak/dastak_tile_3_facilitator_app.jpg" },
+              { label: "Citizen mobile app", src: "/images/dastak/dastak_tile_1_citizen_app.jpg" },
+              { label: "Facilitator / Muavin app", src: "/images/dastak/dastak_tile_2_facilitator_app.jpg" },
+              { label: "Citizen web portal", src: "/images/dastak/dastak_tile_3_web_portal.jpg" },
               { label: "CRM dashboard", src: "/images/dastak/dastak_tile_4_crm.jpg" },
             ].map((tile, i) => (
               <AnimateIn key={tile.label} delay={i * 0.06}>
