@@ -2,6 +2,7 @@ import Nav from "@/components/Nav";
 import Footer from "@/components/Footer";
 import AnimateIn from "@/components/AnimateIn";
 import Link from "next/link";
+import Image from "next/image";
 
 export const metadata = {
   title: "Punjab Jobs — Case Study | Arsalan Aslam",
@@ -34,7 +35,18 @@ export default function PunjabJobsCaseStudy() {
           <AnimateIn delay={0.2}><p className="text-lg md:text-xl text-[var(--color-text-muted)] mt-6 max-w-xl leading-relaxed">Redesigning Punjab&rsquo;s employment platform for 500,000+ job seekers</p></AnimateIn>
         </section>
 
-        <AnimateIn delay={0.3}><div className="full-bleed aspect-[2.2/1] bg-[var(--color-bg-card)] flex items-center justify-center text-[var(--color-text-subtle)] text-xs uppercase tracking-[0.2em]">Hero image &mdash; Before/after comparison</div></AnimateIn>
+        <AnimateIn delay={0.3}>
+          <div className="full-bleed aspect-[2.2/1] relative overflow-hidden">
+            <Image
+              src="/images/punjab-jobs/punjab_jobs_hero.jpg"
+              alt="Punjab Jobs — two-sided platform for job seekers and recruiters"
+              fill
+              priority
+              sizes="100vw"
+              className="object-cover"
+            />
+          </div>
+        </AnimateIn>
 
         <section className="wrapper py-10">
           <AnimateIn>
@@ -232,8 +244,23 @@ export default function PunjabJobsCaseStudy() {
 
         <section className="wrapper pb-16">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-            {["Redesigned homepage", "Job listing cards", "Streamlined CV builder", "Recruiter dashboard"].map((label, i) => (
-              <AnimateIn key={label} delay={i * 0.06}><div className="bg-[var(--color-bg-card)] rounded-2xl aspect-[4/3] flex items-center justify-center text-[var(--color-text-subtle)] text-xs uppercase tracking-[0.2em]">{label}</div></AnimateIn>
+            {[
+              { label: "Find jobs — citizen search", src: "/images/punjab-jobs/punjab_tile_1_find_jobs.jpg" },
+              { label: "Candidate profile", src: "/images/punjab-jobs/punjab_tile_2_candidate_profile.jpg" },
+              { label: "Applicants — Kanban view", src: "/images/punjab-jobs/punjab_tile_3_kanban.jpg" },
+              { label: "Candidate details drawer", src: "/images/punjab-jobs/punjab_tile_4_drawer.jpg" },
+            ].map((tile, i) => (
+              <AnimateIn key={tile.label} delay={i * 0.06}>
+                <div className="bg-[var(--color-bg-card)] rounded-2xl aspect-[4/3] relative overflow-hidden">
+                  <Image
+                    src={tile.src}
+                    alt={tile.label}
+                    fill
+                    sizes="(min-width: 768px) 50vw, 100vw"
+                    className="object-cover"
+                  />
+                </div>
+              </AnimateIn>
             ))}
           </div>
         </section>

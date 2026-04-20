@@ -29,7 +29,7 @@ export default function ProjectCard({ project }) {
 
         {/* Cutout mockup — bleeds to bottom edge */}
         <div className="mx-4 md:mx-5 mt-auto">
-          <div className="relative rounded-t-xl overflow-hidden shadow-[0_-2px_12px_rgba(0,0,0,0.06)] bg-white" style={{ aspectRatio: "4/3" }}>
+          <div className="relative rounded-t-xl overflow-hidden" style={{ aspectRatio: "4/3" }}>
             {image ? (
               <Image
                 src={image}
