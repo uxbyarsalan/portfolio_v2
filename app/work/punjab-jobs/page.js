@@ -248,7 +248,7 @@ export default function PunjabJobsCaseStudy() {
               { label: "Find jobs — citizen search", src: "/images/punjab-jobs/punjab_tile_1_find_jobs.jpg" },
               { label: "Candidate profile", src: "/images/punjab-jobs/punjab_tile_2_candidate_profile.jpg" },
               { label: "Applicants — Kanban view", src: "/images/punjab-jobs/punjab_tile_3_kanban.jpg" },
-              { label: "Candidate details drawer", src: "/images/punjab-jobs/punjab_tile_4_drawer.jpg" },
+              { label: "Applicants \u2014 list view", src: "/images/punjab-jobs/punjab_tile_4_list.jpg" },
             ].map((tile, i) => (
               <AnimateIn key={tile.label} delay={i * 0.06}>
                 <div className="bg-[var(--color-bg-card)] rounded-2xl aspect-[4/3] relative overflow-hidden">

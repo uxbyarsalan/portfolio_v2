@@ -2,6 +2,7 @@ import Nav from "@/components/Nav";
 import Footer from "@/components/Footer";
 import AnimateIn from "@/components/AnimateIn";
 import Link from "next/link";
+import Image from "next/image";
 
 export const metadata = {
   title: "PITB Official — Project Spotlight | Arsalan Aslam",
@@ -25,7 +26,18 @@ export default function PITBOfficialCaseStudy() {
           <AnimateIn delay={0.2}><p className="text-lg md:text-xl text-[var(--color-text-muted)] mt-6 max-w-xl leading-relaxed">Redesigning the flagship web portal for Punjab&rsquo;s technology authority</p></AnimateIn>
         </section>
 
-        <AnimateIn delay={0.3}><div className="full-bleed aspect-[2.2/1] bg-[var(--color-bg-card)] flex items-center justify-center text-[var(--color-text-subtle)] text-xs uppercase tracking-[0.2em]">Hero image &mdash; PITB dark-themed homepage mockup</div></AnimateIn>
+        <AnimateIn delay={0.3}>
+          <div className="full-bleed aspect-[2.2/1] relative overflow-hidden">
+            <Image
+              src="/images/pitb-official/pitb_hero.jpg"
+              alt="PITB Official — flagship web portal for Punjab's technology authority"
+              fill
+              priority
+              sizes="100vw"
+              className="object-cover"
+            />
+          </div>
+        </AnimateIn>
 
         <section className="wrapper py-10">
           <AnimateIn>
@@ -50,8 +62,23 @@ export default function PITBOfficialCaseStudy() {
         {/* Design showcase — visual-heavy */}
         <section className="wrapper pb-16">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-            {["Full homepage design", "Highlights / News section", "Digital Footprint page", "Sector categories page"].map((label, i) => (
-              <AnimateIn key={label} delay={i * 0.06}><div className="bg-[var(--color-bg-card)] rounded-2xl aspect-[4/3] flex items-center justify-center text-[var(--color-text-subtle)] text-xs uppercase tracking-[0.2em]">{label}</div></AnimateIn>
+            {[
+              { label: "Landing hero", src: "/images/pitb-official/pitb_tile_1_landing_hero.jpg" },
+              { label: "Digital Punjab — sector categories", src: "/images/pitb-official/pitb_tile_2_sectors.jpg" },
+              { label: "Management & leadership", src: "/images/pitb-official/pitb_tile_3_management.jpg" },
+              { label: "About — Board", src: "/images/pitb-official/pitb_tile_4_board.jpg" },
+            ].map((tile, i) => (
+              <AnimateIn key={tile.label} delay={i * 0.06}>
+                <div className="bg-[var(--color-bg-card)] rounded-2xl aspect-[4/3] relative overflow-hidden">
+                  <Image
+                    src={tile.src}
+                    alt={tile.label}
+                    fill
+                    sizes="(min-width: 768px) 50vw, 100vw"
+                    className="object-cover"
+                  />
+                </div>
+              </AnimateIn>
             ))}
           </div>
         </section>
