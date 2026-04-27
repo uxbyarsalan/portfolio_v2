@@ -2,6 +2,7 @@ import Nav from "@/components/Nav";
 import Footer from "@/components/Footer";
 import AnimateIn from "@/components/AnimateIn";
 import Link from "next/link";
+import Image from "next/image";
 
 export const metadata = {
   title: "City Watch — Case Study | Arsalan Aslam",
@@ -41,7 +42,18 @@ export default function CityWatchCaseStudy() {
           <AnimateIn delay={0.2}><p className="text-lg md:text-xl text-[var(--color-text-muted)] mt-6 max-w-xl leading-relaxed">Real-time surveillance and response platform for Punjab Safe City Authority</p></AnimateIn>
         </section>
 
-        <AnimateIn delay={0.3}><div className="full-bleed aspect-[2.2/1] bg-[var(--color-bg-card)] flex items-center justify-center text-[var(--color-text-subtle)] text-xs uppercase tracking-[0.2em]">Hero image &mdash; City Watch dashboard</div></AnimateIn>
+        <AnimateIn delay={0.3}>
+          <div className="full-bleed aspect-[2.2/1] relative overflow-hidden">
+            <Image
+              src="/images/city-watch/city_watch_hero.jpg"
+              alt="City Watch — operational and admin dashboards"
+              fill
+              priority
+              className="object-cover"
+              sizes="100vw"
+            />
+          </div>
+        </AnimateIn>
 
         <section className="wrapper py-10">
           <AnimateIn>
@@ -210,8 +222,23 @@ export default function CityWatchCaseStudy() {
 
         <section className="wrapper pb-16">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-            {["Dashboard overview", "Event management", "Deployment planning", "Alert monitoring"].map((label, i) => (
-              <AnimateIn key={label} delay={i * 0.06}><div className="bg-[var(--color-bg-card)] rounded-2xl aspect-[4/3] flex items-center justify-center text-[var(--color-text-subtle)] text-xs uppercase tracking-[0.2em]">{label}</div></AnimateIn>
+            {[
+              { src: "/images/city-watch/city_watch_tile_1_landing.jpg", alt: "Layered overview — admin landing dashboard with stat cards, Punjab heat map, and event analytics" },
+              { src: "/images/city-watch/city_watch_tile_2_main_route.jpg", alt: "Procession routing — Main Route view with route polyline, distance, and force assignment" },
+              { src: "/images/city-watch/city_watch_tile_3_barricade.jpg", alt: "Expanded deployment categories — barricade placement with basic and contingency deployment options" },
+              { src: "/images/city-watch/city_watch_tile_4_cameras.jpg", alt: "Camera network — color-coded camera pins (PTZ, ANPR, ABC, GSC, ITS) and configuration dialog" },
+            ].map((t, i) => (
+              <AnimateIn key={t.src} delay={i * 0.06}>
+                <div className="rounded-2xl overflow-hidden aspect-[4/3] relative">
+                  <Image
+                    src={t.src}
+                    alt={t.alt}
+                    fill
+                    className="object-cover"
+                    sizes="(min-width: 768px) 50vw, 100vw"
+                  />
+                </div>
+              </AnimateIn>
             ))}
           </div>
         </section>
