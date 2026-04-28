@@ -40,6 +40,17 @@ export default function ProjectCard({
   // Inner cutout background — outlined variant goes white to match the card
   const cutoutBg = isOutlined ? "bg-white" : "";
 
+  // Outlined variant: image bleeds edge-to-edge horizontally with no side margin,
+  // and uses rounded-none so the image is perfectly flush against the card strokes.
+  // Default variant: keeps original 16/20px side gutter and rounded-t-xl top.
+  const cutoutWrapperClass = isOutlined ? "mt-auto" : "mx-4 md:mx-5 mt-auto";
+  const cutoutShapeClass = isOutlined
+    ? "rounded-none"
+    : square
+      ? "rounded-none"
+      : "rounded-t-xl";
+  const cutoutAspect = square ? "1/1" : "4/3";
+
   return (
     <Link href={`${basePath}/${slug}`} className={linkClass}>
       <div className={cardClass}>
@@ -65,11 +76,12 @@ export default function ProjectCard({
         </div>
 
         {/* Cutout mockup — bleeds to bottom edge.
-            `square` prop affects ONLY this inner cutout, never the outer card. */}
-        <div className="mx-4 md:mx-5 mt-auto">
+            `square` prop affects ONLY this inner cutout, never the outer card.
+            `outlined` variant additionally removes side margin and corner radius. */}
+        <div className={cutoutWrapperClass}>
           <div
-            className={`relative overflow-hidden ${square ? "rounded-none" : "rounded-t-xl"} ${cutoutBg}`}
-            style={{ aspectRatio: square ? "1/1" : "4/3" }}
+            className={`relative overflow-hidden ${cutoutShapeClass} ${cutoutBg}`}
+            style={{ aspectRatio: cutoutAspect }}
           >
             {image ? (
               <Image
