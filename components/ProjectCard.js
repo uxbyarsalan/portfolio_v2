@@ -1,11 +1,11 @@
 import Link from "next/link";
 import Image from "next/image";
 
-export default function ProjectCard({ project }) {
+export default function ProjectCard({ project, basePath = "/work", square = false }) {
   const { slug, title, subtitle, stat, statLabel, image } = project;
 
   return (
-    <Link href={`/work/${slug}`} className="proj-card group block h-full">
+    <Link href={`${basePath}/${slug}`} className="proj-card group block h-full">
       <div className="rounded-2xl overflow-hidden h-full flex flex-col bg-[var(--color-bg-card)] transition-all duration-500 hover:shadow-xl hover:shadow-black/8 hover:translate-y-[-3px]">
         {/* Text content */}
         <div className="px-6 pt-6 pb-4 md:px-7 md:pt-7 md:pb-4">
@@ -27,9 +27,13 @@ export default function ProjectCard({ project }) {
           )}
         </div>
 
-        {/* Cutout mockup — bleeds to bottom edge */}
+        {/* Cutout mockup — bleeds to bottom edge.
+            `square` prop affects ONLY this inner cutout, never the outer card. */}
         <div className="mx-4 md:mx-5 mt-auto">
-          <div className="relative rounded-t-xl overflow-hidden" style={{ aspectRatio: "4/3" }}>
+          <div
+            className={`relative overflow-hidden ${square ? "rounded-none" : "rounded-t-xl"}`}
+            style={{ aspectRatio: square ? "1/1" : "4/3" }}
+          >
             {image ? (
               <Image
                 src={image}
