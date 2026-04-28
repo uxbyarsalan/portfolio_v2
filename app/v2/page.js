@@ -61,7 +61,7 @@ export default function Home() {
               const v2Project = { ...p, image: p.v2Image ?? p.image };
               return (
                 <AnimateIn key={p.slug} delay={i * 0.06}>
-                  <ProjectCard project={v2Project} basePath="/v2/work" />
+                  <ProjectCard project={v2Project} basePath="/v2/work" variant="outlined" />
                 </AnimateIn>
               );
             })}

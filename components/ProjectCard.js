@@ -1,12 +1,48 @@
 import Link from "next/link";
 import Image from "next/image";
 
-export default function ProjectCard({ project, basePath = "/work", square = false }) {
+/**
+ * ProjectCard
+ *
+ * Props:
+ *   project   — project data object
+ *   basePath  — link base ("/work" for v1, "/v2/work" for v2)
+ *   square    — inner image cutout shape only; outer card always rounded-2xl
+ *   variant   — "default" (v1 behavior) | "outlined" (v2 home: white card, 1px stroke,
+ *               no shadow/lift/zoom on hover; only the arrow still animates)
+ *
+ * Important:
+ *   - Outer card is always rounded-2xl regardless of `square`.
+ *   - The "outlined" variant uses class `proj-card-flat` (instead of `proj-card`)
+ *     so the global `.proj-card:hover .proj-img { transform: scale(1.03) }` rule
+ *     in globals.css does NOT match — that's how the image zoom is suppressed
+ *     for v2 home without touching v1.
+ */
+export default function ProjectCard({
+  project,
+  basePath = "/work",
+  square = false,
+  variant = "default",
+}) {
   const { slug, title, subtitle, stat, statLabel, image } = project;
+  const isOutlined = variant === "outlined";
+
+  // Outer link — class swap is the mechanism that disables the global zoom rule on v2 home
+  const linkClass = `${isOutlined ? "proj-card-flat" : "proj-card"} group block h-full`;
+
+  // Outer card container
+  const cardClass = isOutlined
+    ? // v2 outlined: white card, 1px solid #F0F0F0 stroke, NO hover shadow / lift
+      "rounded-2xl overflow-hidden h-full flex flex-col bg-white border border-solid border-[#F0F0F0]"
+    : // v1 default: original behavior — grey card, hover shadow + lift
+      "rounded-2xl overflow-hidden h-full flex flex-col bg-[var(--color-bg-card)] transition-all duration-500 hover:shadow-xl hover:shadow-black/8 hover:translate-y-[-3px]";
+
+  // Inner cutout background — outlined variant goes white to match the card
+  const cutoutBg = isOutlined ? "bg-white" : "";
 
   return (
-    <Link href={`${basePath}/${slug}`} className="proj-card group block h-full">
-      <div className="rounded-2xl overflow-hidden h-full flex flex-col bg-[var(--color-bg-card)] transition-all duration-500 hover:shadow-xl hover:shadow-black/8 hover:translate-y-[-3px]">
+    <Link href={`${basePath}/${slug}`} className={linkClass}>
+      <div className={cardClass}>
         {/* Text content */}
         <div className="px-6 pt-6 pb-4 md:px-7 md:pt-7 md:pb-4">
           <h3 className="text-2xl md:text-3xl font-semibold tracking-tight leading-[1.05] mb-3 text-[var(--color-text)]">
@@ -20,6 +56,7 @@ export default function ProjectCard({ project, basePath = "/work", square = fals
               <span className="text-[14px] font-semibold stat-number text-[var(--color-text)]">
                 {stat} {statLabel}
               </span>
+              {/* Arrow — the ONE hover transition that survives in the outlined variant */}
               <span className="text-lg text-[var(--color-text)] transition-transform duration-300 group-hover:translate-x-1">
                 &rarr;
               </span>
@@ -31,7 +68,7 @@ export default function ProjectCard({ project, basePath = "/work", square = fals
             `square` prop affects ONLY this inner cutout, never the outer card. */}
         <div className="mx-4 md:mx-5 mt-auto">
           <div
-            className={`relative overflow-hidden ${square ? "rounded-none" : "rounded-t-xl"}`}
+            className={`relative overflow-hidden ${square ? "rounded-none" : "rounded-t-xl"} ${cutoutBg}`}
             style={{ aspectRatio: square ? "1/1" : "4/3" }}
           >
             {image ? (
