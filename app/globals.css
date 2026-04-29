@@ -160,12 +160,14 @@ body {
   gap: 14px;
   will-change: transform;
   flex: 0 0 auto;
+  align-self: center;
+  align-items: flex-start;
 }
 .hscroll-card {
   flex: 0 0 440px;
-  display: flex;
 }
 .hscroll-card > a {
+  display: block;
   width: 100%;
 }
 .hscroll-progress {
