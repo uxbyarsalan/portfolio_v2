@@ -147,27 +147,6 @@ body {
   overflow: hidden;
   background: var(--color-bg, #FAFAFA);
 }
-.hscroll-header {
-  padding: 0 56px 24px;
-  max-width: 100%;
-}
-.hscroll-eyebrow {
-  font-size: 11px;
-  font-weight: 500;
-  letter-spacing: 0.2em;
-  text-transform: uppercase;
-  color: var(--color-text-subtle);
-  margin: 0 0 10px;
-}
-.hscroll-subhead {
-  font-size: 22px;
-  font-weight: 500;
-  color: var(--color-text);
-  margin: 0;
-  letter-spacing: -0.01em;
-  max-width: 720px;
-  line-height: 1.25;
-}
 .hscroll-track-wrap {
   padding: 0 56px;
   overflow: hidden;
@@ -197,16 +176,4 @@ body {
   height: 100%;
   background: var(--color-text);
   width: 0%;
-}
-.hscroll-progress-meta {
-  display: flex;
-  justify-content: space-between;
-  margin-top: 10px;
-  font-size: 11px;
-  color: var(--color-text-subtle);
-  letter-spacing: 0.08em;
-  font-variant-numeric: tabular-nums;
-}
-.hscroll-progress-hint {
-  text-transform: uppercase;
 }

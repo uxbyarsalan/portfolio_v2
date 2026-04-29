@@ -27,7 +27,6 @@ export default function WorkHorizontalScroll({ projects }) {
   const stageRef = useRef(null);
   const trackRef = useRef(null);
   const fillRef = useRef(null);
-  const labelRef = useRef(null);
   const [enabled, setEnabled] = useState(false);
   const [stageHeight, setStageHeight] = useState(null);
 
@@ -81,11 +80,9 @@ export default function WorkHorizontalScroll({ projects }) {
     const stage = stageRef.current;
     const track = trackRef.current;
     const fill = fillRef.current;
-    const label = labelRef.current;
     if (!stage || !track) return;
 
     let raf = 0;
-    const total = projects.length;
 
     const update = () => {
       raf = 0;
@@ -107,11 +104,6 @@ export default function WorkHorizontalScroll({ projects }) {
       track.style.transform = `translate3d(${tx}px, 0, 0)`;
 
       if (fill) fill.style.width = `${progress * 100}%`;
-      if (label) {
-        const idx = Math.min(total, Math.max(1, Math.ceil(progress * total) || 1));
-        const pad = (n) => String(n).padStart(2, "0");
-        label.textContent = `${pad(idx)} / ${pad(total)}`;
-      }
     };
 
     const onScroll = () => {
@@ -157,13 +149,6 @@ export default function WorkHorizontalScroll({ projects }) {
       style={stageHeight ? { height: `${stageHeight}px` } : undefined}
     >
       <div className="hscroll-sticky">
-        <div className="hscroll-header">
-          <p className="hscroll-eyebrow">Selected work</p>
-          <p className="hscroll-subhead">
-            Seven government platforms reshaping how Punjab works
-          </p>
-        </div>
-
         <div className="hscroll-track-wrap">
           <div ref={trackRef} className="hscroll-track">
             {projects.map((p) => {
@@ -184,12 +169,6 @@ export default function WorkHorizontalScroll({ projects }) {
         <div className="hscroll-progress">
           <div className="hscroll-progress-bar">
             <div ref={fillRef} className="hscroll-progress-fill" />
-          </div>
-          <div className="hscroll-progress-meta">
-            <span ref={labelRef}>
-              01 / {String(projects.length).padStart(2, "0")}
-            </span>
-            <span className="hscroll-progress-hint">scroll &rarr;</span>
           </div>
         </div>
       </div>
