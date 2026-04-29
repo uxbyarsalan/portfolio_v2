@@ -40,6 +40,12 @@ export default function ProjectCard({
   // Inner cutout background — outlined variant goes white to match the card
   const cutoutBg = isOutlined ? "bg-white" : "";
 
+  // Heading size: default keeps original text-2xl/text-3xl (24/30px).
+  // Outlined drops desktop to 27px (cards are narrower in 3-col layout). Mobile unchanged.
+  const titleClass = isOutlined
+    ? "text-2xl md:text-[27px] font-semibold tracking-tight leading-[1.05] mb-3 text-[var(--color-text)]"
+    : "text-2xl md:text-3xl font-semibold tracking-tight leading-[1.05] mb-3 text-[var(--color-text)]";
+
   // Outlined variant: image bleeds edge-to-edge horizontally with no side margin,
   // and uses rounded-none so the image is perfectly flush against the card strokes.
   // Default variant: keeps original 16/20px side gutter and rounded-t-xl top.
@@ -56,7 +62,7 @@ export default function ProjectCard({
       <div className={cardClass}>
         {/* Text content */}
         <div className="px-6 pt-6 pb-4 md:px-7 md:pt-7 md:pb-4">
-          <h3 className="text-2xl md:text-3xl font-semibold tracking-tight leading-[1.05] mb-3 text-[var(--color-text)]">
+          <h3 className={titleClass}>
             {title}
           </h3>
           <p className="text-[13px] leading-relaxed mb-4 text-[var(--color-text-muted)]">
