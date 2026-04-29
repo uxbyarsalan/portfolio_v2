@@ -109,3 +109,20 @@ body {
     grid-template-columns: 550px 550px;
   }
 }
+
+/* v2-only: 3-column variant. 1-col mobile → 2-col tablet → 3-col desktop. */
+.project-grid-3 {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 45px;
+}
+@media (min-width: 768px) and (max-width: 1199px) {
+  .project-grid-3 {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+@media (min-width: 1200px) {
+  .project-grid-3 {
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+}

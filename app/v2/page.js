@@ -54,7 +54,7 @@ export default function Home() {
         {/* WORK — 2-col, 550px, single color, cutout    */}
         {/* ============================================ */}
         <section id="work" className="wrapper pt-12 pb-32">
-          <div className="project-grid">
+          <div className="project-grid-3">
             {projects.map((p, i) => {
               // v2 override: prefer v2Image when defined; fall back to v1 image.
               // ESS has both null — ProjectCard will render its empty placeholder, matching v1.
