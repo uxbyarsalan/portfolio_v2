@@ -46,28 +46,31 @@ export default function WorkHorizontalScroll({ projects }) {
     };
   }, []);
 
-  // Compute stage height = (viewport - nav) + horizontal-translate-distance.
+  // Compute stage height = (viewport - nav) + horizontal-translate-distance + settle.
   // Sticky lives below the 64px nav, so the math must use the reduced viewport.
+  // SETTLE_PX gives the user a "pause moment" at the end where the last card
+  // sits stationary while still pinned, before the section unlocks.
   useEffect(() => {
     if (!enabled) {
       setStageHeight(null);
       return;
     }
+    const SETTLE_PX = 200;
     const recompute = () => {
       const track = trackRef.current;
       if (!track) return;
       const trackWidth = track.scrollWidth;
       const vw = window.innerWidth;
       // Distance the track must translate so the LAST card is fully visible
-      // with matching breathing room on both sides.
+      // with comfortable breathing room on both sides.
       // .hscroll-track-wrap has 56px left padding (track starts 56px from left).
-      // We want last card's right edge to sit 56px from viewport's right edge.
-      // → translate by (trackWidth - vw) + 56 (left pad) + 56 (right margin) = +112.
-      const translateDistance = Math.max(0, trackWidth - vw + 112);
-      // Stage = sticky height (vh - nav) + translate distance (scroll burned
-      // while pinned). User feels: "I scroll, things slide left, then I'm released."
+      // We want last card's right edge to sit 80px from viewport's right edge.
+      // → translate by (trackWidth - vw) + 56 (left pad) + 80 (right margin) = +136.
+      const translateDistance = Math.max(0, trackWidth - vw + 136);
+      // Stage = sticky height + translate distance + settle.
+      // User feels: "I scroll, things slide left, last card lands and sits, then I'm released."
       const stickyH = window.innerHeight - 64;
-      setStageHeight(stickyH + translateDistance);
+      setStageHeight(stickyH + translateDistance + SETTLE_PX);
     };
     recompute();
     window.addEventListener("resize", recompute);
@@ -89,12 +92,15 @@ export default function WorkHorizontalScroll({ projects }) {
 
     let raf = 0;
 
+    const SETTLE_PX = 200;
     const update = () => {
       raf = 0;
       const rect = stage.getBoundingClientRect();
       const stageH = stage.offsetHeight;
       const stickyH = window.innerHeight - 64;
-      const scrollableInside = stageH - stickyH;
+      // Effective scrollable distance for the transform = total stage scroll
+      // minus the settle zone at the end where cards sit still.
+      const scrollableInside = stageH - stickyH - SETTLE_PX;
       // -rect.top = how far past the stage top we've scrolled.
       // Add 64px because the sticky activates at top:64px (below nav), not 0.
       const scrolled = -rect.top - 64;
@@ -105,7 +111,7 @@ export default function WorkHorizontalScroll({ projects }) {
 
       const trackWidth = track.scrollWidth;
       const vw = window.innerWidth;
-      const translateDistance = Math.max(0, trackWidth - vw + 112);
+      const translateDistance = Math.max(0, trackWidth - vw + 136);
       const tx = -progress * translateDistance;
       track.style.transform = `translate3d(${tx}px, 0, 0)`;
 
