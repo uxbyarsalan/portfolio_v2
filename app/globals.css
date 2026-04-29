@@ -160,7 +160,7 @@ body {
   will-change: transform;
   flex: 0 0 auto;
   align-self: center;
-  align-items: flex-start;
+  align-items: stretch;
 }
 .hscroll-card {
   flex: 0 0 440px;
