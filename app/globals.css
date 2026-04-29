@@ -126,3 +126,87 @@ body {
     grid-template-columns: 1fr 1fr 1fr;
   }
 }
+
+/* ============================================
+   Horizontal-scroll-pin (v2 work section)
+   Active only on desktop ≥1024px; component
+   short-circuits and renders .project-grid-3
+   below that (and for prefers-reduced-motion).
+   ============================================ */
+.hscroll-stage {
+  position: relative;
+  width: 100%;
+}
+.hscroll-sticky {
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  overflow: hidden;
+  background: var(--color-bg, #FAFAFA);
+}
+.hscroll-header {
+  padding: 0 56px 24px;
+  max-width: 100%;
+}
+.hscroll-eyebrow {
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--color-text-subtle);
+  margin: 0 0 10px;
+}
+.hscroll-subhead {
+  font-size: 22px;
+  font-weight: 500;
+  color: var(--color-text);
+  margin: 0;
+  letter-spacing: -0.01em;
+  max-width: 720px;
+  line-height: 1.25;
+}
+.hscroll-track-wrap {
+  padding: 0 56px;
+  overflow: hidden;
+}
+.hscroll-track {
+  display: flex;
+  gap: 14px;
+  will-change: transform;
+}
+.hscroll-card {
+  flex: 0 0 440px;
+  display: flex;
+}
+.hscroll-card > a {
+  width: 100%;
+}
+.hscroll-progress {
+  padding: 24px 56px 0;
+}
+.hscroll-progress-bar {
+  height: 2px;
+  background: rgba(0, 0, 0, 0.08);
+  border-radius: 1px;
+  overflow: hidden;
+}
+.hscroll-progress-fill {
+  height: 100%;
+  background: var(--color-text);
+  width: 0%;
+}
+.hscroll-progress-meta {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 10px;
+  font-size: 11px;
+  color: var(--color-text-subtle);
+  letter-spacing: 0.08em;
+  font-variant-numeric: tabular-nums;
+}
+.hscroll-progress-hint {
+  text-transform: uppercase;
+}

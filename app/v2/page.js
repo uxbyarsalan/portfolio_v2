@@ -1,7 +1,7 @@
 import Nav from "@/components/Nav";
 import Footer from "@/components/Footer";
-import ProjectCard from "@/components/ProjectCard";
 import AnimateIn from "@/components/AnimateIn";
+import WorkHorizontalScroll from "@/components/WorkHorizontalScroll";
 import Link from "next/link";
 import { projects } from "@/lib/projects";
 
@@ -51,22 +51,11 @@ export default function Home() {
         </section>
 
         {/* ============================================ */}
-        {/* WORK — 2-col, 550px, single color, cutout    */}
+        {/* WORK — Horizontal-scroll-pin (desktop)        */}
+        {/* Falls back to .project-grid-3 on mobile/      */}
+        {/* tablet and for prefers-reduced-motion users.  */}
         {/* ============================================ */}
-        <section id="work" className="wrapper pt-12 pb-32">
-          <div className="project-grid-3">
-            {projects.map((p, i) => {
-              // v2 override: prefer v2Image when defined; fall back to v1 image.
-              // ESS has both null — ProjectCard will render its empty placeholder, matching v1.
-              const v2Project = { ...p, image: p.v2Image ?? p.image };
-              return (
-                <AnimateIn key={p.slug} delay={i * 0.06}>
-                  <ProjectCard project={v2Project} basePath="/v2/work" variant="outlined" />
-                </AnimateIn>
-              );
-            })}
-          </div>
-        </section>
+        <WorkHorizontalScroll projects={projects} />
 
         {/* ============================================ */}
         {/* DARK STATEMENT — Right-aligned, green dot    */}
