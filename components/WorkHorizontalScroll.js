@@ -19,7 +19,8 @@ import AnimateIn from "@/components/AnimateIn";
  * Layout:
  *   - <section> is the "pin stage" — its height equals viewport height + horizontal
  *     track length. Long stage → long scroll → cards translate over that distance.
- *   - <div.sticky> sits at top:0 inside the stage, always 100vh tall, contains the
+ *   - <div.sticky> sits at top:64px inside the stage (below the fixed 64px nav),
+ *     calc(100vh - 64px) tall, contains the
  *     header + the horizontal track + progress bar.
  *   - As user scrolls past stageTop, progress goes 0 → 1, track translates -X px.
  */
@@ -45,8 +46,8 @@ export default function WorkHorizontalScroll({ projects }) {
     };
   }, []);
 
-  // Compute stage height = viewport + horizontal-translate-distance, so
-  // the user scrolls EXACTLY enough vertical pixels to expose all cards.
+  // Compute stage height = (viewport - nav) + horizontal-translate-distance.
+  // Sticky lives below the 64px nav, so the math must use the reduced viewport.
   useEffect(() => {
     if (!enabled) {
       setStageHeight(null);
@@ -60,9 +61,10 @@ export default function WorkHorizontalScroll({ projects }) {
       // Distance the track needs to translate so the last card aligns to the
       // right edge of the viewport (with a small breathing-room margin).
       const translateDistance = Math.max(0, trackWidth - vw + 56);
-      // Stage = 1 viewport (the pinned moment) + translate distance (scroll burned
+      // Stage = sticky height (vh - nav) + translate distance (scroll burned
       // while pinned). User feels: "I scroll, things slide left, then I'm released."
-      setStageHeight(window.innerHeight + translateDistance);
+      const stickyH = window.innerHeight - 64;
+      setStageHeight(stickyH + translateDistance);
     };
     recompute();
     window.addEventListener("resize", recompute);
@@ -88,10 +90,11 @@ export default function WorkHorizontalScroll({ projects }) {
       raf = 0;
       const rect = stage.getBoundingClientRect();
       const stageH = stage.offsetHeight;
-      const vh = window.innerHeight;
-      const scrollableInside = stageH - vh;
+      const stickyH = window.innerHeight - 64;
+      const scrollableInside = stageH - stickyH;
       // -rect.top = how far past the stage top we've scrolled.
-      const scrolled = -rect.top;
+      // Add 64px because the sticky activates at top:64px (below nav), not 0.
+      const scrolled = -rect.top - 64;
       let progress = 0;
       if (scrolled <= 0) progress = 0;
       else if (scrolled >= scrollableInside) progress = 1;
