@@ -149,7 +149,6 @@ body {
 }
 .hscroll-track-wrap {
   padding: 0 56px;
-  overflow: hidden;
   flex: 1 1 auto;
   display: flex;
   align-items: center;
