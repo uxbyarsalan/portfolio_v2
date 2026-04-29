@@ -55,7 +55,7 @@ export default function WorkHorizontalScroll({ projects }) {
       setStageHeight(null);
       return;
     }
-    const SETTLE_PX = 200;
+    const SETTLE_PX = 60;
     const recompute = () => {
       const track = trackRef.current;
       if (!track) return;
@@ -92,7 +92,7 @@ export default function WorkHorizontalScroll({ projects }) {
 
     let raf = 0;
 
-    const SETTLE_PX = 200;
+    const SETTLE_PX = 60;
     const update = () => {
       raf = 0;
       const rect = stage.getBoundingClientRect();
