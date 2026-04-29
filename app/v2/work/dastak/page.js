@@ -71,7 +71,7 @@ export default function DastakCaseStudy() {
         <AnimateIn delay={0.3}>
           <div className="full-bleed aspect-[2.2/1] relative overflow-hidden">
             <Image
-              src="/images/dastak/dastak_hero.jpg"
+              src="/images/dastak/v2/dastak_hero.jpg"
               alt="Maryam ki Dastak — citizen and facilitator apps"
               fill
               priority

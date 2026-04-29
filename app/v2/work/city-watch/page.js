@@ -45,7 +45,7 @@ export default function CityWatchCaseStudy() {
         <AnimateIn delay={0.3}>
           <div className="full-bleed aspect-[2.2/1] relative overflow-hidden">
             <Image
-              src="/images/city-watch/city_watch_hero.jpg"
+              src="/images/city-watch/v2/city_watch_hero.jpg"
               alt="City Watch — operational and admin dashboards"
               fill
               priority

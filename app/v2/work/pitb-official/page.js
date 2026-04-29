@@ -29,7 +29,7 @@ export default function PITBOfficialCaseStudy() {
         <AnimateIn delay={0.3}>
           <div className="full-bleed aspect-[2.2/1] relative overflow-hidden">
             <Image
-              src="/images/pitb-official/pitb_hero.jpg"
+              src="/images/pitb-official/v2/pitb_hero.jpg"
               alt="PITB Official — flagship web portal for Punjab's technology authority"
               fill
               priority

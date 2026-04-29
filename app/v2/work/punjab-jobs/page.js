@@ -38,7 +38,7 @@ export default function PunjabJobsCaseStudy() {
         <AnimateIn delay={0.3}>
           <div className="full-bleed aspect-[2.2/1] relative overflow-hidden">
             <Image
-              src="/images/punjab-jobs/punjab_jobs_hero.jpg"
+              src="/images/punjab-jobs/v2/punjab_jobs_hero.jpg"
               alt="Punjab Jobs — two-sided platform for job seekers and recruiters"
               fill
               priority
