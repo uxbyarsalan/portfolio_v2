@@ -58,9 +58,12 @@ export default function WorkHorizontalScroll({ projects }) {
       if (!track) return;
       const trackWidth = track.scrollWidth;
       const vw = window.innerWidth;
-      // Distance the track needs to translate so the last card aligns to the
-      // right edge of the viewport (with a small breathing-room margin).
-      const translateDistance = Math.max(0, trackWidth - vw + 56);
+      // Distance the track must translate so the LAST card is fully visible
+      // with matching breathing room on both sides.
+      // .hscroll-track-wrap has 56px left padding (track starts 56px from left).
+      // We want last card's right edge to sit 56px from viewport's right edge.
+      // → translate by (trackWidth - vw) + 56 (left pad) + 56 (right margin) = +112.
+      const translateDistance = Math.max(0, trackWidth - vw + 112);
       // Stage = sticky height (vh - nav) + translate distance (scroll burned
       // while pinned). User feels: "I scroll, things slide left, then I'm released."
       const stickyH = window.innerHeight - 64;
@@ -102,7 +105,7 @@ export default function WorkHorizontalScroll({ projects }) {
 
       const trackWidth = track.scrollWidth;
       const vw = window.innerWidth;
-      const translateDistance = Math.max(0, trackWidth - vw + 56);
+      const translateDistance = Math.max(0, trackWidth - vw + 112);
       const tx = -progress * translateDistance;
       track.style.transform = `translate3d(${tx}px, 0, 0)`;
 
