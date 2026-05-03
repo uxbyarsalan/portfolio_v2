@@ -35,7 +35,18 @@ export default function ESSCaseStudy() {
           <AnimateIn delay={0.2}><p className="text-lg md:text-xl text-[var(--color-text-muted)] mt-6 max-w-xl leading-relaxed">Turning a clunky HR portal into a workplace community platform for 3,500+ employees</p></AnimateIn>
         </section>
 
-        <AnimateIn delay={0.3}><div className="full-bleed aspect-[2.2/1] bg-[var(--color-bg-card)] flex items-center justify-center text-[var(--color-text-subtle)] text-xs uppercase tracking-[0.2em]">Hero image &mdash; ESS app screens</div></AnimateIn>
+        <AnimateIn delay={0.3}>
+          <div className="full-bleed aspect-[2.2/1] relative overflow-hidden">
+            <Image
+              src="/images/ess/v2/ess_hero.jpg"
+              alt="Employee Self Service — workplace community platform for 3,500+ PITB employees"
+              fill
+              priority
+              sizes="100vw"
+              className="object-cover"
+            />
+          </div>
+        </AnimateIn>
 
         <section className="wrapper py-10">
           <AnimateIn>
