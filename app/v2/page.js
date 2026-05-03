@@ -3,6 +3,7 @@ import Footer from "@/components/Footer";
 import AnimateIn from "@/components/AnimateIn";
 import WorkHorizontalScroll from "@/components/WorkHorizontalScroll";
 import Link from "next/link";
+import Image from "next/image";
 import { projects } from "@/lib/projects";
 
 // Using .wrapper class from globals.css
@@ -29,7 +30,7 @@ export default function Home() {
           <div className="wrapper">
             <AnimateIn>
               <h1 className="hero-heading max-w-4xl">
-                Turning complex government workflows into clear, accessible digital experiences &mdash; used by 20M+ citizens
+                Turning complex workflows into clear, accessible digital experiences &mdash; used by 20M+ users
               </h1>
             </AnimateIn>
 
@@ -88,8 +89,14 @@ export default function Home() {
           <div className="grid grid-cols-1 md:grid-cols-12 gap-12 md:gap-16 items-center">
             <div className="md:col-span-5 order-2 md:order-1">
               <AnimateIn>
-                <div className="bg-[var(--color-bg-card)] rounded-2xl aspect-[3/4] overflow-hidden flex items-center justify-center text-[var(--color-text-subtle)] text-xs uppercase tracking-[0.2em]">
-                  Your photo
+                <div className="bg-[var(--color-bg-card)] rounded-2xl aspect-[3/4] overflow-hidden relative">
+                  <Image
+                    src="/images/profile/v2/profile.jpg"
+                    alt="Arsalan Aslam"
+                    fill
+                    sizes="(min-width: 768px) 42vw, 100vw"
+                    className="object-cover"
+                  />
                 </div>
               </AnimateIn>
             </div>
