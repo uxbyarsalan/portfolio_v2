@@ -25,6 +25,11 @@ import AnimateIn from "@/components/AnimateIn";
  *   - As user scrolls past stageTop, progress goes 0 → 1, track translates -X px.
  */
 export default function WorkHorizontalScroll({ projects }) {
+  // Hide projects flagged with hiddenOnV2 (e.g. drafts, paused, redacted).
+  // Filter applies to BOTH the desktop horizontal track AND the mobile/
+  // reduced-motion fallback grid below — single source of truth.
+  const visibleProjects = projects.filter((p) => !p.hiddenOnV2);
+
   const stageRef = useRef(null);
   const trackRef = useRef(null);
   const fillRef = useRef(null);
@@ -80,7 +85,7 @@ export default function WorkHorizontalScroll({ projects }) {
       window.removeEventListener("resize", recompute);
       clearTimeout(t);
     };
-  }, [enabled, projects.length]);
+  }, [enabled, visibleProjects.length]);
 
   // Drive the transform + progress UI from window scroll position.
   useEffect(() => {
@@ -131,7 +136,7 @@ export default function WorkHorizontalScroll({ projects }) {
       window.removeEventListener("resize", onScroll);
       if (raf) cancelAnimationFrame(raf);
     };
-  }, [enabled, projects.length]);
+  }, [enabled, visibleProjects.length]);
 
   // Fallback: vertical 3-col grid (existing pattern).
   // Used on mobile/tablet AND reduced-motion users.
@@ -139,7 +144,7 @@ export default function WorkHorizontalScroll({ projects }) {
     return (
       <section id="work" className="wrapper pt-12 pb-32">
         <div className="project-grid-3">
-          {projects.map((p, i) => {
+          {visibleProjects.map((p, i) => {
             const v2Project = { ...p, image: p.v2Image ?? p.image };
             return (
               <AnimateIn key={p.slug} delay={i * 0.06}>
@@ -163,7 +168,7 @@ export default function WorkHorizontalScroll({ projects }) {
       <div className="hscroll-sticky">
         <div className="hscroll-track-wrap">
           <div ref={trackRef} className="hscroll-track">
-            {projects.map((p) => {
+            {visibleProjects.map((p) => {
               const v2Project = { ...p, image: p.v2Image ?? p.image };
               return (
                 <div key={p.slug} className="hscroll-card">

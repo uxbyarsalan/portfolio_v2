@@ -2,6 +2,7 @@ import Nav from "@/components/Nav";
 import Footer from "@/components/Footer";
 import AnimateIn from "@/components/AnimateIn";
 import Link from "next/link";
+import Image from "next/image";
 
 export const metadata = {
   title: "Employee Self Service — Case Study | Arsalan Aslam",
@@ -231,8 +232,23 @@ export default function ESSCaseStudy() {
 
         <section className="wrapper pb-16">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-            {["Swipe check-in", "Leave management", "Help Buddy features", "Role-based views"].map((label, i) => (
-              <AnimateIn key={label} delay={i * 0.06}><div className="bg-[var(--color-bg-card)] rounded-2xl aspect-[4/3] flex items-center justify-center text-[var(--color-text-subtle)] text-xs uppercase tracking-[0.2em]">{label}</div></AnimateIn>
+            {[
+              { label: "ESS — Tasks", src: "/images/ess/ess_tile_1_tasks.jpg" },
+              { label: "ESS — Get a Ride", src: "/images/ess/ess_tile_2_get_a_ride.jpg" },
+              { label: "ESS — Meetings & OT Approval", src: "/images/ess/ess_tile_3.jpg" },
+              { label: "ESS — Attendance & Team Listing", src: "/images/ess/ess_tile_4.jpg" },
+            ].map((tile, i) => (
+              <AnimateIn key={tile.label} delay={i * 0.06}>
+                <div className="bg-[var(--color-bg-card)] rounded-2xl aspect-[4/3] relative overflow-hidden">
+                  <Image
+                    src={tile.src}
+                    alt={tile.label}
+                    fill
+                    sizes="(min-width: 768px) 50vw, 100vw"
+                    className="object-cover"
+                  />
+                </div>
+              </AnimateIn>
             ))}
           </div>
         </section>
