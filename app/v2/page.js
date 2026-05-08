@@ -30,7 +30,7 @@ export default function Home() {
           <div className="wrapper">
             <AnimateIn>
               <h1 className="hero-heading max-w-4xl">
-                Turning complex workflows into clear, accessible digital experiences &mdash; used by 20M+ users
+                Designing systems that serve 20M+ users &mdash; where complexity becomes clarity, and clarity becomes trust.
               </h1>
             </AnimateIn>
 
