@@ -181,8 +181,23 @@ export default function AQICaseStudy() {
 
         <section className="wrapper pb-16">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-            {["Real-time dashboard", "Heatmap calendar visualization", "Health precautions by condition", "AQI statistics table"].map((label, i) => (
-              <AnimateIn key={label} delay={i * 0.06}><div className="bg-[var(--color-bg-card)] rounded-2xl aspect-[4/3] flex items-center justify-center text-[var(--color-text-subtle)] text-xs uppercase tracking-[0.2em]">{label}</div></AnimateIn>
+            {[
+              { label: "AQI statistics table", src: "/images/aqi/aqi_tile_1.jpg" },
+              { label: "Health precautions by condition", src: "/images/aqi/aqi_tile_2.jpg" },
+              { label: "Air quality safeguards detail", src: "/images/aqi/aqi_tile_3.jpg" },
+              { label: "Historical air quality data", src: "/images/aqi/aqi_tile_4.jpg" },
+            ].map((tile, i) => (
+              <AnimateIn key={tile.label} delay={i * 0.06}>
+                <div className="bg-[var(--color-bg-card)] rounded-2xl aspect-[4/3] relative overflow-hidden">
+                  <Image
+                    src={tile.src}
+                    alt={tile.label}
+                    fill
+                    sizes="(min-width: 768px) 50vw, 100vw"
+                    className="object-cover"
+                  />
+                </div>
+              </AnimateIn>
             ))}
           </div>
         </section>

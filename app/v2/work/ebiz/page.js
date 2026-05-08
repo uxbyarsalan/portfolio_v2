@@ -177,8 +177,23 @@ export default function EBizCaseStudy() {
         {/* Solution screens */}
         <section className="wrapper pb-16">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-            {["Business type wizard", "Progressive application form", "Applicant dashboard", "Admin CRM for officers"].map((label, i) => (
-              <AnimateIn key={label} delay={i * 0.06}><div className="bg-[var(--color-bg-card)] rounded-2xl aspect-[4/3] flex items-center justify-center text-[var(--color-text-subtle)] text-xs uppercase tracking-[0.2em]">{label}</div></AnimateIn>
+            {[
+              { label: "Sector highlights and main sectors", src: "/images/ebiz/ebiz_tile_1.jpg" },
+              { label: "Application landing with comprehensive guidance", src: "/images/ebiz/ebiz_tile_2.jpg" },
+              { label: "Documents proof upload", src: "/images/ebiz/ebiz_tile_3.jpg" },
+              { label: "Multi-step application flow", src: "/images/ebiz/ebiz_tile_4.jpg" },
+            ].map((tile, i) => (
+              <AnimateIn key={tile.label} delay={i * 0.06}>
+                <div className="bg-[var(--color-bg-card)] rounded-2xl aspect-[4/3] relative overflow-hidden">
+                  <Image
+                    src={tile.src}
+                    alt={tile.label}
+                    fill
+                    sizes="(min-width: 768px) 50vw, 100vw"
+                    className="object-cover"
+                  />
+                </div>
+              </AnimateIn>
             ))}
           </div>
         </section>
