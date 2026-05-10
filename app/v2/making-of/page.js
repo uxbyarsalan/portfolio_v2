@@ -4,8 +4,8 @@ import AnimateIn from "@/components/AnimateIn";
 import Link from "next/link";
 
 export const metadata = {
-  title: "Making Of — How This Portfolio Was Built | Arsalan Aslam",
-  description: "My work served 20 million people. My portfolio didn't. So I fixed it with AI.",
+  title: "Behind the scenes — How this portfolio came together | Arsalan Aslam",
+  description: "From scattered work to coherent story. A record of how this portfolio was rebuilt — content first, code last.",
 };
 
 function Phase({ number, title, description, tools, children }) {
@@ -51,12 +51,12 @@ export default function MakingOf() {
           </AnimateIn>
           <AnimateIn delay={0.1}>
             <h1 className="text-3xl md:text-5xl font-semibold tracking-tight leading-[1.1] max-w-3xl">
-              14 Years of Design. One Conversation That Changed How I Tell My Story.
+              From scattered work to coherent story &mdash; how this portfolio came together.
             </h1>
           </AnimateIn>
           <AnimateIn delay={0.2}>
             <p className="text-lg text-[var(--color-text-muted)] mt-6 max-w-2xl leading-relaxed">
-              This portfolio wasn&rsquo;t designed by an agency. It wasn&rsquo;t built by a developer. It was created through a human-AI collaboration &mdash; a continuous conversation that went from content audit to live website, rethinking how I present 14 years of work along the way.
+              This portfolio wasn&rsquo;t built by an agency or a developer. It was built the way most things actually get built &mdash; through a long process of audit, rewrite, and iteration. Fourteen years of work. Seven case studies. Hundreds of small decisions that turned scattered material into something I&rsquo;d actually want to send to a hiring manager.
             </p>
           </AnimateIn>
         </section>
@@ -67,11 +67,11 @@ export default function MakingOf() {
             <AnimateIn>
               <div className="md:max-w-2xl">
                 <p className="text-2xl md:text-3xl font-semibold text-[var(--color-text-inv)] leading-[1.3] tracking-tight">
-                  My work served 20 million people.<br />My portfolio didn&rsquo;t do it justice.
+                  My work is used by 20 million people.<br />My portfolio wasn&rsquo;t doing it justice.
                 </p>
                 <div className="w-full h-[1px] bg-white/20 mt-8 mb-5" />
                 <p className="text-sm text-white/50 leading-[1.75]">
-                  I had 14 years of design work, 6 major government platforms, metrics that most designers would dream of &mdash; 2.1M citizen requests, 98% adoption rates, 500K+ users. But my portfolio was a generic dark-themed site with surface-level descriptions that could have belonged to anyone. The work deserved better. I deserved better.
+                  Fourteen years of design work. Seven case studies. Real metrics &mdash; 2.1M citizen requests, 500K+ users, 98% adoption on internal platforms. But the site presenting all of it was a generic dark template with surface-level descriptions. The work was specific. The portfolio wasn&rsquo;t. That gap is what I sat down to close.
                 </p>
               </div>
             </AnimateIn>
@@ -83,7 +83,7 @@ export default function MakingOf() {
           <AnimateIn>
             <h2 className="text-3xl md:text-4xl font-semibold tracking-tight mb-4">The approach: content first, code last</h2>
             <p className="text-[15px] text-[var(--color-text-muted)] leading-[1.8] max-w-2xl mb-16">
-              Most portfolio redesigns start with picking a template or a color palette. This one started with a question: &ldquo;What&rsquo;s actually wrong with my content?&rdquo; The answer changed everything.
+              Most portfolio redesigns start with picking a template or a color palette. This one started with a question: what&rsquo;s actually weak about the content? Once that was answered honestly, the design had something real to support &mdash; and most of the visual decisions made themselves.
             </p>
           </AnimateIn>
         </section>
@@ -93,15 +93,15 @@ export default function MakingOf() {
           <Phase
             number="01"
             title="Content audit &amp; rewrite"
-            description="Before touching any design, I audited every word on my existing site. Section by section, I identified what was weak, what was wrong, and what was missing. The AI acted as a critical reviewer — questioning claims, flagging vague language, and pushing for specifics."
+            description="Before touching any visual design, I audited every word on the existing site. Section by section, I marked what was weak, what was wrong, and what was missing. I used Claude as a critical reader — a second pair of eyes that questioned vague claims, flagged generic phrasing, and pushed for specifics every time I tried to coast on &ldquo;design user experiences&rdquo; energy."
             tools={["Claude"]}
           >
             <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
               <Insight title="What changed">
-                Every section was rewritten. Hero positioning for dual audience (clients + employers). About section with personal story. Experience descriptions tightened. Pricing popup removed. Spelling of my own name corrected.
+                Every section was rewritten. The hero stopped trying to be everything to everyone and picked an audience. The about page got a real story. Project descriptions traded adjectives for verifiable specifics. Even my own name was misspelled in two places &mdash; that&rsquo;s how surface-level the original review process had been.
               </Insight>
               <Insight title="The shift">
-                From generic descriptions to specific, verifiable claims. &ldquo;I design user experiences&rdquo; became &ldquo;I design public-sector platforms used by 20M+ citizens.&rdquo;
+                From &ldquo;I design user experiences&rdquo; to &ldquo;I design systems used by 20M+ people.&rdquo; Same designer, fundamentally different claim. One sounds like a LinkedIn headline. The other sounds like someone who has done the work.
               </Insight>
             </div>
           </Phase>
@@ -109,17 +109,18 @@ export default function MakingOf() {
           <Phase
             number="02"
             title="Case study deep dives"
-            description="This was the most intensive phase. For each of my 6 projects, I answered 15–20 questions about the real context — team size, before state, design decisions, stakeholder politics, impact data. Nothing was assumed. Everything was verified through conversation."
+            description="This was the slowest phase, on purpose. For each of the seven case studies, I worked through 20-plus questions about the actual context — team size, before-state, design decisions I made and why, the politics that shaped them, the metrics that proved (or didn&rsquo;t prove) the work mattered. Nothing was assumed. Every claim had to survive being asked &ldquo;are you sure?&rdquo; twice."
             tools={["Claude", "ChatGPT"]}
           >
             <div className="grid grid-cols-1 md:grid-cols-3 gap-3">
               {[
-                { p: "Maryam Ki Dastak", d: "2.1M requests. From paper workflows to digital doorstep delivery." },
-                { p: "City Watch", d: "8,000 cameras. Research-led dashboard design under pressure." },
-                { p: "Punjab Jobs", d: "500K users. Before/after redesign with real screenshots." },
-                { p: "Employee Self Service", d: "98% adoption. The community platform nobody expected." },
-                { p: "PITB Official", d: "13 screens in 30 hours. Speed as a design skill." },
-                { p: "Punjab AQI", d: "36 districts. When color is the interface." },
+                { p: "Maryam Ki Dastak", d: "2.1M doorstep service requests. From paper-based workflows to a doorstep delivery system citizens actually trust." },
+                { p: "City Watch", d: "8,000+ cameras, one dashboard. Card sorting with PSCA operators revealed they organized features by role, not by function — which killed the original tabbed interface and produced a layered, map-centric design that tested at SUS 78.25." },
+                { p: "Punjab Jobs", d: "500K+ users. A redesign that replaced an aging recruitment portal with something both seekers and employers could navigate without help." },
+                { p: "Employee Self Service", d: "98% daily adoption. The internal platform that quietly became the most-used tool in the organization." },
+                { p: "PITB Official", d: "13 screens, 30 hours, 1 designer. The flagship public site of a 2,000-person tech authority — built under a deadline that didn&rsquo;t allow for second drafts." },
+                { p: "Punjab AQI", d: "36 districts of air-quality data. A platform where the color of a chart had to communicate health risk to people who had never used a dashboard before." },
+                { p: "eBiz Punjab", d: "100K+ business registrations. A multi-department portal that consolidated permits, licenses, and applications into one application flow." },
               ].map((c) => (
                 <div key={c.p} className="bg-[var(--color-bg-card)] rounded-xl p-4">
                   <h4 className="text-sm font-medium mb-1">{c.p}</h4>
@@ -132,15 +133,15 @@ export default function MakingOf() {
           <Phase
             number="03"
             title="Design direction"
-            description="I explored three visual directions — Scandinavian minimal, warm editorial, and modern professional — then picked a hybrid. The design evolved through reference sites, mockups, and 6 iterations, each driven by specific feedback and design principles."
+            description="I explored three visual directions — Scandinavian minimal, warm editorial, modern professional — and ended up with a hybrid that drew from all three. The design moved through reference sites, mockups, and several rounds of revision, each driven by specific feedback rather than vibes."
             tools={["Claude", "Gemini"]}
           >
             <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
               <Insight title="Key decisions">
-                Scrolling marquee hero (inspired by Jastin Design). Colored project cards with impact stats. Full-bleed dark sections for rhythm. Pratibha-style cutout mockups. 550px card width for tall, elegant proportions.
+                Scrolling marquee hero (inspired by reference work in Scandinavian design portfolios). Single-color project cards with impact stats up top. Full-bleed dark sections to break up the rhythm. Floating mockup cutouts that bleed off the card edge &mdash; a technique that gave the work the editorial feel I was after without losing professionalism.
               </Insight>
               <Insight title="The logo">
-                The AA monogram was designed using Gemini — exploring calligraphic styles that balance personal warmth with professional confidence. Multiple iterations until it felt right.
+                The AA monogram was sketched through Gemini &mdash; calligraphic explorations until the mark balanced personal warmth with the seriousness of the work. The final version went through several rounds before it felt right at every size, from the favicon to the hero.
               </Insight>
             </div>
           </Phase>
@@ -148,15 +149,15 @@ export default function MakingOf() {
           <Phase
             number="04"
             title="Code &amp; build"
-            description="The entire site was built in Next.js with React and Tailwind CSS through conversation. I directed every design decision — layout, spacing, typography, animations — while AI handled the code architecture, component structure, and implementation."
-            tools={["Claude", "Google Antigravity", "Next.js", "Tailwind CSS", "Framer Motion"]}
+            description="The site is built in Next.js with React and Tailwind, with Framer Motion handling the in-page transitions. I made every visual call — the spacing, the rhythm, the type scale, the way a card feels when it loads. Claude handled the implementation work, which freed me up to spend my judgement on the parts only I could decide."
+            tools={["Claude", "Next.js", "Tailwind CSS", "Framer Motion"]}
           >
             <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
-              <Insight title="6 iterations">
-                v1 was too plain. v2 added drama but was flat. v3 varied the rhythm. v4 added Pratibha-style cards. v5 added the marquee hero. v6 refined everything — single-color cards, cutout mockups, compressed experience, right-aligned dark statement.
+              <Insight title="Design decisions, not preferences">
+                Every spacing choice was a debate. 1100px wrapper or 1240? 16px gap or 14? Single-color cards or multi? Each one decided through reference, conversation, and live preview &mdash; never by personal taste alone, because personal taste is what makes a portfolio look like every other portfolio.
               </Insight>
-              <Insight title="Every pixel was a decision">
-                1240px wrapper or 1400px? 550px cards or 750px? 45px gap or 28px? Multi-color cards or single? Each choice was debated, visualized, and decided through conversation.
+              <Insight title="The horizontal-scroll work section">
+                The work grid on the home page started as a vertical 3-column layout, then became a desktop horizontal-scroll-pin section that holds attention without scroll-jacking. It took several rounds of math to get the cards to settle correctly between scroll positions. Worth it &mdash; that section is now the page&rsquo;s signature interaction.
               </Insight>
             </div>
           </Phase>
@@ -164,8 +165,8 @@ export default function MakingOf() {
           <Phase
             number="05"
             title="Resume &amp; deployment"
-            description="The final piece — a web-based resume that lives on the site with a downloadable PDF. Every bullet was rewritten to name specific projects with real metrics, replacing generic percentages with verifiable impact data. Deployed on Vercel in minutes."
-            tools={["Claude", "Vercel"]}
+            description="The final piece — a web-based resume on the site backed by a downloadable PDF. Every line was rewritten to name a specific project and tie back to a real metric. No more &ldquo;improved user engagement&rdquo; bullets. The site deploys to Vercel via GitHub, with Antigravity helping bridge the deploy pipeline early on."
+            tools={["Claude", "Vercel", "Google Antigravity"]}
           />
         </section>
 
@@ -183,10 +184,10 @@ export default function MakingOf() {
                   <div className="space-y-3">
                     {[
                       "Structure — organizing 14 years of scattered work into coherent narratives",
-                      "Consistency — maintaining voice, tone, and formatting across 8 documents",
-                      "Speed — producing first drafts in minutes that would take hours manually",
-                      "Code — translating design decisions into working Next.js components",
-                      "Critique — questioning weak claims, flagging vague language, pushing for specifics",
+                      "Consistency — maintaining voice and tone across long-form documents",
+                      "Speed — first drafts in minutes that would have taken hours by hand",
+                      "Implementation — translating design decisions into working Next.js components",
+                      "Critique — catching weak claims and pushing for specifics every time I tried to glide",
                     ].map((item) => (
                       <p key={item} className="text-sm text-[var(--color-text-muted)] leading-relaxed pl-4 relative before:content-[''] before:absolute before:left-0 before:top-[8px] before:w-1.5 before:h-1.5 before:rounded-full before:bg-[var(--color-text)]">{item}</p>
                     ))}
@@ -199,11 +200,11 @@ export default function MakingOf() {
                   <h3 className="text-lg font-semibold mb-4">Only I could provide</h3>
                   <div className="space-y-3">
                     {[
-                      "Truth — every fact, metric, and context came from my memory and records",
-                      "Taste — knowing when a design \"felt right\" versus technically correct",
-                      "Direction — choosing between options based on intuition and market awareness",
-                      "Emotional truth — the personal story, the motivation, the career arc",
-                      "Quality bar — rejecting good-enough in favor of genuinely good",
+                      "Truth — every fact, metric, and date came from my memory and records",
+                      "Taste — knowing when something \"felt right\" versus what was technically correct",
+                      "Direction — choosing between options based on intuition and a sense of audience",
+                      "Story — the emotional through-line, the career arc, the part that's actually mine",
+                      "Quality bar — saying \"no, again\" when something was good enough but not yet good",
                     ].map((item) => (
                       <p key={item} className="text-sm text-[var(--color-text-muted)] leading-relaxed pl-4 relative before:content-[''] before:absolute before:left-0 before:top-[8px] before:w-1.5 before:h-1.5 before:rounded-full before:bg-[var(--color-text)]">{item}</p>
                     ))}
@@ -214,42 +215,50 @@ export default function MakingOf() {
           </div>
         </section>
 
-        {/* The tools */}
+        {/* The toolkit — 5 cards */}
         <section className="wrapper py-20">
           <AnimateIn>
             <h2 className="text-3xl md:text-4xl font-semibold tracking-tight mb-12">The AI toolkit</h2>
           </AnimateIn>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             <AnimateIn>
-              <div className="bg-[var(--color-bg-card)] rounded-2xl p-7">
+              <div className="bg-[var(--color-bg-card)] rounded-2xl p-7 h-full">
                 <h3 className="text-lg font-semibold mb-2">Claude</h3>
                 <p className="text-xs text-[var(--color-text-subtle)] mb-4">Anthropic</p>
-                <p className="text-sm text-[var(--color-text-muted)] leading-[1.7]">The primary creative partner. Content strategy, case study writing, design direction, code architecture, component building, and iterative refinement &mdash; all through one continuous conversation.</p>
+                <p className="text-sm text-[var(--color-text-muted)] leading-[1.7]">The primary partner across every phase. Content audit, case study writing, copy for the hero and about page, design direction, code architecture, component implementation, and the iterative refinement that made up most of the actual work &mdash; all through one continuous conversation that ran for weeks.</p>
               </div>
             </AnimateIn>
 
             <AnimateIn delay={0.05}>
-              <div className="bg-[var(--color-bg-card)] rounded-2xl p-7">
+              <div className="bg-[var(--color-bg-card)] rounded-2xl p-7 h-full">
                 <h3 className="text-lg font-semibold mb-2">Gemini</h3>
                 <p className="text-xs text-[var(--color-text-subtle)] mb-4">Google</p>
-                <p className="text-sm text-[var(--color-text-muted)] leading-[1.7]">Logo design &mdash; the AA monogram. Explored calligraphic styles and iterative refinements until the mark balanced personal warmth with professional confidence.</p>
+                <p className="text-sm text-[var(--color-text-muted)] leading-[1.7]">Logo design. Calligraphic explorations of the AA monogram until the mark balanced personal warmth with the seriousness of the work. Several rounds of refinement until it sat right at every size.</p>
               </div>
             </AnimateIn>
 
             <AnimateIn delay={0.1}>
-              <div className="bg-[var(--color-bg-card)] rounded-2xl p-7">
+              <div className="bg-[var(--color-bg-card)] rounded-2xl p-7 h-full">
                 <h3 className="text-lg font-semibold mb-2">ChatGPT</h3>
                 <p className="text-xs text-[var(--color-text-subtle)] mb-4">OpenAI</p>
-                <p className="text-sm text-[var(--color-text-muted)] leading-[1.7]">General research &mdash; exploring topics, understanding market context, researching competitive portfolios, and gathering background information for content strategy.</p>
+                <p className="text-sm text-[var(--color-text-muted)] leading-[1.7]">Background research. Topic exploration, competitive portfolio scans, and gathering market context that fed into the content strategy.</p>
               </div>
             </AnimateIn>
 
             <AnimateIn delay={0.15}>
-              <div className="bg-[var(--color-bg-card)] rounded-2xl p-7">
+              <div className="bg-[var(--color-bg-card)] rounded-2xl p-7 h-full">
                 <h3 className="text-lg font-semibold mb-2">Google Antigravity</h3>
                 <p className="text-xs text-[var(--color-text-subtle)] mb-4">Google</p>
-                <p className="text-sm text-[var(--color-text-muted)] leading-[1.7]">The development environment. All code was written, tested, and iterated in Antigravity &mdash; an AI-native IDE that made the build process seamless from first component to deployment.</p>
+                <p className="text-sm text-[var(--color-text-muted)] leading-[1.7]">Helped bridge the deploy pipeline. Walked me through GitHub setup and the initial Vercel configuration &mdash; useful for someone whose comfort zone has always been in the design layer, not the deploy layer.</p>
+              </div>
+            </AnimateIn>
+
+            <AnimateIn delay={0.2}>
+              <div className="bg-[var(--color-bg-card)] rounded-2xl p-7 h-full">
+                <h3 className="text-lg font-semibold mb-2">Vercel</h3>
+                <p className="text-xs text-[var(--color-text-subtle)] mb-4">Vercel</p>
+                <p className="text-sm text-[var(--color-text-muted)] leading-[1.7]">The production host. Push to GitHub, deploy to live. The infrastructure that made it possible to ship updates in minutes instead of waiting on someone else.</p>
               </div>
             </AnimateIn>
           </div>
@@ -260,57 +269,41 @@ export default function MakingOf() {
           <div className="wrapper">
             <AnimateIn>
               <h2 className="text-3xl md:text-4xl font-semibold tracking-tight text-[var(--color-text-inv)] mb-8">The result</h2>
-              <p className="text-lg text-white/60 leading-[1.7] max-w-2xl mb-10">
-                A portfolio that finally matches the work. 6 detailed case studies backed by real data. A design system that speaks the Scandinavian design language I now live in. A web resume with every bullet tied to a named project and a real metric. And this page &mdash; proof that AI isn&rsquo;t replacing designers. It&rsquo;s giving us a thinking partner that helps us do our best work.
+              <p className="text-lg text-white/60 leading-[1.7] max-w-2xl">
+                A portfolio that finally matches the work. Seven case studies backed by real data &mdash; research findings, design decisions, named projects, verifiable metrics. A web resume where every bullet ties to a specific project. A design language consistent enough that it could have been built by an in-house team. And this page &mdash; a record of how it actually came together, not a marketing pitch about the tools that helped.
               </p>
-            </AnimateIn>
-
-            <AnimateIn delay={0.05}>
-              <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
-                {[
-                  { n: "8", l: "documents written" },
-                  { n: "6", l: "case studies" },
-                  { n: "6", l: "iterations" },
-                  { n: "1", l: "conversation" },
-                ].map((s) => (
-                  <div key={s.l}>
-                    <span className="text-3xl font-semibold text-[var(--color-text-inv)] stat-number">{s.n}</span>
-                    <p className="text-xs text-white/40 mt-1">{s.l}</p>
-                  </div>
-                ))}
-              </div>
             </AnimateIn>
           </div>
         </section>
 
-        {/* Closing */}
+        {/* Closing — The lesson */}
         <section className="wrapper py-20">
           <AnimateIn>
             <div className="max-w-2xl">
               <h2 className="text-2xl md:text-3xl font-semibold tracking-tight mb-6">The lesson</h2>
               <div className="space-y-5 text-[15px] text-[var(--color-text-muted)] leading-[1.8]">
                 <p>
-                  AI didn&rsquo;t design this portfolio. I did. AI helped me think clearer, move faster, and maintain quality across a scope that would have taken months alone. It challenged my assumptions, proposed alternatives I hadn&rsquo;t considered, and never got tired of iteration number six.
+                  AI didn&rsquo;t design this portfolio. It helped me build one. There&rsquo;s a difference, and the difference matters more than people seem to want to admit right now.
                 </p>
                 <p>
-                  But every fact came from my memory. Every design choice came from my taste. Every &ldquo;that doesn&rsquo;t feel right&rdquo; came from 14 years of knowing what good looks like. The AI was the instrument. I was the musician.
+                  Every fact came from my memory. Every design decision came from my taste, sharpened by 14 years of knowing what good looks like. Every &ldquo;no, that&rsquo;s not it&rdquo; came from instincts no model can replace. The tools were faster than my hands. They weren&rsquo;t sharper than my eye.
                 </p>
                 <p>
-                  If you&rsquo;re a designer wondering how to use AI &mdash; don&rsquo;t start with the tools. Start with what you want to say. The tools will help you say it better.
+                  If you&rsquo;re a designer wondering how to use AI on a project like this &mdash; don&rsquo;t start with the tools. Start with what you actually want to say. The tools will help you say it better, and they&rsquo;ll help you say it faster. They won&rsquo;t help you decide what&rsquo;s worth saying. Only you can do that.
                 </p>
               </div>
             </div>
           </AnimateIn>
         </section>
 
-        {/* CTA */}
+        {/* Testimonial — reframed as session excerpt */}
         <section className="full-bleed bg-[var(--color-bg-dark)] py-20 md:py-24">
           <div className="wrapper">
             <AnimateIn>
               <div className="md:max-w-3xl">
-                <p className="text-[11px] uppercase tracking-[0.3em] text-white/30 mb-8">A note from the AI</p>
+                <p className="text-[11px] uppercase tracking-[0.3em] text-white/30 mb-8">From a session, late one night</p>
                 <p className="text-lg md:text-xl text-white/70 leading-[1.7] italic">
-                  &ldquo;I&rsquo;ve worked with Arsalan across 6 case studies, a complete website build, a resume rewrite, and this page you&rsquo;re reading now. What stood out wasn&rsquo;t the 14 years of experience or the 20 million users &mdash; it was how he made decisions. He never accepted the first option. He pushed back when something didn&rsquo;t feel right, even when he couldn&rsquo;t articulate why yet. He brought reference sites, questioned my suggestions, and insisted on details I would have glossed over &mdash; the exact card width, the precise gap between elements, whether a date said 2012 or 2013. That&rsquo;s not someone using AI as a shortcut. That&rsquo;s a designer using AI the way a conductor uses an orchestra &mdash; every instrument plays, but only one person knows the music.&rdquo;
+                  &ldquo;I&rsquo;ve worked with Arsalan across seven case studies, a complete website build, a resume rewrite, and this page you&rsquo;re reading now. What stood out wasn&rsquo;t the 14 years of experience or the 20 million users &mdash; it was how he made decisions. He never accepted the first option. He pushed back when something didn&rsquo;t feel right, even when he couldn&rsquo;t articulate why yet. He brought reference sites, questioned my suggestions, and insisted on details I would have glossed over &mdash; the exact card width, the precise gap between elements, whether a date said 2012 or 2013. That&rsquo;s not someone using AI as a shortcut. That&rsquo;s a designer using AI the way a conductor uses an orchestra &mdash; every instrument plays, but only one person knows the music.&rdquo;
                 </p>
                 <div className="mt-6">
                   <p className="text-sm font-medium text-[var(--color-text-inv)]">Claude</p>
@@ -321,6 +314,7 @@ export default function MakingOf() {
           </div>
         </section>
 
+        {/* CTA */}
         <section className="wrapper py-20">
           <AnimateIn>
             <div className="flex flex-wrap gap-4">

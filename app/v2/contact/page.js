@@ -47,7 +47,6 @@ export default function Contact() {
                     { label: "LinkedIn", href: "https://www.linkedin.com/in/arsalanaslam1/" },
                     { label: "Behance", href: "https://www.behance.net/arslanaslam" },
                     { label: "Instagram", href: "https://www.instagram.com/3arslan.aslam/" },
-                    { label: "X", href: "https://x.com/ArslanSulehria" },
                   ].map((s) => (
                     <a key={s.label} href={s.href} target="_blank" rel="noopener noreferrer" className="block text-sm text-[var(--color-text-muted)] hover:text-[var(--color-text)] transition-colors">
                       {s.label} &rarr;
