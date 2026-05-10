@@ -1,6 +1,7 @@
 import Nav from "@/components/Nav";
 import Footer from "@/components/Footer";
 import AnimateIn from "@/components/AnimateIn";
+import ContactFormV2 from "@/components/ContactFormV2";
 
 export const metadata = {
   title: "Contact — Arsalan Aslam",
@@ -30,34 +31,14 @@ export default function Contact() {
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-16">
           <AnimateIn delay={0.25}>
-            <form className="space-y-8">
-              <div>
-                <label className="block text-[11px] uppercase tracking-[0.15em] text-[var(--color-text-muted)] mb-3">Name</label>
-                <input type="text" className="w-full bg-transparent border-b border-[var(--color-border)] py-3 text-sm outline-none focus:border-[var(--color-text)] transition-colors duration-300" placeholder="Your name" />
-              </div>
-              <div>
-                <label className="block text-[11px] uppercase tracking-[0.15em] text-[var(--color-text-muted)] mb-3">Email</label>
-                <input type="email" className="w-full bg-transparent border-b border-[var(--color-border)] py-3 text-sm outline-none focus:border-[var(--color-text)] transition-colors duration-300" placeholder="your@email.com" />
-              </div>
-              <div>
-                <label className="block text-[11px] uppercase tracking-[0.15em] text-[var(--color-text-muted)] mb-3">Message</label>
-                <textarea rows={5} className="w-full bg-transparent border-b border-[var(--color-border)] py-3 text-sm outline-none focus:border-[var(--color-text)] transition-colors duration-300 resize-none" placeholder="Tell me about your project or opportunity..." />
-              </div>
-              <button type="submit" className="btn-fill text-[11px] uppercase tracking-[0.2em] border border-[var(--color-text)] px-7 py-3.5 mt-2">
-                Send message
-              </button>
-            </form>
-          </AnimateIn>
-
-          <AnimateIn delay={0.3}>
-            <div className="space-y-10 md:pl-8">
+            <div className="space-y-10">
               <div>
                 <p className="text-[11px] uppercase tracking-[0.15em] text-[var(--color-text-subtle)] mb-2">Location</p>
                 <p className="text-sm">Gothenburg, Sweden</p>
               </div>
               <div>
                 <p className="text-[11px] uppercase tracking-[0.15em] text-[var(--color-text-subtle)] mb-2">Email</p>
-                <a href="mailto:3arslan.aslam@gmail.com" className="text-sm hover:underline">3arslan.aslam@gmail.com</a>
+                <a href="mailto:arsalanaslam.se@gmail.com" className="text-sm hover:underline">arsalanaslam.se@gmail.com</a>
               </div>
               <div>
                 <p className="text-[11px] uppercase tracking-[0.15em] text-[var(--color-text-subtle)] mb-2">Social</p>
@@ -66,6 +47,7 @@ export default function Contact() {
                     { label: "LinkedIn", href: "https://www.linkedin.com/in/arsalanaslam1/" },
                     { label: "Behance", href: "https://www.behance.net/arslanaslam" },
                     { label: "Instagram", href: "https://www.instagram.com/3arslan.aslam/" },
+                    { label: "X", href: "https://x.com/ArslanSulehria" },
                   ].map((s) => (
                     <a key={s.label} href={s.href} target="_blank" rel="noopener noreferrer" className="block text-sm text-[var(--color-text-muted)] hover:text-[var(--color-text)] transition-colors">
                       {s.label} &rarr;
@@ -79,6 +61,12 @@ export default function Contact() {
                   Download PDF &rarr;
                 </a>
               </div>
+            </div>
+          </AnimateIn>
+
+          <AnimateIn delay={0.3}>
+            <div className="md:pl-8">
+              <ContactFormV2 />
             </div>
           </AnimateIn>
         </div>

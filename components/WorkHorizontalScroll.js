@@ -26,9 +26,14 @@ import AnimateIn from "@/components/AnimateIn";
  */
 export default function WorkHorizontalScroll({ projects }) {
   // Hide projects flagged with hiddenOnV2 (e.g. drafts, paused, redacted).
+  // Then sort by v2Order so v2 home can reorder cards independently of v1.
+  // Projects without v2Order fall back to Infinity (sort to end).
   // Filter applies to BOTH the desktop horizontal track AND the mobile/
   // reduced-motion fallback grid below — single source of truth.
-  const visibleProjects = projects.filter((p) => !p.hiddenOnV2);
+  const visibleProjects = projects
+    .filter((p) => !p.hiddenOnV2)
+    .slice()
+    .sort((a, b) => (a.v2Order ?? Infinity) - (b.v2Order ?? Infinity));
 
   const stageRef = useRef(null);
   const trackRef = useRef(null);
