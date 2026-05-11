@@ -43,7 +43,7 @@ export default function Resume() {
               <Section label="Summary">
                 <div className="text-[15px] text-[var(--color-text-muted)] leading-[1.8] space-y-4">
                   <p>
-                    Lead Product Designer with 14+ years building systems used by 20M+ people. Progressed from UX Designer to Program Manager &mdash; Design at Punjab Information Technology Board, leading design strategy across 10+ platforms serving 168 departments.
+                    Lead Product Designer with 14+ years building web and mobile systems used by 20M+ people. Progressed from UX Designer to Program Manager &mdash; Design at Punjab Information Technology Board, leading design strategy across 10+ platforms &mdash; including iOS and Android apps &mdash; serving 168 departments.
                   </p>
                   <p>
                     Experienced designing AI-powered interfaces &mdash; from automated dispatch to environmental health prediction &mdash; and integrating AI tools across design and content workflows.
@@ -69,7 +69,7 @@ export default function Resume() {
                       period: "2023–2025",
                       bullets: [
                         "Led UX strategy and design operations across 10+ government platforms, managing a team of 10–12 designers, researchers, and developers serving 168 government departments.",
-                        "Drove Maryam Ki Dastak from concept to 2.1M+ citizen service requests — a 5-module ecosystem (web portal, citizen app, facilitator app, CRM, company registration) built in 3 months, scaled from 1 to 40 districts with 87,000+ facilitators and 76 services.",
+                        "Drove Maryam Ki Dastak from concept to 2.1M+ citizen service requests — a 5-module mobile-first ecosystem (citizen iOS/Android app, facilitator app, web portal, CRM, company registration) built in 3 months, scaled from 1 to 40 districts with 87,000+ facilitators and 76 services.",
                         "Directed Punjab Jobs redesign for a platform with 500,000+ registered users and 2M+ job applications — redesigned job cards with salary data, built a recruitment module replacing spreadsheet-based hiring, and designed a native mobile app.",
                         "Managed Punjab AQI environmental monitoring platform for 36 districts — designed condition-specific health advisories (Asthma, Heart Issues, COPD), heatmap calendar visualization, and real-time dashboard tracking 6 pollutants.",
                         "Led PITB Official website redesign — 13 screens in 30 hours, bold dark theme anchored by a custom design system.",
@@ -80,7 +80,7 @@ export default function Resume() {
                       period: "2020–2023",
                       bullets: [
                         "Designed City Watch, a real-time surveillance platform for Punjab Safe City Authority integrating 8,000+ cameras — achieved SUS score of 78.25 with 87.5% of users rating usability as high.",
-                        "Created Employee Self Service app for 3,500+ employees — 98% daily check-in adoption, 120,000+ leave requests processed in 2 years, 10,000+ Play Store downloads, plus community features (carpooling, marketplace, blood donors).",
+                        "Created Employee Self Service cross-platform mobile app for 3,500+ employees — 98% daily check-in adoption, 120,000+ leave requests processed in 2 years, 10,000+ Play Store downloads, plus community features (carpooling, marketplace, blood donors).",
                         "Introduced PITB\u2019s first design system, reducing visual inconsistencies and developer revision cycles across all products.",
                       ],
                     },
@@ -133,10 +133,10 @@ export default function Resume() {
               <Section label="Key projects">
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                   {[
-                    { name: "Maryam Ki Dastak", slug: "dastak", stat: "2.1M+ requests", desc: "Doorstep govt services, 5 modules, 40 districts" },
+                    { name: "Maryam Ki Dastak", slug: "dastak", stat: "2.1M+ requests", desc: "Mobile-first doorstep services, citizen iOS/Android app + facilitator app + web portal, 40 districts" },
                     { name: "City Watch", slug: "city-watch", stat: "SUS 78.25", desc: "Surveillance platform, 8,000+ cameras" },
                     { name: "Punjab Jobs", slug: "punjab-jobs", stat: "500K+ users", desc: "Employment platform redesign, 168 departments" },
-                    { name: "Employee Self Service", slug: "ess", stat: "98% adoption", desc: "Community workplace app, 3,500+ employees" },
+                    { name: "Employee Self Service", slug: "ess", stat: "98% adoption", desc: "Cross-platform mobile workplace app, 3,500+ employees, 10,000+ Play Store downloads" },
                     { name: "PITB Official", slug: "pitb-official", stat: "13 screens", desc: "Government portal redesign, 30 hours" },
                     { name: "Punjab AQI", slug: "aqi", stat: "36 districts", desc: "Environmental monitoring, health advisories" },
                     { name: "eBiz Punjab", slug: "ebiz", stat: "100K+ registrations", desc: "Multi-department business portal" },
@@ -177,7 +177,7 @@ export default function Resume() {
             <AnimateIn delay={0.1}>
               <Section label="Design skills">
                 <div className="flex flex-wrap gap-2">
-                  {["UX Strategy", "Product Design", "Design Systems", "User Research", "Information Architecture", "Interaction Design", "Prototyping", "Usability Testing", "Conversion Optimization", "Data Visualization", "Responsive Design", "Accessibility"].map((s) => (
+                  {["UX Strategy", "Product Design", "Mobile Design", "Design Systems", "User Research", "Information Architecture", "Interaction Design", "Prototyping", "Usability Testing", "Conversion Optimization", "Data Visualization", "Responsive Design", "Accessibility"].map((s) => (
                     <span key={s} className="text-[11px] text-[var(--color-text-muted)] border border-[var(--color-border)] rounded-full px-3 py-1.5">{s}</span>
                   ))}
                 </div>
