@@ -4,7 +4,7 @@ import Link from "next/link";
 
 export const metadata = {
   title: "Resume — Arsalan Aslam",
-  description: "Lead Product Designer with 14+ years designing government platforms used by 20M+ citizens.",
+  description: "Lead Product Designer with 14+ years building systems used by 20M+ people.",
 };
 
 function Section({ label, children }) {
@@ -26,7 +26,7 @@ export default function Resume() {
             <div>
               <h1 className="text-4xl md:text-6xl font-semibold tracking-tight leading-[0.95]">Arsalan Aslam</h1>
               <p className="text-lg text-[var(--color-text-muted)] mt-3">Lead Product Designer &middot; Design Strategist</p>
-              <p className="text-sm text-[var(--color-text-subtle)] mt-2">Gothenburg, Sweden &middot; +46 76 4348 222 &middot; 3arslan.aslam@gmail.com</p>
+              <p className="text-sm text-[var(--color-text-subtle)] mt-2">Gothenburg, Sweden &middot; arsalanaslam.se@gmail.com</p>
             </div>
             <div className="flex gap-3">
               <a href="/resume.pdf" download className="btn-fill text-[11px] uppercase tracking-[0.2em] border border-[var(--color-text)] px-6 py-3">Download PDF</a>
@@ -41,9 +41,17 @@ export default function Resume() {
           <div className="md:col-span-8">
             <AnimateIn>
               <Section label="Summary">
-                <p className="text-[15px] text-[var(--color-text-muted)] leading-[1.8]">
-                  Lead Product Designer with 14+ years of experience designing public-sector platforms used by over 20 million citizens. Progressed from UX Designer to Program Manager &mdash; Design at Punjab Information Technology Board, leading design strategy across 10+ government platforms and driving the digital transformation of 76 government services across 168 departments. Experienced in designing AI-powered interfaces &mdash; from automated citizen dispatch to environmental health prediction &mdash; and leveraging AI tools to accelerate design workflows. Now based in Gothenburg, bringing a decade of large-scale design leadership to new challenges.
-                </p>
+                <div className="text-[15px] text-[var(--color-text-muted)] leading-[1.8] space-y-4">
+                  <p>
+                    Lead Product Designer with 14+ years building systems used by 20M+ people. Progressed from UX Designer to Program Manager &mdash; Design at Punjab Information Technology Board, leading design strategy across 10+ platforms serving 168 departments.
+                  </p>
+                  <p>
+                    Experienced designing AI-powered interfaces &mdash; from automated dispatch to environmental health prediction &mdash; and integrating AI tools across design and content workflows.
+                  </p>
+                  <p>
+                    Now based in Gothenburg, open to senior product design roles where complexity meets scale.
+                  </p>
+                </div>
               </Section>
             </AnimateIn>
 
@@ -115,7 +123,7 @@ export default function Resume() {
                       <h4 className="text-[15px] font-medium">Sport.CC &mdash; Web &amp; UX/UI Designer</h4>
                       <span className="text-[11px] text-[var(--color-text-subtle)]">Denmark &middot; 2012–2016</span>
                     </div>
-                    <p className="text-sm text-[var(--color-text-muted)] leading-relaxed">Designed and optimized web application interfaces through UX research, user journeys, wireframing, and prototyping. Improved accessibility and cross-platform compatibility across desktop and mobile.</p>
+                    <p className="text-sm text-[var(--color-text-muted)] leading-relaxed">Designed live sports scoring platforms and a live cricket scoring app for a Denmark-based sports media company. Owned UX research, wireframing, and prototyping for web and mobile experiences serving an international cricket audience.</p>
                   </div>
                 </div>
               </Section>
@@ -125,14 +133,15 @@ export default function Resume() {
               <Section label="Key projects">
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                   {[
-                    { name: "Maryam Ki Dastak", stat: "2.1M+ requests", desc: "Doorstep govt services, 5 modules, 40 districts" },
-                    { name: "City Watch", stat: "SUS 78.25", desc: "Surveillance platform, 8,000+ cameras" },
-                    { name: "Punjab Jobs", stat: "500K+ users", desc: "Employment platform redesign, 168 departments" },
-                    { name: "Employee Self Service", stat: "98% adoption", desc: "Community workplace app, 3,500+ employees" },
-                    { name: "PITB Official", stat: "13 screens", desc: "Government portal redesign, 30 hours" },
-                    { name: "Punjab AQI", stat: "36 districts", desc: "Environmental monitoring, health advisories" },
+                    { name: "Maryam Ki Dastak", slug: "dastak", stat: "2.1M+ requests", desc: "Doorstep govt services, 5 modules, 40 districts" },
+                    { name: "City Watch", slug: "city-watch", stat: "SUS 78.25", desc: "Surveillance platform, 8,000+ cameras" },
+                    { name: "Punjab Jobs", slug: "punjab-jobs", stat: "500K+ users", desc: "Employment platform redesign, 168 departments" },
+                    { name: "Employee Self Service", slug: "ess", stat: "98% adoption", desc: "Community workplace app, 3,500+ employees" },
+                    { name: "PITB Official", slug: "pitb-official", stat: "13 screens", desc: "Government portal redesign, 30 hours" },
+                    { name: "Punjab AQI", slug: "aqi", stat: "36 districts", desc: "Environmental monitoring, health advisories" },
+                    { name: "eBiz Punjab", slug: "ebiz", stat: "100K+ registrations", desc: "Multi-department business portal" },
                   ].map((p) => (
-                    <Link key={p.name} href={`/work/${p.name.toLowerCase().replace(/ /g, "-").replace("maryam-ki-", "")}`} className="group bg-[var(--color-bg-card)] rounded-xl p-4 hover:bg-[var(--color-bg-card-hover)] transition-colors">
+                    <Link key={p.slug} href={`/work/${p.slug}`} className="group bg-[var(--color-bg-card)] rounded-xl p-4 hover:bg-[var(--color-bg-card-hover)] transition-colors">
                       <div className="flex items-baseline justify-between mb-1">
                         <h4 className="text-sm font-medium group-hover:opacity-70 transition-opacity">{p.name}</h4>
                         <span className="text-[11px] font-semibold text-[var(--color-text)]">{p.stat}</span>
@@ -150,11 +159,11 @@ export default function Resume() {
               <Section label="Impact at a glance">
                 <div className="space-y-4">
                   {[
-                    { n: "20M+", l: "citizens impacted" },
-                    { n: "76", l: "government services digitized" },
-                    { n: "168", l: "departments served" },
-                    { n: "20+", l: "platforms shipped" },
-                    { n: "14+", l: "years in design" },
+                    { n: "2.1M", l: "Dastak service requests" },
+                    { n: "SUS 78.25", l: "City Watch operator usability" },
+                    { n: "98%", l: "ESS daily adoption" },
+                    { n: "8,000+", l: "cameras integrated" },
+                    { n: "14+ years", l: "in design" },
                   ].map((s) => (
                     <div key={s.l} className="flex items-baseline gap-2">
                       <span className="text-xl font-semibold tracking-tight stat-number">{s.n}</span>
@@ -188,7 +197,7 @@ export default function Resume() {
             <AnimateIn delay={0.15}>
               <Section label="Tools">
                 <div className="flex flex-wrap gap-2">
-                  {["Figma", "Adobe XD", "Illustrator", "Photoshop", "After Effects", "Miro", "WordPress", "Webflow", "Jira", "Trello", "GitLab", "Confluence", "Notion"].map((t) => (
+                  {["Figma", "Adobe XD", "Illustrator", "Photoshop", "After Effects", "Miro", "Webflow", "Lovable", "Jira"].map((t) => (
                     <span key={t} className="text-[11px] text-[var(--color-text-muted)] border border-[var(--color-border)] rounded-full px-3 py-1.5">{t}</span>
                   ))}
                 </div>
@@ -198,11 +207,11 @@ export default function Resume() {
             <AnimateIn delay={0.17}>
               <Section label="AI & emerging tools">
                 <div className="flex flex-wrap gap-2">
-                  {["Claude", "ChatGPT", "Gemini", "Midjourney", "GitHub Copilot", "Google Antigravity"].map((t) => (
+                  {["Claude", "ChatGPT", "Gemini", "Midjourney", "GitHub Copilot"].map((t) => (
                     <span key={t} className="text-[11px] text-[var(--color-text-muted)] border border-[var(--color-border)] rounded-full px-3 py-1.5">{t}</span>
                   ))}
                 </div>
-                <p className="text-xs text-[var(--color-text-subtle)] mt-3 leading-relaxed">AI-assisted prototyping, prompt engineering for design workflows, designing interfaces for AI-powered systems</p>
+                <p className="text-xs text-[var(--color-text-subtle)] mt-3 leading-relaxed">Integrated AI tools across content strategy, design exploration, and code implementation. Designed interfaces for AI-powered systems including automated dispatch and environmental health prediction.</p>
               </Section>
             </AnimateIn>
 
@@ -211,11 +220,11 @@ export default function Resume() {
                 <div className="space-y-4">
                   <div>
                     <p className="text-sm font-medium">Bachelor of Fine Arts in Graphic Design</p>
-                    <p className="text-xs text-[var(--color-text-muted)] mt-0.5">University of the Punjab, Lahore (2014)</p>
+                    <p className="text-xs text-[var(--color-text-muted)] mt-0.5">University of the Punjab, Lahore &middot; 2009&ndash;2014</p>
                   </div>
                   <div>
                     <p className="text-sm font-medium">Diploma in Fine Arts</p>
-                    <p className="text-xs text-[var(--color-text-muted)] mt-0.5">Naqsh School of Arts, Lahore (2008)</p>
+                    <p className="text-xs text-[var(--color-text-muted)] mt-0.5">Naqsh School of Arts, Lahore &middot; 2006&ndash;2008</p>
                   </div>
                 </div>
               </Section>
@@ -235,6 +244,7 @@ export default function Resume() {
                     { label: "Portfolio", href: "/" },
                     { label: "LinkedIn", href: "https://www.linkedin.com/in/arsalanaslam1/" },
                     { label: "Behance", href: "https://www.behance.net/arslanaslam" },
+                    { label: "Instagram", href: "https://www.instagram.com/3arslan.aslam/" },
                   ].map((l) => (
                     <a key={l.label} href={l.href} className="block text-sm text-[var(--color-text-muted)] hover:text-[var(--color-text)] transition-colors">
                       {l.label} &rarr;
