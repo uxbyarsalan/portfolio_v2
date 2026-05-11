@@ -67,11 +67,11 @@ export default function MakingOf() {
             <AnimateIn>
               <div className="md:max-w-2xl">
                 <p className="text-2xl md:text-3xl font-semibold text-[var(--color-text-inv)] leading-[1.3] tracking-tight">
-                  My work is used by 20 million people.<br />My portfolio wasn&rsquo;t doing it justice.
+                  My work is used by 20 million people.<br />My portfolio wasn&rsquo;t arguing for it.
                 </p>
                 <div className="w-full h-[1px] bg-white/20 mt-8 mb-5" />
                 <p className="text-sm text-white/50 leading-[1.75]">
-                  Fourteen years of design work. Seven case studies. Real metrics &mdash; 2.1M citizen requests, 500K+ users, 98% adoption on internal platforms. But the site presenting all of it was a generic dark template with surface-level descriptions. The work was specific. The portfolio wasn&rsquo;t. That gap is what I sat down to close.
+                  Fourteen years of design work. Seven case studies. Real metrics &mdash; 2.1M citizen requests, 500K+ users, 98% adoption on internal platforms. The visual design wasn&rsquo;t the problem. The story was. Project descriptions were surface-level. The hero pitched to no one in particular. As a Program Manager &mdash; Design, I knew both halves matter. So I rebuilt the half that wasn&rsquo;t working.
                 </p>
               </div>
             </AnimateIn>
@@ -83,7 +83,7 @@ export default function MakingOf() {
           <AnimateIn>
             <h2 className="text-3xl md:text-4xl font-semibold tracking-tight mb-4">The approach: content first, code last</h2>
             <p className="text-[15px] text-[var(--color-text-muted)] leading-[1.8] max-w-2xl mb-16">
-              Most portfolio redesigns start with picking a template or a color palette. This one started with a question: what&rsquo;s actually weak about the content? Once that was answered honestly, the design had something real to support &mdash; and most of the visual decisions made themselves.
+              Most portfolio redesigns start with picking a template or a color palette. This one started by accepting that the visuals were fine and the writing wasn&rsquo;t. Once the content was honest about what each project actually did, the design had something specific to support &mdash; and most of the visual decisions followed from there.
             </p>
           </AnimateIn>
         </section>
