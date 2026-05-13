@@ -1,5 +1,6 @@
 import Nav from "@/components/Nav";
 import Footer from "@/components/Footer";
+import FooterCTA from "@/components/FooterCTA";
 import AnimateIn from "@/components/AnimateIn";
 import Link from "next/link";
 import Image from "next/image";
@@ -7,6 +8,12 @@ import Image from "next/image";
 export const metadata = {
   title: "eBiz Punjab — Case Study | Arsalan Aslam",
   description: "One portal for business registration, licenses, and permits across multiple Punjab government departments. 100,000+ businesses registered, 7-day process reduced to 2.",
+  openGraph: {
+    title: "eBiz Punjab — Case Study | Arsalan Aslam",
+    description: "One portal for business registration, licenses, and permits across multiple Punjab government departments. 100,000+ businesses registered, 7-day process reduced to 2.",
+    type: "article",
+    images: [{ url: "/og/og-ebiz.png", width: 1200, height: 630, alt: "eBiz Punjab — Business registration portal, 100K+ businesses" }],
+  },
 };
 
 function Stat({ value, label }) {
@@ -275,6 +282,7 @@ export default function EBizCaseStudy() {
           </AnimateIn>
         </section>
       </main>
+      <FooterCTA />
       <Footer />
     </>
   );

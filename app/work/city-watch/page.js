@@ -1,5 +1,6 @@
 import Nav from "@/components/Nav";
 import Footer from "@/components/Footer";
+import FooterCTA from "@/components/FooterCTA";
 import AnimateIn from "@/components/AnimateIn";
 import Link from "next/link";
 import Image from "next/image";
@@ -7,6 +8,12 @@ import Image from "next/image";
 export const metadata = {
   title: "City Watch — Case Study | Arsalan Aslam",
   description: "Real-time surveillance and response platform for Punjab Safe City Authority. SUS score 78.25, 8,000+ cameras.",
+  openGraph: {
+    title: "City Watch — Case Study | Arsalan Aslam",
+    description: "Real-time surveillance and response platform for Punjab Safe City Authority. SUS score 78.25, 8,000+ cameras.",
+    type: "article",
+    images: [{ url: "/og/og-city-watch.png", width: 1200, height: 630, alt: "City Watch — Surveillance platform, 8,000+ cameras" }],
+  },
 };
 
 function Stat({ value, label }) {
@@ -274,6 +281,7 @@ export default function CityWatchCaseStudy() {
           </AnimateIn>
         </section>
       </main>
+      <FooterCTA />
       <Footer />
     </>
   );

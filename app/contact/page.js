@@ -6,6 +6,12 @@ import ContactForm from "@/components/ContactForm";
 export const metadata = {
   title: "Contact — Arsalan Aslam",
   description: "Get in touch for freelance projects or full-time opportunities.",
+  openGraph: {
+    title: "Contact — Arsalan Aslam",
+    description: "Get in touch for freelance projects or full-time opportunities.",
+    type: "website",
+    images: [{ url: "/og/og-contact.png", width: 1200, height: 630, alt: "Contact Arsalan Aslam" }],
+  },
 };
 
 export default function Contact() {
@@ -56,7 +62,7 @@ export default function Contact() {
               </div>
               <div>
                 <p className="text-[11px] uppercase tracking-[0.15em] text-[var(--color-text-subtle)] mb-2">Resume</p>
-                <a href="https://drive.google.com/file/d/1OJ9VnhfsWDUU-1pFmuqeSqdjjtt-1vaE/view?usp=sharing" target="_blank" rel="noopener noreferrer" className="text-sm hover:underline">
+                <a href="/resume.pdf" download className="text-sm hover:underline">
                   Download PDF &rarr;
                 </a>
               </div>
@@ -69,6 +75,25 @@ export default function Contact() {
             </div>
           </AnimateIn>
         </div>
+
+        <AnimateIn delay={0.1}>
+          <div className="border-t border-[var(--color-border)] mt-20 pt-16 pb-4 max-w-3xl">
+            <p className="text-2xl md:text-3xl font-medium tracking-tight leading-[1.2]">
+              Prefer a quick call?
+            </p>
+            <p className="text-sm md:text-base text-[var(--color-text-muted)] mt-4 max-w-xl leading-relaxed">
+              Sometimes a 15-minute call is faster than typing it out. Book a time below &mdash; works for roles, opportunities, or just a chat about my work.
+            </p>
+            <a
+              href="https://calendly.com/arsalanaslam-se/new-meeting"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="btn-fill inline-block mt-8 text-[11px] uppercase tracking-[0.2em] border border-[var(--color-text)] px-7 py-3.5"
+            >
+              Book 15 minutes
+            </a>
+          </div>
+        </AnimateIn>
       </main>
       <Footer />
     </>

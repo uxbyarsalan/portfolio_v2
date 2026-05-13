@@ -1,11 +1,12 @@
 import "./globals.css";
+import { Analytics } from "@vercel/analytics/react";
 
 export const metadata = {
   title: "Arsalan Aslam — Lead Product Designer",
-  description: "Product designer crafting public-sector platforms used by 20M+ citizens. Based in Gothenburg, Sweden.",
+  description: "Lead Product Designer with 14+ years building systems used by 20M+ people. Based in Gothenburg, Sweden.",
   openGraph: {
     title: "Arsalan Aslam — Lead Product Designer",
-    description: "Product designer crafting public-sector platforms used by 20M+ citizens.",
+    description: "Lead Product Designer with 14+ years building systems used by 20M+ people.",
     url: "https://uxbyarsalan.com",
     siteName: "Arsalan Aslam",
     locale: "en_US",
@@ -21,7 +22,10 @@ export default function RootLayout({ children }) {
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
         <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
       </head>
-      <body className="min-h-screen">{children}</body>
+      <body className="min-h-screen">
+        {children}
+        <Analytics />
+      </body>
     </html>
   );
 }

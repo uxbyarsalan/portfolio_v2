@@ -1,5 +1,6 @@
 import Nav from "@/components/Nav";
 import Footer from "@/components/Footer";
+import FooterCTA from "@/components/FooterCTA";
 import AnimateIn from "@/components/AnimateIn";
 import Link from "next/link";
 import Image from "next/image";
@@ -7,6 +8,12 @@ import Image from "next/image";
 export const metadata = {
   title: "PITB Official — Project Spotlight | Arsalan Aslam",
   description: "Redesigning the flagship web portal for Punjab's technology authority. 13 screens, 30 hours of focused design.",
+  openGraph: {
+    title: "PITB Official — Project Spotlight | Arsalan Aslam",
+    description: "Redesigning the flagship web portal for Punjab's technology authority. 13 screens, 30 hours of focused design.",
+    type: "article",
+    images: [{ url: "/og/og-pitb-official.png", width: 1200, height: 630, alt: "PITB Official — Government portal redesign" }],
+  },
 };
 
 export default function PITBOfficialCaseStudy() {
@@ -157,6 +164,7 @@ export default function PITBOfficialCaseStudy() {
           </AnimateIn>
         </section>
       </main>
+      <FooterCTA />
       <Footer />
     </>
   );

@@ -1,12 +1,19 @@
 import Nav from "@/components/Nav";
 import Footer from "@/components/Footer";
+import FooterCTA from "@/components/FooterCTA";
 import AnimateIn from "@/components/AnimateIn";
 import Link from "next/link";
 import Image from "next/image";
 
 export const metadata = {
   title: "Maryam Ki Dastak — Case Study | Arsalan Aslam",
-  description: "Delivering government services to citizens' doorsteps. 2.1M+ requests, 87,000+ facilitators, 40 districts.",
+  description: "Delivering government services to the people who need them, at their doorstep. 2.1M+ requests, 87,000+ facilitators, 40 districts.",
+  openGraph: {
+    title: "Maryam Ki Dastak — Case Study | Arsalan Aslam",
+    description: "Delivering government services to the people who need them, at their doorstep. 2.1M+ requests, 87,000+ facilitators, 40 districts.",
+    type: "article",
+    images: [{ url: "/og/og-dastak.png", width: 1200, height: 630, alt: "Maryam Ki Dastak — 2.1M+ government services delivered" }],
+  },
 };
 
 function Stat({ value, label }) {
@@ -62,7 +69,7 @@ export default function DastakCaseStudy() {
           </AnimateIn>
           <AnimateIn delay={0.2}>
             <p className="text-lg md:text-xl text-[var(--color-text-muted)] mt-6 max-w-xl leading-relaxed">
-              Delivering government services to citizens&rsquo; doorsteps across Punjab
+              Delivering government services to people&rsquo;s doorsteps across Punjab
             </p>
           </AnimateIn>
         </section>
@@ -299,6 +306,7 @@ export default function DastakCaseStudy() {
           </AnimateIn>
         </section>
       </main>
+      <FooterCTA />
       <Footer />
     </>
   );

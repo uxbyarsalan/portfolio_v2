@@ -1,5 +1,6 @@
 import Nav from "@/components/Nav";
 import Footer from "@/components/Footer";
+import FooterCTA from "@/components/FooterCTA";
 import AnimateIn from "@/components/AnimateIn";
 import Link from "next/link";
 import Image from "next/image";
@@ -7,6 +8,12 @@ import Image from "next/image";
 export const metadata = {
   title: "Punjab Jobs — Case Study | Arsalan Aslam",
   description: "Redesigning Punjab's employment platform. 500K+ users, 2M+ applications, 168 government departments.",
+  openGraph: {
+    title: "Punjab Jobs — Case Study | Arsalan Aslam",
+    description: "Redesigning Punjab's employment platform. 500K+ users, 2M+ applications, 168 government departments.",
+    type: "article",
+    images: [{ url: "/og/og-punjab-jobs.png", width: 1200, height: 630, alt: "Punjab Jobs — Employment platform, 500K+ users" }],
+  },
 };
 
 function Stat({ value, label }) {
@@ -294,6 +301,7 @@ export default function PunjabJobsCaseStudy() {
           </AnimateIn>
         </section>
       </main>
+      <FooterCTA />
       <Footer />
     </>
   );

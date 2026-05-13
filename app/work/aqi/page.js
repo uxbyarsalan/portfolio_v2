@@ -1,5 +1,6 @@
 import Nav from "@/components/Nav";
 import Footer from "@/components/Footer";
+import FooterCTA from "@/components/FooterCTA";
 import AnimateIn from "@/components/AnimateIn";
 import Link from "next/link";
 import Image from "next/image";
@@ -7,6 +8,12 @@ import Image from "next/image";
 export const metadata = {
   title: "Punjab AQI — Case Study | Arsalan Aslam",
   description: "Environmental monitoring platform making air quality actionable across 36 districts. Health precautions by condition.",
+  openGraph: {
+    title: "Punjab AQI — Case Study | Arsalan Aslam",
+    description: "Environmental monitoring platform making air quality actionable across 36 districts. Health precautions by condition.",
+    type: "article",
+    images: [{ url: "/og/og-aqi.png", width: 1200, height: 630, alt: "Punjab AQI — Environmental monitoring, 36 districts" }],
+  },
 };
 
 function Stat({ value, label }) {
@@ -84,7 +91,7 @@ export default function AQICaseStudy() {
               <div className="bg-[var(--color-bg-card)] rounded-xl p-5 text-center">
                 <p className="text-3xl font-semibold tracking-tight mb-1">194</p>
                 <p className="text-[10px] text-[var(--color-text-subtle)]">Raw number</p>
-                <p className="text-[10px] text-[var(--color-text-subtle)] italic mt-1">Means nothing to citizens</p>
+                <p className="text-[10px] text-[var(--color-text-subtle)] italic mt-1">Means nothing on its own</p>
               </div>
               <div className="rounded-xl p-5 text-center" style={{ background: "#FFCCBC" }}>
                 <p className="text-3xl font-semibold tracking-tight mb-1" style={{ color: "#4A1B0C" }}>194</p>
@@ -234,6 +241,7 @@ export default function AQICaseStudy() {
           </AnimateIn>
         </section>
       </main>
+      <FooterCTA />
       <Footer />
     </>
   );

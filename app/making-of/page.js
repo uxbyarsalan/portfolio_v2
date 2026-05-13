@@ -1,11 +1,18 @@
 import Nav from "@/components/Nav";
 import Footer from "@/components/Footer";
+import FooterCTA from "@/components/FooterCTA";
 import AnimateIn from "@/components/AnimateIn";
 import Link from "next/link";
 
 export const metadata = {
   title: "Behind the scenes — How this portfolio came together | Arsalan Aslam",
   description: "From scattered work to coherent story. A record of how this portfolio was rebuilt — content first, code last.",
+  openGraph: {
+    title: "Behind the scenes — How this portfolio came together | Arsalan Aslam",
+    description: "From scattered work to coherent story. A record of how this portfolio was rebuilt — content first, code last.",
+    type: "article",
+    images: [{ url: "/og/og-making-of.png", width: 1200, height: 630, alt: "Behind the scenes — How this portfolio came together" }],
+  },
 };
 
 function Phase({ number, title, description, tools, children }) {
@@ -331,6 +338,7 @@ export default function MakingOf() {
           </AnimateIn>
         </section>
       </main>
+      <FooterCTA />
       <Footer />
     </>
   );

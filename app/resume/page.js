@@ -5,6 +5,12 @@ import Link from "next/link";
 export const metadata = {
   title: "Resume — Arsalan Aslam",
   description: "Lead Product Designer with 14+ years building systems used by 20M+ people.",
+  openGraph: {
+    title: "Resume — Arsalan Aslam",
+    description: "Lead Product Designer with 14+ years building systems used by 20M+ people.",
+    type: "website",
+    images: [{ url: "/og/og-resume.png", width: 1200, height: 630, alt: "Resume — Arsalan Aslam" }],
+  },
 };
 
 function Section({ label, children }) {

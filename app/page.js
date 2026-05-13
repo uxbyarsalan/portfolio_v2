@@ -1,5 +1,6 @@
 import Nav from "@/components/Nav";
 import Footer from "@/components/Footer";
+import FooterCTA from "@/components/FooterCTA";
 import AnimateIn from "@/components/AnimateIn";
 import WorkHorizontalScroll from "@/components/WorkHorizontalScroll";
 import Link from "next/link";
@@ -7,6 +8,20 @@ import Image from "next/image";
 import { projects } from "@/lib/projects";
 
 // Using .wrapper class from globals.css
+
+export const metadata = {
+  title: "Arsalan Aslam — Lead Product Designer",
+  description: "Designing systems that serve 20M+ users — where complexity becomes clarity, and clarity becomes trust. 14+ years across 7 case studies. Based in Gothenburg, Sweden.",
+  openGraph: {
+    title: "Arsalan Aslam — Lead Product Designer",
+    description: "Designing systems that serve 20M+ users — where complexity becomes clarity, and clarity becomes trust.",
+    url: "https://uxbyarsalan.com",
+    siteName: "Arsalan Aslam",
+    locale: "en_US",
+    type: "website",
+    images: [{ url: "/og/og-home.png", width: 1200, height: 630, alt: "Arsalan Aslam — Lead Product Designer" }],
+  },
+};
 
 export default function Home() {
   return (
@@ -110,14 +125,14 @@ export default function Home() {
                 <div className="space-y-5 text-[var(--color-text-muted)] leading-[1.8] text-[15px]">
                   <p>
                     I started my career building web interfaces in Lahore, and over the years grew into
-                    leading design strategy for Punjab&rsquo;s largest government technology organization.
-                    At PITB, I led UX across 10+ platforms touching everything from police operations to
+                    leading design strategy at Punjab&rsquo;s Information Technology Board. There I led UX across 10+ platforms, from police operations to
                     employment services to environmental monitoring &mdash; systems used by over 20 million people.
                   </p>
                   <p>
-                    What I bring to every project is an ability to navigate institutional complexity while
-                    keeping the end user&rsquo;s experience simple and clear. I&rsquo;m now based in
-                    Gothenburg, bringing that same approach to new challenges.
+                    What that taught me was how to find clarity inside systems that resist it. Stakeholders
+                    with competing priorities, legacy constraints, scale that doesn&rsquo;t forgive sloppy
+                    decisions &mdash; these are the conditions I do my best work in. I&rsquo;m now based in
+                    Gothenburg, looking for the next set of problems worth solving carefully.
                   </p>
                 </div>
               </AnimateIn>
@@ -139,7 +154,7 @@ export default function Home() {
                 <span className="text-lg font-semibold">9 years at Punjab Information Technology Board</span>
                 <span className="text-[var(--color-text-muted)]">&mdash;</span>
                 <span className="text-[15px] text-[var(--color-text-muted)] leading-relaxed">
-                  from UX Designer to Program Manager, leading design across 10+ government platforms serving 20M+ citizens
+                  from UX Designer to Program Manager, leading design across 10+ government platforms serving 20M+ users
                 </span>
               </div>
               <div className="flex flex-wrap gap-2.5 mt-4">
@@ -221,6 +236,7 @@ export default function Home() {
           </AnimateIn>
         </section>
       </main>
+      <FooterCTA />
       <Footer />
     </>
   );

@@ -1,5 +1,6 @@
 import Nav from "@/components/Nav";
 import Footer from "@/components/Footer";
+import FooterCTA from "@/components/FooterCTA";
 import AnimateIn from "@/components/AnimateIn";
 import Link from "next/link";
 import Image from "next/image";
@@ -7,6 +8,12 @@ import Image from "next/image";
 export const metadata = {
   title: "Employee Self Service — Case Study | Arsalan Aslam",
   description: "Workplace community platform for 3,500+ employees. 98% daily adoption, 120K+ leave requests processed.",
+  openGraph: {
+    title: "Employee Self Service — Case Study | Arsalan Aslam",
+    description: "Workplace community platform for 3,500+ employees. 98% daily adoption, 120K+ leave requests processed.",
+    type: "article",
+    images: [{ url: "/og/og-ess.png", width: 1200, height: 630, alt: "Employee Self Service — Workplace platform, 3,500+ employees" }],
+  },
 };
 
 function Stat({ value, label }) {
@@ -295,6 +302,7 @@ export default function ESSCaseStudy() {
           </AnimateIn>
         </section>
       </main>
+      <FooterCTA />
       <Footer />
     </>
   );
