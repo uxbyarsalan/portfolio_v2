@@ -77,21 +77,23 @@ export default function Contact() {
         </div>
 
         <AnimateIn delay={0.1}>
-          <div className="border-t border-[var(--color-border)] mt-20 pt-16 pb-4 max-w-3xl">
-            <p className="text-2xl md:text-3xl font-medium tracking-tight leading-[1.2]">
-              Prefer a quick call?
-            </p>
-            <p className="text-sm md:text-base text-[var(--color-text-muted)] mt-4 max-w-xl leading-relaxed">
-              Sometimes a 15-minute call is faster than typing it out. Book a time below &mdash; works for roles, opportunities, or just a chat about my work.
-            </p>
-            <a
-              href="https://calendly.com/arsalanaslam-se/new-meeting"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="btn-fill inline-block mt-8 text-[11px] uppercase tracking-[0.2em] border border-[var(--color-text)] px-7 py-3.5"
-            >
-              Book 15 minutes
-            </a>
+          <div className="border-t border-[var(--color-border)] mt-20 pt-16 pb-4">
+            <div className="max-w-3xl">
+              <p className="text-2xl md:text-3xl font-medium tracking-tight leading-[1.2]">
+                Prefer a quick call?
+              </p>
+              <p className="text-sm md:text-base text-[var(--color-text-muted)] mt-4 max-w-xl leading-relaxed">
+                Sometimes a 15-minute call is faster than typing it out. Book a time below &mdash; works for roles, opportunities, or just a chat about my work.
+              </p>
+              <a
+                href="https://calendly.com/arsalanaslam-se/new-meeting"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="btn-fill inline-block mt-8 text-[11px] uppercase tracking-[0.2em] border border-[var(--color-text)] px-7 py-3.5"
+              >
+                Book 15 minutes
+              </a>
+            </div>
           </div>
         </AnimateIn>
       </main>
