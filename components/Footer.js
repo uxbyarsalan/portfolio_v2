@@ -1,7 +1,9 @@
+import Link from "next/link";
+
 /**
  * Site-wide footer (bottom strip only).
  *
- * Contains: location/availability blurb, social links, copyright.
+ * Contains: location/availability blurb, social links, copyright + privacy link.
  *
  * The "Let's build something that matters" CTA block was split out into a
  * separate FooterCTA component in v18.31, so the contact page can render
@@ -36,7 +38,12 @@ export default function Footer() {
             ))}
           </div>
         </div>
-        <p className="text-[11px] text-[var(--color-text-subtle)] mt-8">&copy; {new Date().getFullYear()} Arsalan Aslam. All rights reserved.</p>
+        <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-2 mt-8">
+          <p className="text-[11px] text-[var(--color-text-subtle)]">&copy; {new Date().getFullYear()} Arsalan Aslam. All rights reserved.</p>
+          <Link href="/privacy" className="text-[11px] text-[var(--color-text-subtle)] hover:text-[var(--color-text)] transition-colors">
+            Privacy
+          </Link>
+        </div>
       </div>
     </footer>
   );

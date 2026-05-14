@@ -71,7 +71,7 @@ export default function Nav() {
             <span aria-hidden="true" className="block w-[1px] h-3 bg-[var(--color-border)]" />
             <a
               href="/resume.pdf"
-              download
+              download="Arsalan-Aslam-Resume.pdf"
               aria-label="Download resume PDF"
               className="nav-link inline-flex items-center text-[var(--color-text-muted)] hover:text-[var(--color-text)] transition-colors"
             >
