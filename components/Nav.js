@@ -57,7 +57,7 @@ export default function Nav() {
             Resume nav unit — visually one slot, two click targets.
             - "Resume" text → /resume page (same styling as other nav links)
             - Light grey vertical divider — communicates "two things here"
-            - Down arrow icon → /resume.pdf direct download (with `download` attr)
+            - Down arrow icon → /Arsalan-Aslam-Resume.pdf direct download (with `download` attr)
             Hover: both elements darken from text-muted to text, matching the other links.
             Accessibility: icon link has aria-label so screen readers distinguish it from the page link.
           */}
@@ -70,8 +70,8 @@ export default function Nav() {
             </Link>
             <span aria-hidden="true" className="block w-[1px] h-3 bg-[var(--color-border)]" />
             <a
-              href="/resume.pdf"
-              download="Arsalan-Aslam-Resume.pdf"
+              href="/Arsalan-Aslam-Resume.pdf"
+              download
               aria-label="Download resume PDF"
               className="nav-link inline-flex items-center text-[var(--color-text-muted)] hover:text-[var(--color-text)] transition-colors"
             >

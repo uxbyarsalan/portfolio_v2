@@ -35,7 +35,7 @@ export default function Resume() {
               <p className="text-sm text-[var(--color-text-subtle)] mt-2">Gothenburg, Sweden &middot; arsalanaslam.se@gmail.com</p>
             </div>
             <div className="flex gap-3">
-              <a href="/resume.pdf" download="Arsalan-Aslam-Resume.pdf" className="btn-fill text-[11px] uppercase tracking-[0.2em] border border-[var(--color-text)] px-6 py-3">Download PDF</a>
+              <a href="/Arsalan-Aslam-Resume.pdf" download className="btn-fill text-[11px] uppercase tracking-[0.2em] border border-[var(--color-text)] px-6 py-3">Download PDF</a>
               <Link href="/contact" className="text-[11px] uppercase tracking-[0.2em] border border-[var(--color-border)] px-6 py-3 text-[var(--color-text-muted)] hover:border-[var(--color-text)] hover:text-[var(--color-text)] transition-all">Contact</Link>
             </div>
           </div>

@@ -38,11 +38,14 @@ export default function Footer() {
             ))}
           </div>
         </div>
-        <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-2 mt-8">
-          <p className="text-[11px] text-[var(--color-text-subtle)]">&copy; {new Date().getFullYear()} Arsalan Aslam. All rights reserved.</p>
-          <Link href="/privacy" className="text-[11px] text-[var(--color-text-subtle)] hover:text-[var(--color-text)] transition-colors">
-            Privacy
-          </Link>
+        <div className="mt-8">
+          <p className="text-[11px] text-[var(--color-text-subtle)]">
+            &copy; {new Date().getFullYear()} Arsalan Aslam. All rights reserved.
+            &nbsp;&middot;&nbsp;
+            <Link href="/privacy" className="hover:text-[var(--color-text)] transition-colors">
+              Privacy Policy
+            </Link>
+          </p>
         </div>
       </div>
     </footer>

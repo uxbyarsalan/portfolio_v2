@@ -62,7 +62,7 @@ export default function Contact() {
               </div>
               <div>
                 <p className="text-[11px] uppercase tracking-[0.15em] text-[var(--color-text-subtle)] mb-2">Resume</p>
-                <a href="/resume.pdf" download="Arsalan-Aslam-Resume.pdf" className="text-sm hover:underline">
+                <a href="/Arsalan-Aslam-Resume.pdf" download className="text-sm hover:underline">
                   Download PDF &rarr;
                 </a>
               </div>

@@ -4,10 +4,10 @@ import Footer from "@/components/Footer";
 import FooterCTA from "@/components/FooterCTA";
 
 export const metadata = {
-  title: "Privacy — Arsalan Aslam",
+  title: "Privacy Policy — Arsalan Aslam",
   description: "What this site collects, how it's used, and your rights as a visitor.",
   openGraph: {
-    title: "Privacy — Arsalan Aslam",
+    title: "Privacy Policy — Arsalan Aslam",
     description: "What this site collects, how it's used, and your rights as a visitor.",
     type: "website",
   },
@@ -20,7 +20,7 @@ export default function Privacy() {
       <main className="wrapper pt-28 pb-20 md:pt-36">
         <AnimateIn>
           <div className="max-w-2xl">
-            <p className="text-[11px] uppercase tracking-[0.3em] text-[var(--color-text-subtle)] mb-6">Privacy</p>
+            <p className="text-[11px] uppercase tracking-[0.3em] text-[var(--color-text-subtle)] mb-6">Privacy Policy</p>
             <h1 className="text-4xl md:text-5xl font-semibold tracking-tight leading-[1.05] mb-8">
               How this site handles your data.
             </h1>
