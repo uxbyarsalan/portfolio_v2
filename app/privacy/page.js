@@ -103,7 +103,7 @@ export default function Privacy() {
                 Contact
               </p>
               <p>
-                Arsalan Aslam, Gothenburg, Sweden. Reachable at <a href="mailto:arsalanaslam.se@gmail.com" className="underline hover:no-underline">arsalanaslam.se@gmail.com</a>.
+                Arsalan Aslam, Lahore, Pakistan. Reachable at <a href="mailto:arsalanaslam.se@gmail.com" className="underline hover:no-underline">arsalanaslam.se@gmail.com</a>.
               </p>
             </section>
           </div>

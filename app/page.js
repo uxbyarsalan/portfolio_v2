@@ -11,7 +11,7 @@ import { projects } from "@/lib/projects";
 
 export const metadata = {
   title: "Arsalan Aslam — Lead Product Designer",
-  description: "Designing systems that serve 20M+ users — where complexity becomes clarity, and clarity becomes trust. 14+ years across 7 case studies. Based in Gothenburg, Sweden.",
+  description: "Designing systems that serve 20M+ users — where complexity becomes clarity, and clarity becomes trust. 14+ years across 7 case studies. Based in Lahore, Pakistan.",
   openGraph: {
     title: "Arsalan Aslam — Lead Product Designer",
     description: "Designing systems that serve 20M+ users — where complexity becomes clarity, and clarity becomes trust.",
@@ -132,7 +132,7 @@ export default function Home() {
                     What that taught me was how to find clarity inside systems that resist it. Stakeholders
                     with competing priorities, legacy constraints, scale that doesn&rsquo;t forgive sloppy
                     decisions &mdash; these are the conditions I do my best work in. I&rsquo;m now based in
-                    Gothenburg, looking for the next set of problems worth solving carefully.
+                    Lahore, looking for the next set of problems worth solving carefully &mdash; wherever they are.
                   </p>
                 </div>
               </AnimateIn>

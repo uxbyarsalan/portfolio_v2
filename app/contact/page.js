@@ -40,7 +40,7 @@ export default function Contact() {
             <div className="space-y-10">
               <div>
                 <p className="text-[11px] uppercase tracking-[0.15em] text-[var(--color-text-subtle)] mb-2">Location</p>
-                <p className="text-sm">Gothenburg, Sweden</p>
+                <p className="text-sm">Lahore, Pakistan</p>
               </div>
               <div>
                 <p className="text-[11px] uppercase tracking-[0.15em] text-[var(--color-text-subtle)] mb-2">Email</p>

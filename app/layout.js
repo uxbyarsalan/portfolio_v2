@@ -3,7 +3,7 @@ import { Analytics } from "@vercel/analytics/react";
 
 export const metadata = {
   title: "Arsalan Aslam — Lead Product Designer",
-  description: "Lead Product Designer with 14+ years building systems used by 20M+ people. Based in Gothenburg, Sweden.",
+  description: "Lead Product Designer with 14+ years building systems used by 20M+ people. Based in Lahore, Pakistan.",
   openGraph: {
     title: "Arsalan Aslam — Lead Product Designer",
     description: "Lead Product Designer with 14+ years building systems used by 20M+ people.",

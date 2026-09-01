@@ -32,7 +32,7 @@ export default function Resume() {
             <div>
               <h1 className="text-4xl md:text-6xl font-semibold tracking-tight leading-[0.95]">Arsalan Aslam</h1>
               <p className="text-lg text-[var(--color-text-muted)] mt-3">Lead Product Designer &middot; Design Strategist</p>
-              <p className="text-sm text-[var(--color-text-subtle)] mt-2">Gothenburg, Sweden &middot; arsalanaslam.se@gmail.com</p>
+              <p className="text-sm text-[var(--color-text-subtle)] mt-2">Lahore, Pakistan &middot; arsalanaslam.se@gmail.com</p>
             </div>
             <div className="flex gap-3">
               <a href="/Arsalan-Aslam-Resume.pdf" download className="btn-fill text-[11px] uppercase tracking-[0.2em] border border-[var(--color-text)] px-6 py-3">Download PDF</a>
@@ -55,7 +55,7 @@ export default function Resume() {
                     Experienced designing AI-powered interfaces &mdash; from automated dispatch to environmental health prediction &mdash; and integrating AI tools across design and content workflows.
                   </p>
                   <p>
-                    Now based in Gothenburg, open to senior product design roles where complexity meets scale.
+                    Based in Lahore, open to senior product design roles &mdash; remote or relocation &mdash; where complexity meets scale.
                   </p>
                 </div>
               </Section>

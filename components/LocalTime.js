@@ -2,7 +2,7 @@
 import { useState, useEffect } from "react";
 
 /**
- * LocalTime — live clock showing current time in Gothenburg (Europe/Stockholm).
+ * LocalTime — live clock showing current time in Lahore (Asia/Karachi).
  *
  * Renders nothing on the server (returns null until mounted client-side) to
  * prevent React hydration mismatches — the server doesn't know "now" the same
@@ -13,10 +13,10 @@ import { useState, useEffect } from "react";
  * and stops taking layout space. Same threshold as the rest of the nav's
  * scroll-state transition for synchronized motion.
  *
- * Uses Intl.DateTimeFormat with timeZone: "Europe/Stockholm" so the time is
- * always accurate to Gothenburg regardless of where the visitor is. A recruiter
+ * Uses Intl.DateTimeFormat with timeZone: "Asia/Karachi" so the time is
+ * always accurate to Lahore regardless of where the visitor is. A recruiter
  * in San Francisco viewing the page at 4am their time sees the actual current
- * time in Gothenburg — that's the whole point of the indicator.
+ * time in Lahore — that's the whole point of the indicator.
  *
  * Desktop only: hidden on mobile (md: breakpoint) because the nav is tight.
  *
@@ -31,7 +31,7 @@ export default function LocalTime({ hidden = false }) {
     setMounted(true);
 
     const formatter = new Intl.DateTimeFormat("en-GB", {
-      timeZone: "Europe/Stockholm",
+      timeZone: "Asia/Karachi",
       hour: "2-digit",
       minute: "2-digit",
       second: "2-digit",
@@ -57,11 +57,11 @@ export default function LocalTime({ hidden = false }) {
       className={`hidden md:flex items-center text-[11px] uppercase tracking-[0.2em] text-[var(--color-text-subtle)] overflow-hidden transition-all duration-300 ease-out ${
         hidden ? "opacity-0 max-w-0 ml-0 pointer-events-none" : "opacity-100 max-w-[220px] ml-8"
       }`}
-      aria-label={`Local time in Gothenburg, Sweden: ${time}`}
+      aria-label={`Local time in Lahore, Pakistan: ${time}`}
     >
       {/* Whitespace inside spans prevents text from being wrapped mid-character
           when the max-width animates. The whole label is one phrase, no wrap. */}
-      <span className="whitespace-nowrap">Gothenburg / {time}</span>
+      <span className="whitespace-nowrap">Lahore / {time}</span>
     </div>
   );
 }
