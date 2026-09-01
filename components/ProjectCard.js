@@ -24,8 +24,14 @@ export default function ProjectCard({
   square = false,
   variant = "default",
 }) {
-  const { slug, title, subtitle, stat, statLabel, image } = project;
+  const { slug, title, headline, stat, statLabel, stats, image } = project;
   const isOutlined = variant === "outlined";
+
+  // Outcome-led card anatomy: small name tag → headline → combined stat line.
+  // Falls back to legacy title/subtitle/stat when the new fields are absent.
+  const displayHeadline = headline || title;
+  const tag = headline ? title : null;
+  const statLine = stats || (stat ? `${stat}${statLabel ? " " + statLabel : ""}` : null);
 
   // Outer link — class swap is the mechanism that disables the global zoom rule on v2 home
   const linkClass = `${isOutlined ? "proj-card-flat" : "proj-card"} group block h-full`;
@@ -42,9 +48,9 @@ export default function ProjectCard({
 
   // Heading size: default keeps original text-2xl/text-3xl (24/30px).
   // Outlined drops desktop to 27px (cards are narrower in 3-col layout). Mobile unchanged.
-  const titleClass = isOutlined
-    ? "text-2xl md:text-[27px] font-semibold tracking-tight leading-[1.05] mb-3 text-[var(--color-text)]"
-    : "text-2xl md:text-3xl font-semibold tracking-tight leading-[1.05] mb-3 text-[var(--color-text)]";
+  const headlineClass = isOutlined
+    ? "text-2xl md:text-[27px] font-semibold tracking-tight leading-[1.1] mb-4 text-[var(--color-text)]"
+    : "text-2xl md:text-3xl font-semibold tracking-tight leading-[1.1] mb-4 text-[var(--color-text)]";
 
   // Outlined variant: image bleeds edge-to-edge horizontally with no side margin,
   // and uses rounded-none so the image is perfectly flush against the card strokes.
@@ -62,16 +68,18 @@ export default function ProjectCard({
       <div className={cardClass}>
         {/* Text content */}
         <div className="px-6 pt-6 pb-4 md:px-7 md:pt-7 md:pb-4">
-          <h3 className={titleClass}>
-            {title}
+          {tag && (
+            <p className="text-[11px] uppercase tracking-[0.12em] font-semibold mb-2 text-[var(--color-text-subtle)]">
+              {tag}
+            </p>
+          )}
+          <h3 className={headlineClass}>
+            {displayHeadline}
           </h3>
-          <p className="text-[13px] leading-relaxed mb-4 text-[var(--color-text-muted)]">
-            {subtitle}
-          </p>
-          {stat && (
+          {statLine && (
             <div className="flex items-center gap-2">
               <span className="text-[14px] font-semibold stat-number text-[var(--color-text)]">
-                {stat} {statLabel}
+                {statLine}
               </span>
               {/* Arrow — the ONE hover transition that survives in the outlined variant */}
               <span className="text-lg text-[var(--color-text)] transition-transform duration-300 group-hover:translate-x-1">
