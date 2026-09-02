@@ -143,6 +143,50 @@ export default function WorkHorizontalScroll({ projects }) {
     };
   }, [enabled, visibleProjects.length]);
 
+  // Keyboard access: a card's horizontal position is transform-driven (not
+  // scroll-driven), so the browser can't reveal a focused card that's shifted
+  // off-screen — including the first card after the track has moved. On focus,
+  // map the card back to the vertical scroll position that brings it into view.
+  useEffect(() => {
+    if (!enabled) return;
+    const stage = stageRef.current;
+    const track = trackRef.current;
+    if (!stage || !track) return;
+
+    const SETTLE_PX = 60;
+
+    const revealFocusedCard = (e) => {
+      const card = e.target.closest(".hscroll-card");
+      if (!card || !track.contains(card)) return;
+
+      // Already fully in view? leave the scroll alone.
+      const vw = window.innerWidth;
+      const cardRect = card.getBoundingClientRect();
+      if (cardRect.left >= 0 && cardRect.right <= vw) return;
+
+      const trackWidth = track.scrollWidth;
+      const translateDistance = Math.max(0, trackWidth - vw + 136);
+      if (translateDistance === 0) return;
+
+      // offsetLeft is unaffected by the transform, so the in-track distance from
+      // the first card converts directly to the progress that left-aligns it.
+      const first = track.firstElementChild;
+      const cardOffset = card.offsetLeft - (first ? first.offsetLeft : 0);
+      const targetProgress = Math.min(1, Math.max(0, cardOffset / translateDistance));
+
+      const stageH = stage.offsetHeight;
+      const stickyH = window.innerHeight - 64;
+      const scrollableInside = stageH - stickyH - SETTLE_PX;
+      const stageTopAbs = window.scrollY + stage.getBoundingClientRect().top;
+      const targetY = stageTopAbs + 64 + targetProgress * scrollableInside;
+
+      window.scrollTo({ top: targetY, behavior: "smooth" });
+    };
+
+    stage.addEventListener("focusin", revealFocusedCard);
+    return () => stage.removeEventListener("focusin", revealFocusedCard);
+  }, [enabled, visibleProjects.length]);
+
   // Fallback: vertical 3-col grid (existing pattern).
   // Used on mobile/tablet AND reduced-motion users.
   if (!enabled) {
