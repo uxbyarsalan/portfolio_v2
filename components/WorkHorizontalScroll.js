@@ -144,9 +144,11 @@ export default function WorkHorizontalScroll({ projects }) {
   }, [enabled, visibleProjects.length]);
 
   // Keyboard access: a card's horizontal position is transform-driven (not
-  // scroll-driven), so the browser can't reveal a focused card that's shifted
-  // off-screen — including the first card after the track has moved. On focus,
-  // map the card back to the vertical scroll position that brings it into view.
+  // scroll-driven), so the browser's native focus-scroll chases the moving card
+  // and overshoots into the unstick zone, clipping it under the nav. We capture
+  // the scroll position just before Tab moves focus, snap back to it the instant
+  // a card is focused (undoing the browser's overshoot), then run our own
+  // controlled scroll that maps the card to the position which reveals it.
   useEffect(() => {
     if (!enabled) return;
     const stage = stageRef.current;
@@ -154,24 +156,31 @@ export default function WorkHorizontalScroll({ projects }) {
     if (!stage || !track) return;
 
     const SETTLE_PX = 60;
+    const NAV = 64;
+    let scrollBeforeTab = null;
 
-    const revealFocusedCard = (e) => {
+    const onKeyDown = (e) => {
+      if (e.key === "Tab") scrollBeforeTab = window.scrollY;
+    };
+
+    const onFocusIn = (e) => {
       const card = e.target.closest(".hscroll-card");
-      if (!card || !track.contains(card)) return;
+      if (!card || !track.contains(card)) {
+        scrollBeforeTab = null;
+        return;
+      }
 
-      // Already fully in view (below the fixed 64px nav) in BOTH axes? leave it.
-      // The vertical check is essential: the browser's own focus-scroll can nudge
-      // a card up under the nav, and we must correct that, not skip past it.
+      // Undo the browser's native focus-scroll before it can clip the card.
+      if (scrollBeforeTab !== null) {
+        window.scrollTo({ top: scrollBeforeTab, behavior: "auto" });
+        scrollBeforeTab = null;
+      }
+
+      // Already fully in view below the nav in both axes? nothing to do.
       const vw = window.innerWidth;
       const vh = window.innerHeight;
-      const cardRect = card.getBoundingClientRect();
-      if (
-        cardRect.left >= 0 &&
-        cardRect.right <= vw &&
-        cardRect.top >= 64 &&
-        cardRect.bottom <= vh
-      )
-        return;
+      const r = card.getBoundingClientRect();
+      if (r.left >= 0 && r.right <= vw && r.top >= NAV && r.bottom <= vh) return;
 
       const trackWidth = track.scrollWidth;
       const translateDistance = Math.max(0, trackWidth - vw + 136);
@@ -184,16 +193,20 @@ export default function WorkHorizontalScroll({ projects }) {
       const targetProgress = Math.min(1, Math.max(0, cardOffset / translateDistance));
 
       const stageH = stage.offsetHeight;
-      const stickyH = window.innerHeight - 64;
+      const stickyH = vh - NAV;
       const scrollableInside = stageH - stickyH - SETTLE_PX;
       const stageTopAbs = window.scrollY + stage.getBoundingClientRect().top;
-      const targetY = stageTopAbs + 64 + targetProgress * scrollableInside;
+      const targetY = stageTopAbs + NAV + targetProgress * scrollableInside;
 
       window.scrollTo({ top: targetY, behavior: "smooth" });
     };
 
-    stage.addEventListener("focusin", revealFocusedCard);
-    return () => stage.removeEventListener("focusin", revealFocusedCard);
+    window.addEventListener("keydown", onKeyDown, true);
+    stage.addEventListener("focusin", onFocusIn);
+    return () => {
+      window.removeEventListener("keydown", onKeyDown, true);
+      stage.removeEventListener("focusin", onFocusIn);
+    };
   }, [enabled, visibleProjects.length]);
 
   // Fallback: vertical 3-col grid (existing pattern).
