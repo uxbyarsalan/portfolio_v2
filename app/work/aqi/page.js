@@ -121,7 +121,7 @@ export default function AQICaseStudy() {
               return (
                 <div className="mb-12">
                   {/* Continuous severity spectrum: one unbroken line at every width */}
-                  <div className="flex h-4 rounded-lg overflow-hidden">
+                  <div className="flex h-4 rounded-lg overflow-hidden" style={{ boxShadow: "inset 0 0 0 1px rgba(0,0,0,0.08)" }}>
                     {levels.map((c) => (
                       <div key={c.label} className="flex-1" style={{ background: c.bg }} />
                     ))}
@@ -130,7 +130,7 @@ export default function AQICaseStudy() {
                   <div className="flex flex-wrap gap-x-5 gap-y-2 mt-4">
                     {levels.map((c) => (
                       <div key={c.label} className="flex items-center gap-2">
-                        <span className="w-2.5 h-2.5 rounded-full flex-none" style={{ background: c.bg }} />
+                        <span className="w-2.5 h-2.5 rounded-full flex-none" style={{ background: c.bg, boxShadow: "inset 0 0 0 1px rgba(0,0,0,0.15)" }} />
                         <span className="text-[13px] text-[var(--color-text)]">{c.label}</span>
                         <span className="text-[11px] text-[var(--color-text-muted)]">{c.range}</span>
                       </div>
