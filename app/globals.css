@@ -161,7 +161,7 @@ button:focus-visible,
   height: calc(100vh - 64px);
   display: flex;
   flex-direction: column;
-  overflow: hidden;
+  overflow: clip;
   background: var(--color-bg, #FAFAFA);
   padding-top: 24px;
 }
