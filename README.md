@@ -115,3 +115,5 @@ npm run build
 - [ ] Add LinkedIn URL to social links
 - [ ] Set up custom domain (uxbyarsalan.com)
 - [ ] Run Lighthouse audit and optimize
+
+- 
