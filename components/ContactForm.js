@@ -16,12 +16,13 @@ import { useState } from "react";
  * Error behavior: inline error message above the submit button, form preserved.
  *
  * Note: the access key is intentionally client-visible. Web3Forms keys are
- * submission-only — they cannot be used to read submissions or escalate access.
- * If we ever want a key-rotation story, we can move this to a Next.js API route
- * proxy and put the key in env vars; for now this is the standard Web3Forms pattern.
+ * submission-only: they cannot be used to read submissions or escalate access.
+ * The key is read from the NEXT_PUBLIC_WEB3FORMS_KEY env var (set in Vercel) so it
+ * stays out of source and can be rotated from the dashboard without a code change.
+ * It is still inlined into the client bundle at build time, which is expected.
  */
 
-const ACCESS_KEY = "2bd148ae-9f8e-4e6c-815a-ab32ca2e4efc";
+const ACCESS_KEY = process.env.NEXT_PUBLIC_WEB3FORMS_KEY;
 
 export default function ContactForm() {
   const [status, setStatus] = useState("idle"); // idle | submitting | success | error
