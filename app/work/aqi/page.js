@@ -109,21 +109,36 @@ export default function AQICaseStudy() {
           {/* Color severity system */}
           <AnimateIn delay={0.08}>
             <p className="text-[10px] uppercase tracking-widest text-[var(--color-text-subtle)] mb-3">Color as communication: the universal language</p>
-            <div className="grid grid-cols-6 gap-1.5 mb-12">
-              {[
-                { label: "Good", range: "0–50", bg: "#9DF9B7", tc: "#173404" },
-                { label: "Moderate", range: "51–100", bg: "#F7CA5E", tc: "#412402" },
-                { label: "USG", range: "101–150", bg: "#F96424", tc: "#fff" },
-                { label: "Unhealthy", range: "151–200", bg: "#E24B4A", tc: "#fff" },
-                { label: "Very bad", range: "201–300", bg: "#7F77DD", tc: "#fff" },
-                { label: "Hazardous", range: "300+", bg: "#501313", tc: "#fff" },
-              ].map((c) => (
-                <div key={c.label} className="rounded-lg px-3 py-2.5 text-center" style={{ background: c.bg }}>
-                  <p className="text-xs font-medium" style={{ color: c.tc }}>{c.label}</p>
-                  <p className="text-[9px] mt-0.5" style={{ color: c.tc, opacity: 0.8 }}>{c.range}</p>
+            {(() => {
+              const levels = [
+                { label: "Good", range: "0–50", bg: "#9DF9B7" },
+                { label: "Moderate", range: "51–100", bg: "#F7CA5E" },
+                { label: "USG", range: "101–150", bg: "#F96424" },
+                { label: "Unhealthy", range: "151–200", bg: "#E24B4A" },
+                { label: "Very Unhealthy", range: "201–300", bg: "#8F3F97" },
+                { label: "Hazardous", range: "300+", bg: "#501313" },
+              ];
+              return (
+                <div className="mb-12">
+                  {/* Continuous severity spectrum: one unbroken line at every width */}
+                  <div className="flex h-4 rounded-lg overflow-hidden">
+                    {levels.map((c) => (
+                      <div key={c.label} className="flex-1" style={{ background: c.bg }} />
+                    ))}
+                  </div>
+                  {/* Labels reflow: wrap on mobile, single row on desktop */}
+                  <div className="flex flex-wrap gap-x-5 gap-y-2 mt-4">
+                    {levels.map((c) => (
+                      <div key={c.label} className="flex items-center gap-2">
+                        <span className="w-2.5 h-2.5 rounded-full flex-none" style={{ background: c.bg }} />
+                        <span className="text-[13px] text-[var(--color-text)]">{c.label}</span>
+                        <span className="text-[11px] text-[var(--color-text-muted)]">{c.range}</span>
+                      </div>
+                    ))}
+                  </div>
                 </div>
-              ))}
-            </div>
+              );
+            })()}
           </AnimateIn>
 
           {/* Health conditions */}
