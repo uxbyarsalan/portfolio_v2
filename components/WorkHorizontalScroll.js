@@ -159,10 +159,19 @@ export default function WorkHorizontalScroll({ projects }) {
       const card = e.target.closest(".hscroll-card");
       if (!card || !track.contains(card)) return;
 
-      // Already fully in view? leave the scroll alone.
+      // Already fully in view (below the fixed 64px nav) in BOTH axes? leave it.
+      // The vertical check is essential: the browser's own focus-scroll can nudge
+      // a card up under the nav, and we must correct that, not skip past it.
       const vw = window.innerWidth;
+      const vh = window.innerHeight;
       const cardRect = card.getBoundingClientRect();
-      if (cardRect.left >= 0 && cardRect.right <= vw) return;
+      if (
+        cardRect.left >= 0 &&
+        cardRect.right <= vw &&
+        cardRect.top >= 64 &&
+        cardRect.bottom <= vh
+      )
+        return;
 
       const trackWidth = track.scrollWidth;
       const translateDistance = Math.max(0, trackWidth - vw + 136);
