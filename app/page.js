@@ -11,10 +11,10 @@ import { projects } from "@/lib/projects";
 
 export const metadata = {
   title: "Arsalan Aslam · Lead Product Designer",
-  description: "Designing systems that serve 20M+ users, where complexity becomes clarity, and clarity becomes trust. 14+ years across 7 case studies. Based in Lahore, Pakistan.",
+  description: "Designing systems that serve 20M+ people, where complexity becomes clarity, and clarity becomes trust. 14+ years across 7 case studies. Based in Lahore, Pakistan.",
   openGraph: {
     title: "Arsalan Aslam · Lead Product Designer",
-    description: "Designing systems that serve 20M+ users, where complexity becomes clarity, and clarity becomes trust.",
+    description: "Designing systems that serve 20M+ people, where complexity becomes clarity, and clarity becomes trust.",
     url: "https://uxbyarsalan.com",
     siteName: "Arsalan Aslam",
     locale: "en_US",
@@ -45,7 +45,7 @@ export default function Home() {
           <div className="wrapper">
             <AnimateIn>
               <h1 className="hero-heading max-w-4xl">
-                Designing systems that serve 20M+ users, where complexity becomes clarity, and clarity becomes trust.
+                Designing systems that serve 20M+ people, where complexity becomes clarity, and clarity becomes trust.
               </h1>
             </AnimateIn>
 
@@ -154,7 +154,7 @@ export default function Home() {
                 <span className="text-lg font-semibold">9 years at Punjab Information Technology Board</span>
                 <span className="text-[var(--color-text-muted)]">&middot;</span>
                 <span className="text-[15px] text-[var(--color-text-muted)] leading-relaxed">
-                  from UX Designer to Program Manager, leading design across 10+ government platforms serving 20M+ users
+                  from UX Designer to Program Manager, leading design across 10+ government platforms serving 20M+ people
                 </span>
               </div>
               <div className="flex flex-wrap gap-2.5 mt-4">
