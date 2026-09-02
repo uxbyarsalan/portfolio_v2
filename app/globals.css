@@ -8,7 +8,7 @@
   --color-bg-dark: #1A1A1A;
   --color-text: #1A1A1A;
   --color-text-muted: #6B6B6B;
-  --color-text-subtle: #999999;
+  --color-text-subtle: #737373;
   --color-text-inv: #FAFAFA;
   --color-border: rgba(0, 0, 0, 0.08);
   --color-border-hover: rgba(0, 0, 0, 0.2);
@@ -23,6 +23,24 @@ body {
   overflow-x: hidden;
 }
 ::selection { background: var(--color-text); color: var(--color-bg); }
+
+/* Visible keyboard focus for interactive elements. :focus-visible keeps this
+   off for mouse clicks; offset keeps the ring clear of cards' overflow-hidden. */
+a:focus-visible,
+button:focus-visible,
+[role="button"]:focus-visible,
+[tabindex]:focus-visible {
+  outline: 2px solid var(--color-text);
+  outline-offset: 3px;
+}
+
+/* Respect users who ask their OS to reduce motion: stop the auto-scroll
+   marquee and disable smooth scrolling. Section fade-ins are handled in the
+   AnimateIn component via framer-motion's useReducedMotion. */
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  .marquee-track { animation: none; }
+}
 
 @keyframes marquee {
   0% { transform: translateX(0); }
