@@ -196,20 +196,17 @@ export default function WorkHorizontalScroll({ projects }) {
       const stickyH = vh - NAV;
       const scrollableInside = stageH - stickyH - SETTLE_PX;
       const stageTopAbs = window.scrollY + stage.getBoundingClientRect().top;
-      const targetY = stageTopAbs + NAV + targetProgress * scrollableInside;
+      let targetY = stageTopAbs + NAV + targetProgress * scrollableInside;
 
-      // Instant (not smooth): rapid tabbing can't interrupt an animation and
-      // leave a card resting half-revealed. Then, after the transform settles
-      // (double rAF), clamp vertically — if the card's top is still under the
-      // fixed nav, nudge the scroll so it drops below it. This defeats the clip
-      // regardless of what caused the upward shift.
-      window.scrollTo({ top: targetY, behavior: "auto" });
-      requestAnimationFrame(() =>
-        requestAnimationFrame(() => {
-          const after = card.getBoundingClientRect();
-          if (after.top < NAV) window.scrollBy(0, after.top - NAV);
-        })
-      );
+      // Never scroll past the point where the sticky section is still fully
+      // pinned. Beyond it the section unsticks and the WHOLE thing rides up
+      // under the nav, clipping the tag and heading (the real cause of the bug).
+      // Capping here keeps the last cards fully visible horizontally while the
+      // section stays put, so nothing shifts or clips.
+      const maxPinnedY = stageTopAbs + stageH - stickyH - NAV - 2;
+      targetY = Math.min(targetY, maxPinnedY);
+
+      window.scrollTo({ top: targetY, behavior: "smooth" });
     };
 
     window.addEventListener("keydown", onKeyDown, true);
