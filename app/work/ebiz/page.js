@@ -6,13 +6,13 @@ import Link from "next/link";
 import Image from "next/image";
 
 export const metadata = {
-  title: "eBiz Punjab — Case Study | Arsalan Aslam",
+  title: "eBiz Punjab · Case Study | Arsalan Aslam",
   description: "One portal for business registration, licenses, and permits across multiple Punjab government departments. 100,000+ businesses registered, 7-day process reduced to 2.",
   openGraph: {
-    title: "eBiz Punjab — Case Study | Arsalan Aslam",
+    title: "eBiz Punjab · Case Study | Arsalan Aslam",
     description: "One portal for business registration, licenses, and permits across multiple Punjab government departments. 100,000+ businesses registered, 7-day process reduced to 2.",
     type: "article",
-    images: [{ url: "/og/og-ebiz.png", width: 1200, height: 630, alt: "eBiz Punjab — Business registration portal, 100K+ businesses" }],
+    images: [{ url: "/og/og-ebiz.png", width: 1200, height: 630, alt: "eBiz Punjab: Business registration portal, 100K+ businesses" }],
   },
 };
 
@@ -42,7 +42,7 @@ export default function EBizCaseStudy() {
           <div className="full-bleed aspect-[2.2/1] relative overflow-hidden">
             <Image
               src="/images/ebiz/v2/ebiz_hero.jpg"
-              alt="eBiz Punjab — gateway portal for business registration and licensing"
+              alt="eBiz Punjab: gateway portal for business registration and licensing"
               fill
               priority
               sizes="100vw"
@@ -54,7 +54,7 @@ export default function EBizCaseStudy() {
         <section className="wrapper py-10">
           <AnimateIn>
             <div className="grid grid-cols-2 md:grid-cols-5 gap-6 border-y border-[var(--color-border)] py-6">
-              {[{ l: "Client", v: "Government of Punjab" }, { l: "Role", v: "Program Manager — Design" }, { l: "Team", v: "5–10 people" }, { l: "Platform", v: "Web Portal + Admin CRM" }, { l: "Timeline", v: "2024–2025" }].map((m) => (
+              {[{ l: "Client", v: "Government of Punjab" }, { l: "Role", v: "Program Manager, Design" }, { l: "Team", v: "5–10 people" }, { l: "Platform", v: "Web Portal + Admin CRM" }, { l: "Timeline", v: "2024–2025" }].map((m) => (
                 <div key={m.l}><p className="text-[11px] uppercase tracking-[0.2em] text-[var(--color-text-subtle)] mb-1">{m.l}</p><p className="text-sm font-medium">{m.v}</p></div>
               ))}
             </div>
@@ -72,10 +72,10 @@ export default function EBizCaseStudy() {
           <AnimateIn delay={0.1}>
             <div className="space-y-5 text-[15px] text-[var(--color-text-muted)] leading-[1.75]">
               <p>
-                Punjab already had a Business Registration Portal (BRP), launched in 2018. It worked &mdash; over 100,000 businesses registered through it, and the model was replicated by Sindh and Balochistan. But the BRP only handled registration. Once a business was registered, the owner still needed to visit separate departments for trade licenses, NOCs, labour permits, environmental clearances, and construction approvals.
+                Punjab already had a Business Registration Portal (BRP), launched in 2018. It worked: over 100,000 businesses registered through it, and the model was replicated by Sindh and Balochistan. But the BRP only handled registration. Once a business was registered, the owner still needed to visit separate departments for trade licenses, NOCs, labour permits, environmental clearances, and construction approvals.
               </p>
               <p>
-                eBiz was built to replace that fragmented experience with a unified platform covering the complete lifecycle of Registrations, Licenses, Certificates, and Other Permits (RLCOs). The scope was fundamentally broader than the old BRP &mdash; not just &ldquo;register your business&rdquo; but &ldquo;start, operate, and grow your business through one digital interface.&rdquo;
+                eBiz was built to replace that fragmented experience with a unified platform covering the complete lifecycle of Registrations, Licenses, Certificates, and Other Permits (RLCOs). The scope was fundamentally broader than the old BRP: not just &ldquo;register your business&rdquo; but &ldquo;start, operate, and grow your business through one digital interface.&rdquo;
               </p>
             </div>
           </AnimateIn>
@@ -84,7 +84,7 @@ export default function EBizCaseStudy() {
         {/* Signature visual — Parallel Routing Diagram */}
         <section className="max-w-3xl mx-auto px-6 md:px-12 py-16 border-t border-[var(--color-border)]">
           <AnimateIn>
-            <p className="text-[11px] uppercase tracking-[0.3em] text-[var(--color-text-subtle)] mb-3">Parallel routing &mdash; one application, multiple departments</p>
+            <p className="text-[11px] uppercase tracking-[0.3em] text-[var(--color-text-subtle)] mb-3">Parallel routing: one application, multiple departments</p>
             <p className="text-sm text-[var(--color-text-muted)] leading-relaxed mb-10">The user submits once. The system routes simultaneously. The dashboard shows every status in real time.</p>
           </AnimateIn>
 
@@ -131,7 +131,7 @@ export default function EBizCaseStudy() {
               {["NADRA", "SECP", "FBR"].map((i) => (
                 <span key={i} className="text-[10px] text-[var(--color-text-muted)] bg-[var(--color-bg-card)] rounded-full px-2.5 py-1">{i}</span>
               ))}
-              <span className="text-[10px] text-[var(--color-text-subtle)] self-center">&mdash; integrated for identity, company, and tax data</span>
+              <span className="text-[10px] text-[var(--color-text-subtle)] self-center">Integrated for identity, company, and tax data</span>
             </div>
           </AnimateIn>
 
@@ -153,7 +153,7 @@ export default function EBizCaseStudy() {
           {/* Key insight */}
           <AnimateIn delay={0.18}>
             <p className="text-xs text-[var(--color-text-subtle)] italic text-center mt-8 max-w-lg mx-auto">
-              The user sees one progress bar. Behind it, multiple departments work in parallel on the same application &mdash; each seeing only the documents relevant to their approval.
+              The user sees one progress bar. Behind it, multiple departments work in parallel on the same application, each seeing only the documents relevant to their approval.
             </p>
           </AnimateIn>
         </section>
@@ -162,20 +162,20 @@ export default function EBizCaseStudy() {
         <section className="max-w-3xl mx-auto px-6 md:px-12 py-16">
           <AnimateIn><p className="text-[11px] uppercase tracking-[0.3em] text-[var(--color-text-subtle)] mb-10">Key design decisions</p></AnimateIn>
 
-          <Decision title="The business type wizard — translating government language into user language">
+          <Decision title="The business type wizard: translating government language into user language">
             <p>Users didn&rsquo;t know which departments they needed. A restaurant owner doesn&rsquo;t think in terms of &ldquo;Shops &amp; Establishment Registration with Labour Department.&rdquo; They think: &ldquo;I want to open a restaurant.&rdquo; Asking users to identify the right government services was asking them to do the government&rsquo;s job.</p>
-            <p>The wizard starts with a single question: &ldquo;What kind of business are you starting?&rdquo; The system auto-identifies every registration, license, certificate, and permit required for that specific type &mdash; presented in plain language. The user never sees department names during this step.</p>
-            <p>This was the single most important design decision on the project. It transformed the portal from a government-structured system (organized by departments) into a user-structured system (organized by intent). Every subsequent design decision &mdash; the document upload, the routing, the dashboard &mdash; built on this foundation.</p>
+            <p>The wizard starts with a single question: &ldquo;What kind of business are you starting?&rdquo; The system auto-identifies every registration, license, certificate, and permit required for that specific type, presented in plain language. The user never sees department names during this step.</p>
+            <p>This was the single most important design decision on the project. It transformed the portal from a government-structured system (organized by departments) into a user-structured system (organized by intent). Every subsequent design decision (the document upload, the routing, the dashboard) built on this foundation.</p>
           </Decision>
 
-          <Decision title="Multi-department routing — parallel approvals, unified tracker">
+          <Decision title="Multi-department routing: parallel approvals, unified tracker">
             <p>Different departments had different approval timelines. In the old system, applicants tracked each department separately, followed up individually, and had no visibility into which approval was pending. A single slow department could stall an entire business launch without the owner knowing why.</p>
             <p>The system routes a single application to every required department simultaneously. Each department receives only the documents relevant to their approval. Approvals happen in parallel, not in sequence. The user sees a unified progress tracker showing the status of each department&rsquo;s review in real time.</p>
-            <p>This was the hardest UX challenge on the project. The routing logic is complex &mdash; different departments need different subsets of documents, have different workflows, and operate on different timelines. But the user-facing interface had to be simple: one progress bar, one status page. The design challenge was absorbing the backend complexity so thoroughly that the user experience feels effortless.</p>
+            <p>This was the hardest UX challenge on the project. The routing logic is complex: different departments need different subsets of documents, have different workflows, and operate on different timelines. But the user-facing interface had to be simple: one progress bar, one status page. The design challenge was absorbing the backend complexity so thoroughly that the user experience feels effortless.</p>
           </Decision>
 
-          <Decision title="Progressive forms — designing against abandonment">
-            <p>Document requirements varied dramatically by business type. A sole proprietorship needs different documents than a factory. The old approach showed every possible field and let users figure out which ones applied. Users abandoned these forms midway &mdash; they&rsquo;d start, hit a field they didn&rsquo;t understand, and leave.</p>
+          <Decision title="Progressive forms: designing against abandonment">
+            <p>Document requirements varied dramatically by business type. A sole proprietorship needs different documents than a factory. The old approach showed every possible field and let users figure out which ones applied. Users abandoned these forms midway: they&rsquo;d start, hit a field they didn&rsquo;t understand, and leave.</p>
             <p>Three features addressed this: conditional fields that only show requirements relevant to the selected business type (reducing form length by 40–60%); auto-save with resume-later for applicants gathering documents over several days; and clear stage indicators that reduce the anxiety of &ldquo;how much more is there?&rdquo;</p>
             <p>Not a revolutionary pattern, but applying it correctly to a government form with 30+ business types and varying requirements across multiple departments required careful information architecture.</p>
           </Decision>
@@ -207,7 +207,7 @@ export default function EBizCaseStudy() {
 
         {/* The 5-part solution */}
         <section className="max-w-3xl mx-auto px-6 md:px-12 py-16 border-t border-[var(--color-border)]">
-          <AnimateIn><p className="text-[11px] uppercase tracking-[0.3em] text-[var(--color-text-subtle)] mb-10">The solution &mdash; a single journey through multiple departments</p></AnimateIn>
+          <AnimateIn><p className="text-[11px] uppercase tracking-[0.3em] text-[var(--color-text-subtle)] mb-10">The solution: a single journey through multiple departments</p></AnimateIn>
 
           <AnimateIn delay={0.05}>
             <div className="space-y-6">
@@ -248,8 +248,8 @@ export default function EBizCaseStudy() {
           <AnimateIn><p className="text-[11px] uppercase tracking-[0.3em] text-[var(--color-text-subtle)] mb-6">Benchmarking &amp; standards</p></AnimateIn>
           <AnimateIn delay={0.05}>
             <div className="space-y-5 text-[15px] text-[var(--color-text-muted)] leading-[1.75]">
-              <p>The design was informed by two reference frameworks. The old BRP provided the baseline &mdash; with 100,000+ registrations, it validated the core concept of online business registration in Punjab, and its limitation (registration only, no licenses or permits) defined the opportunity space for eBiz.</p>
-              <p>World Bank Ease of Doing Business standards informed the design principles &mdash; particularly around processing time reduction, elimination of physical visits, single-window approaches, and transparent tracking. These standards provided a defensible framework in stakeholder discussions, especially when navigating scope and complexity debates.</p>
+              <p>The design was informed by two reference frameworks. The old BRP provided the baseline: with 100,000+ registrations, it validated the core concept of online business registration in Punjab, and its limitation (registration only, no licenses or permits) defined the opportunity space for eBiz.</p>
+              <p>World Bank Ease of Doing Business standards informed the design principles: particularly around processing time reduction, elimination of physical visits, single-window approaches, and transparent tracking. These standards provided a defensible framework in stakeholder discussions, especially when navigating scope and complexity debates.</p>
             </div>
           </AnimateIn>
         </section>
@@ -259,9 +259,9 @@ export default function EBizCaseStudy() {
           <AnimateIn>
             <p className="text-[11px] uppercase tracking-[0.3em] text-[var(--color-text-subtle)] mb-6">Reflection</p>
             <div className="space-y-5 text-[15px] text-[var(--color-text-muted)] leading-[1.75]">
-              <p>eBiz was fundamentally different from every other project in my portfolio. It wasn&rsquo;t about designing screens &mdash; it was about designing across organizational boundaries. The hardest design work happened before any interface was drawn: mapping which departments needed what, understanding how approval workflows differed, and finding the right abstraction layer that would let users interact with one system while multiple departments operated independently behind it.</p>
-              <p>The business type wizard is the simplest screen on the entire platform &mdash; a dropdown and a list. But behind that simplicity is a mapping of 30+ business types to hundreds of department-specific requirements. The user sees &ldquo;You need 3 approvals.&rdquo; The system knows which 3 departments, which documents each needs, which fees apply, and how to route the application to all of them simultaneously. The measure of good service design is how much complexity the user never has to encounter.</p>
-              <p>NADRA, SECP, FBR &mdash; these aren&rsquo;t just technical integrations. Each one is a design decision about what the user does and doesn&rsquo;t have to provide manually. Designing around government APIs isn&rsquo;t backend work &mdash; it&rsquo;s user experience work.</p>
+              <p>eBiz was fundamentally different from every other project in my portfolio. It wasn&rsquo;t about designing screens. It was about designing across organizational boundaries. The hardest design work happened before any interface was drawn: mapping which departments needed what, understanding how approval workflows differed, and finding the right abstraction layer that would let users interact with one system while multiple departments operated independently behind it.</p>
+              <p>The business type wizard is the simplest screen on the entire platform: a dropdown and a list. But behind that simplicity is a mapping of 30+ business types to hundreds of department-specific requirements. The user sees &ldquo;You need 3 approvals.&rdquo; The system knows which 3 departments, which documents each needs, which fees apply, and how to route the application to all of them simultaneously. The measure of good service design is how much complexity the user never has to encounter.</p>
+              <p>NADRA, SECP, FBR: these aren&rsquo;t just technical integrations. Each one is a design decision about what the user does and doesn&rsquo;t have to provide manually. Designing around government APIs isn&rsquo;t backend work. It&rsquo;s user experience work.</p>
             </div>
           </AnimateIn>
         </section>

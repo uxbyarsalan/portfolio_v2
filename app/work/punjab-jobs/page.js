@@ -6,13 +6,13 @@ import Link from "next/link";
 import Image from "next/image";
 
 export const metadata = {
-  title: "Punjab Jobs — Case Study | Arsalan Aslam",
+  title: "Punjab Jobs · Case Study | Arsalan Aslam",
   description: "Redesigning Punjab's employment platform. 500K+ users, 2M+ applications, 168 government departments.",
   openGraph: {
-    title: "Punjab Jobs — Case Study | Arsalan Aslam",
+    title: "Punjab Jobs · Case Study | Arsalan Aslam",
     description: "Redesigning Punjab's employment platform. 500K+ users, 2M+ applications, 168 government departments.",
     type: "article",
-    images: [{ url: "/og/og-punjab-jobs.png", width: 1200, height: 630, alt: "Punjab Jobs — Employment platform, 500K+ users" }],
+    images: [{ url: "/og/og-punjab-jobs.png", width: 1200, height: 630, alt: "Punjab Jobs: Employment platform, 500K+ users" }],
   },
 };
 
@@ -46,7 +46,7 @@ export default function PunjabJobsCaseStudy() {
           <div className="full-bleed aspect-[2.2/1] relative overflow-hidden">
             <Image
               src="/images/punjab-jobs/v2/punjab_jobs_hero.jpg"
-              alt="Punjab Jobs — two-sided platform for job seekers and recruiters"
+              alt="Punjab Jobs: two-sided platform for job seekers and recruiters"
               fill
               priority
               sizes="100vw"
@@ -58,7 +58,7 @@ export default function PunjabJobsCaseStudy() {
         <section className="wrapper py-10">
           <AnimateIn>
             <div className="grid grid-cols-2 md:grid-cols-5 gap-6 border-y border-[var(--color-border)] py-6">
-              {[{ l: "Client", v: "PITB" }, { l: "Role", v: "Program Manager — Design" }, { l: "Team", v: "2–5 people" }, { l: "Scope", v: "Web, Recruiter Module, App" }, { l: "Timeline", v: "May–Aug 2024" }].map((m) => (
+              {[{ l: "Client", v: "PITB" }, { l: "Role", v: "Program Manager, Design" }, { l: "Team", v: "2–5 people" }, { l: "Scope", v: "Web, Recruiter Module, App" }, { l: "Timeline", v: "May–Aug 2024" }].map((m) => (
                 <div key={m.l}><p className="text-[11px] uppercase tracking-[0.2em] text-[var(--color-text-subtle)] mb-1">{m.l}</p><p className="text-sm font-medium">{m.v}</p></div>
               ))}
             </div>
@@ -69,7 +69,7 @@ export default function PunjabJobsCaseStudy() {
           <AnimateIn>
             <p className="text-[11px] uppercase tracking-[0.3em] text-[var(--color-text-subtle)] mb-6">The challenge</p>
             <p className="text-xl md:text-2xl text-[var(--color-text)] leading-[1.5] font-medium italic mb-8">
-              A portal with 2 million applications and a terrible experience. 500,000+ registered users, 168 government departments, 11,000+ job postings &mdash; and an interface that made finding a job harder, not easier.
+              A portal with 2 million applications and a terrible experience. 500,000+ registered users, 168 government departments, 11,000+ job postings, and an interface that made finding a job harder, not easier.
             </p>
           </AnimateIn>
           <AnimateIn delay={0.1}>
@@ -91,7 +91,7 @@ export default function PunjabJobsCaseStudy() {
         {/* Before state + Personas + Two-sided platform */}
         <section className="max-w-3xl mx-auto px-6 md:px-12 py-16 border-t border-[var(--color-border)]">
           <AnimateIn>
-            <p className="text-[11px] uppercase tracking-[0.3em] text-[var(--color-text-subtle)] mb-3">Before &mdash; what was broken</p>
+            <p className="text-[11px] uppercase tracking-[0.3em] text-[var(--color-text-subtle)] mb-3">Before: what was broken</p>
           </AnimateIn>
           <AnimateIn delay={0.05}>
             <div className="grid grid-cols-2 gap-3 mb-12">
@@ -146,7 +146,7 @@ export default function PunjabJobsCaseStudy() {
                     <p>&bull; Inconsistent interface wastes time</p>
                   </div>
                   <div className="bg-[var(--color-bg-card)] rounded-lg p-3 border-l-2 border-[#5DCAA5]">
-                    <p className="text-[11px] text-[var(--color-text-muted)] italic leading-relaxed">&ldquo;I search for jobs on my commute &mdash; the portal doesn&rsquo;t even work on my phone.&rdquo;</p>
+                    <p className="text-[11px] text-[var(--color-text-muted)] italic leading-relaxed">&ldquo;I search for jobs on my commute. The portal doesn&rsquo;t even work on my phone.&rdquo;</p>
                   </div>
                 </div>
               </div>
@@ -190,7 +190,7 @@ export default function PunjabJobsCaseStudy() {
 
           {/* Two-sided solution */}
           <AnimateIn delay={0.15}>
-            <p className="text-[10px] uppercase tracking-widest text-[var(--color-text-subtle)] mb-3">After &mdash; two audiences, one design language, zero compromise</p>
+            <p className="text-[10px] uppercase tracking-widest text-[var(--color-text-subtle)] mb-3">After: two audiences, one design language, zero compromise</p>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-8">
               <div className="border border-[var(--color-border)] rounded-xl overflow-hidden">
                 <div className="bg-[#E1F5EE] px-4 py-3">
@@ -225,7 +225,7 @@ export default function PunjabJobsCaseStudy() {
               {[
                 { name: "LinkedIn", desc: "Salary, cards, save" },
                 { name: "Indeed", desc: "Quick apply, filters" },
-                { name: "Punjab Jobs (old)", desc: "Baseline — what to fix" },
+                { name: "Punjab Jobs (old)", desc: "Baseline: what to fix" },
               ].map((b) => (
                 <div key={b.name} className="bg-[var(--color-bg-card)] rounded-xl px-4 py-3 text-center">
                   <p className="text-xs font-medium">{b.name}</p>
@@ -242,7 +242,7 @@ export default function PunjabJobsCaseStudy() {
             <p>Competitive benchmarking against LinkedIn and Indeed revealed salary info as the biggest gap. New cards show title, location, deadline, and compensation with intuitive iconography. The entire card is clickable.</p>
           </Decision>
           <Decision title="Built a recruitment module that replaces spreadsheets">
-            <p>Categorized applications (Pending/Rejected/Hired), quick-view with PDF viewer, full candidate timeline, and simplified scheduling. This wasn&rsquo;t a feature &mdash; it was filling a product gap that was crippling hiring efficiency.</p>
+            <p>Categorized applications (Pending/Rejected/Hired), quick-view with PDF viewer, full candidate timeline, and simplified scheduling. This wasn&rsquo;t a feature. It was filling a product gap that was crippling hiring efficiency.</p>
           </Decision>
           <Decision title="Two audiences, zero compromise">
             <p>Job seekers get simplicity (clean cards, Basic/Advanced filters, streamlined CV builder). Recruiters get power (dense applicant views, collaboration tools, bulk actions). Same design language, different information densities.</p>
@@ -252,9 +252,9 @@ export default function PunjabJobsCaseStudy() {
         <section className="wrapper pb-16">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
             {[
-              { label: "Find jobs — citizen search", src: "/images/punjab-jobs/punjab_tile_1_find_jobs.jpg" },
+              { label: "Find jobs: citizen search", src: "/images/punjab-jobs/punjab_tile_1_find_jobs.jpg" },
               { label: "Candidate profile", src: "/images/punjab-jobs/punjab_tile_2_candidate_profile.jpg" },
-              { label: "Applicants — Kanban view", src: "/images/punjab-jobs/punjab_tile_3_kanban.jpg" },
+              { label: "Applicants: Kanban view", src: "/images/punjab-jobs/punjab_tile_3_kanban.jpg" },
               { label: "Applicants \u2014 list view", src: "/images/punjab-jobs/punjab_tile_4_list.jpg" },
             ].map((tile, i) => (
               <AnimateIn key={tile.label} delay={i * 0.06}>
@@ -275,14 +275,14 @@ export default function PunjabJobsCaseStudy() {
         <section className="max-w-3xl mx-auto px-6 md:px-12 py-16">
           <AnimateIn>
             <p className="text-[11px] uppercase tracking-[0.3em] text-[var(--color-text-subtle)] mb-6">Status</p>
-            <p className="text-sm text-[var(--color-text-muted)] italic leading-relaxed">Design completed and handed off for implementation. The baseline metrics &mdash; 500K+ users, 2M+ applications, 168 departments &mdash; serve as the benchmark against which the redesign&rsquo;s impact will be measured.</p>
+            <p className="text-sm text-[var(--color-text-muted)] italic leading-relaxed">Design completed and handed off for implementation. The baseline metrics (500K+ users, 2M+ applications, 168 departments) serve as the benchmark against which the redesign&rsquo;s impact will be measured.</p>
           </AnimateIn>
         </section>
 
         <section className="max-w-3xl mx-auto px-6 md:px-12 py-16 border-t border-[var(--color-border)]">
           <AnimateIn>
             <p className="text-[11px] uppercase tracking-[0.3em] text-[var(--color-text-subtle)] mb-6">Reflection</p>
-            <p className="text-[15px] text-[var(--color-text-muted)] leading-[1.75]">Redesign is harder than greenfield. Every decision is measured against what already exists. And competitive benchmarking is underrated as a research method &mdash; in resource-constrained projects, patterns validated by billions of interactions on LinkedIn and Indeed are a pragmatic and defensible foundation.</p>
+            <p className="text-[15px] text-[var(--color-text-muted)] leading-[1.75]">Redesign is harder than greenfield. Every decision is measured against what already exists. And competitive benchmarking is underrated as a research method: in resource-constrained projects, patterns validated by billions of interactions on LinkedIn and Indeed are a pragmatic and defensible foundation.</p>
           </AnimateIn>
         </section>
 

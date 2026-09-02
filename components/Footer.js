@@ -27,7 +27,7 @@ export default function Footer() {
       <div className="wrapper py-12">
         <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-6">
           <div>
-            <p className="text-sm text-[var(--color-text-muted)]">Arsalan Aslam &mdash; Lahore, Pakistan</p>
+            <p className="text-sm text-[var(--color-text-muted)]">Arsalan Aslam · Lahore, Pakistan</p>
             <p className="text-xs text-[var(--color-text-subtle)] mt-1">Open to freelance &amp; full-time opportunities</p>
           </div>
           <div className="flex items-center gap-6">

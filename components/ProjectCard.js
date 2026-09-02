@@ -27,7 +27,7 @@ export default function ProjectCard({
   const { slug, title, headline, stat, statLabel, stats, image } = project;
   const isOutlined = variant === "outlined";
 
-  // Outcome-led card anatomy: small name tag → headline → combined stat line.
+  // Outcome-led card: small name tag, then headline, then a combined stat line.
   // Falls back to legacy title/subtitle/stat when the new fields are absent.
   const displayHeadline = headline || title;
   const tag = headline ? title : null;
@@ -81,7 +81,7 @@ export default function ProjectCard({
               <span className="text-[14px] font-semibold stat-number text-[var(--color-text)]">
                 {statLine}
               </span>
-              {/* Arrow — the ONE hover transition that survives in the outlined variant */}
+              {/* Arrow: the ONE hover transition that survives in the outlined variant */}
               <span className="text-lg text-[var(--color-text)] transition-transform duration-300 group-hover:translate-x-1">
                 &rarr;
               </span>

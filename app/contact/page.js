@@ -4,10 +4,10 @@ import AnimateIn from "@/components/AnimateIn";
 import ContactForm from "@/components/ContactForm";
 
 export const metadata = {
-  title: "Contact — Arsalan Aslam",
+  title: "Contact · Arsalan Aslam",
   description: "Get in touch for freelance projects or full-time opportunities.",
   openGraph: {
-    title: "Contact — Arsalan Aslam",
+    title: "Contact · Arsalan Aslam",
     description: "Get in touch for freelance projects or full-time opportunities.",
     type: "website",
     images: [{ url: "/og/og-contact.png", width: 1200, height: 630, alt: "Contact Arsalan Aslam" }],
@@ -83,7 +83,7 @@ export default function Contact() {
                 Prefer a quick call?
               </p>
               <p className="text-sm md:text-base text-[var(--color-text-muted)] mt-4 max-w-xl leading-relaxed">
-                Sometimes a 15-minute call is faster than typing it out. Book a time below &mdash; works for roles, opportunities, or just a chat about my work.
+                Sometimes a 15-minute call is faster than typing it out. Book a time below: works for roles, opportunities, or just a chat about my work.
               </p>
               <a
                 href="https://calendly.com/arsalanaslam-se/new-meeting"

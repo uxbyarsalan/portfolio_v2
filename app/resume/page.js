@@ -3,13 +3,13 @@ import AnimateIn from "@/components/AnimateIn";
 import Link from "next/link";
 
 export const metadata = {
-  title: "Resume — Arsalan Aslam",
+  title: "Resume · Arsalan Aslam",
   description: "Lead Product Designer with 14+ years building systems used by 20M+ people.",
   openGraph: {
-    title: "Resume — Arsalan Aslam",
+    title: "Resume · Arsalan Aslam",
     description: "Lead Product Designer with 14+ years building systems used by 20M+ people.",
     type: "website",
-    images: [{ url: "/og/og-resume.png", width: 1200, height: 630, alt: "Resume — Arsalan Aslam" }],
+    images: [{ url: "/og/og-resume.png", width: 1200, height: 630, alt: "Resume · Arsalan Aslam" }],
   },
 };
 
@@ -49,13 +49,13 @@ export default function Resume() {
               <Section label="Summary">
                 <div className="text-[15px] text-[var(--color-text-muted)] leading-[1.8] space-y-4">
                   <p>
-                    Lead Product Designer with 14+ years building web and mobile systems used by 20M+ people. Progressed from UX Designer to Program Manager &mdash; Design at Punjab Information Technology Board, leading design strategy across 10+ platforms &mdash; including iOS and Android apps &mdash; serving 168 departments.
+                    Lead Product Designer with 14+ years building web and mobile systems used by 20M+ people. Progressed from UX Designer to Program Manager (Design) at Punjab Information Technology Board, leading design strategy across 10+ platforms, including iOS and Android apps, serving 168 departments.
                   </p>
                   <p>
-                    Experienced designing AI-powered interfaces &mdash; from automated dispatch to environmental health prediction &mdash; and integrating AI tools across design and content workflows.
+                    Experienced designing AI-powered interfaces, from automated dispatch to environmental health prediction, and integrating AI tools across design and content workflows.
                   </p>
                   <p>
-                    Based in Lahore, open to senior product design roles &mdash; remote or relocation &mdash; where complexity meets scale.
+                    Based in Lahore, open to senior product design roles (remote or relocation) where complexity meets scale.
                   </p>
                 </div>
               </Section>
@@ -71,22 +71,22 @@ export default function Resume() {
 
                   {[
                     {
-                      title: "Program Manager — Design",
+                      title: "Program Manager, Design",
                       period: "2023–2025",
                       bullets: [
                         "Led UX strategy and design operations across 10+ government platforms, managing a team of 10–12 designers, researchers, and developers serving 168 government departments.",
-                        "Drove Maryam Ki Dastak from concept to 2.1M+ citizen service requests — a 5-module mobile-first ecosystem (citizen iOS/Android app, facilitator app, web portal, CRM, company registration) built in 3 months, scaled from 1 to 40 districts with 87,000+ facilitators and 76 services.",
-                        "Directed Punjab Jobs redesign for a platform with 500,000+ registered users and 2M+ job applications — redesigned job cards with salary data, built a recruitment module replacing spreadsheet-based hiring, and designed a native mobile app.",
-                        "Managed Punjab AQI environmental monitoring platform for 36 districts — designed condition-specific health advisories (Asthma, Heart Issues, COPD), heatmap calendar visualization, and real-time dashboard tracking 6 pollutants.",
-                        "Led PITB Official website redesign — 13 screens in 30 hours, bold dark theme anchored by a custom design system.",
+                        "Drove Maryam Ki Dastak from concept to 2.1M+ service requests: a 5-module mobile-first ecosystem (citizen iOS/Android app, facilitator app, web portal, CRM, company registration) built in 3 months, scaled from 1 to 40 districts with 87,000+ facilitators and 76 services.",
+                        "Directed Punjab Jobs redesign for a platform with 500,000+ registered users and 2M+ job applications: redesigned job cards with salary data, built a recruitment module replacing spreadsheet-based hiring, and designed a native mobile app.",
+                        "Managed Punjab AQI environmental monitoring platform for 36 districts: designed condition-specific health advisories (Asthma, Heart Issues, COPD), heatmap calendar visualization, and real-time dashboard tracking 6 pollutants.",
+                        "Led PITB Official website redesign: 13 screens in 30 hours, bold dark theme anchored by a custom design system.",
                       ],
                     },
                     {
                       title: "Principal UX/UI Designer",
                       period: "2020–2023",
                       bullets: [
-                        "Designed City Watch, a real-time surveillance platform for Punjab Safe City Authority integrating 8,000+ cameras — achieved SUS score of 78.25 with 87.5% of users rating usability as high.",
-                        "Created Employee Self Service cross-platform mobile app for 3,500+ employees — 98% daily check-in adoption, 120,000+ leave requests processed in 2 years, 10,000+ Play Store downloads, plus community features (carpooling, marketplace, blood donors).",
+                        "Designed City Watch, a real-time surveillance platform for Punjab Safe City Authority integrating 8,000+ cameras, achieving an SUS score of 78.25 with 87.5% of users rating usability as high.",
+                        "Created Employee Self Service cross-platform mobile app for 3,500+ employees: 98% daily check-in adoption, 120,000+ leave requests processed in 2 years, 10,000+ Play Store downloads, plus community features (carpooling, marketplace, blood donors).",
                         "Introduced PITB\u2019s first design system, reducing visual inconsistencies and developer revision cycles across all products.",
                       ],
                     },
@@ -102,7 +102,7 @@ export default function Resume() {
                       title: "UX/UI Designer",
                       period: "2016–2018",
                       bullets: [
-                        "Designed 200+ responsive screens across 20+ government applications serving 20M+ citizens.",
+                        "Designed 200+ responsive screens across 20+ government applications serving 20M+ people.",
                         "Produced interactive prototypes that accelerated stakeholder approvals and reduced design iteration cycles.",
                       ],
                     },
@@ -126,7 +126,7 @@ export default function Resume() {
                 <div className="pt-8 border-t border-[var(--color-border)]">
                   <div className="mb-6">
                     <div className="flex flex-col md:flex-row md:items-baseline md:justify-between mb-1">
-                      <h4 className="text-[15px] font-medium">Sport.CC &mdash; Web &amp; UX/UI Designer</h4>
+                      <h4 className="text-[15px] font-medium">Sport.CC &middot; Web &amp; UX/UI Designer</h4>
                       <span className="text-[11px] text-[var(--color-text-subtle)]">Denmark &middot; 2012–2016</span>
                     </div>
                     <p className="text-sm text-[var(--color-text-muted)] leading-relaxed">Designed live sports scoring platforms and a live cricket scoring app for a Denmark-based sports media company. Owned UX research, wireframing, and prototyping for web and mobile experiences serving an international cricket audience.</p>
@@ -139,7 +139,7 @@ export default function Resume() {
               <Section label="Key projects">
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                   {[
-                    { name: "Maryam Ki Dastak", slug: "dastak", stat: "2.1M+ requests", desc: "Mobile-first doorstep services, citizen iOS/Android app + facilitator app + web portal, 40 districts" },
+                    { name: "Maryam Ki Dastak", slug: "dastak", stat: "2.1M+ service requests", desc: "Mobile-first doorstep services, citizen iOS/Android app + facilitator app + web portal, 40 districts" },
                     { name: "City Watch", slug: "city-watch", stat: "SUS 78.25", desc: "Surveillance platform, 8,000+ cameras" },
                     { name: "Punjab Jobs", slug: "punjab-jobs", stat: "500K+ users", desc: "Employment platform redesign, 168 departments" },
                     { name: "Employee Self Service", slug: "ess", stat: "98% adoption", desc: "Cross-platform mobile workplace app, 3,500+ employees, 10,000+ Play Store downloads" },
@@ -238,8 +238,8 @@ export default function Resume() {
 
             <AnimateIn delay={0.22}>
               <Section label="Languages">
-                <p className="text-sm text-[var(--color-text-muted)]">English &mdash; Fluent</p>
-                <p className="text-sm text-[var(--color-text-muted)]">Urdu, Hindi, Punjabi &mdash; Native</p>
+                <p className="text-sm text-[var(--color-text-muted)]">English: Fluent</p>
+                <p className="text-sm text-[var(--color-text-muted)]">Urdu, Hindi, Punjabi: Native</p>
               </Section>
             </AnimateIn>
 

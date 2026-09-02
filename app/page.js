@@ -10,16 +10,16 @@ import { projects } from "@/lib/projects";
 // Using .wrapper class from globals.css
 
 export const metadata = {
-  title: "Arsalan Aslam — Lead Product Designer",
-  description: "Designing systems that serve 20M+ users — where complexity becomes clarity, and clarity becomes trust. 14+ years across 7 case studies. Based in Lahore, Pakistan.",
+  title: "Arsalan Aslam · Lead Product Designer",
+  description: "Designing systems that serve 20M+ users, where complexity becomes clarity, and clarity becomes trust. 14+ years across 7 case studies. Based in Lahore, Pakistan.",
   openGraph: {
-    title: "Arsalan Aslam — Lead Product Designer",
-    description: "Designing systems that serve 20M+ users — where complexity becomes clarity, and clarity becomes trust.",
+    title: "Arsalan Aslam · Lead Product Designer",
+    description: "Designing systems that serve 20M+ users, where complexity becomes clarity, and clarity becomes trust.",
     url: "https://uxbyarsalan.com",
     siteName: "Arsalan Aslam",
     locale: "en_US",
     type: "website",
-    images: [{ url: "/og/og-home.png", width: 1200, height: 630, alt: "Arsalan Aslam — Lead Product Designer" }],
+    images: [{ url: "/og/og-home.png", width: 1200, height: 630, alt: "Arsalan Aslam · Lead Product Designer" }],
   },
 };
 
@@ -45,7 +45,7 @@ export default function Home() {
           <div className="wrapper">
             <AnimateIn>
               <h1 className="hero-heading max-w-4xl">
-                Designing systems that serve 20M+ users &mdash; where complexity becomes clarity, and clarity becomes trust.
+                Designing systems that serve 20M+ users, where complexity becomes clarity, and clarity becomes trust.
               </h1>
             </AnimateIn>
 
@@ -126,13 +126,13 @@ export default function Home() {
                   <p>
                     I started my career building web interfaces in Lahore, and over the years grew into
                     leading design strategy at Punjab&rsquo;s Information Technology Board. There I led UX across 10+ platforms, from police operations to
-                    employment services to environmental monitoring &mdash; systems used by over 20 million people.
+                    employment services to environmental monitoring, all serving over 20 million people.
                   </p>
                   <p>
                     What that taught me was how to find clarity inside systems that resist it. Stakeholders
                     with competing priorities, legacy constraints, scale that doesn&rsquo;t forgive sloppy
-                    decisions &mdash; these are the conditions I do my best work in. I&rsquo;m now based in
-                    Lahore, looking for the next set of problems worth solving carefully &mdash; wherever they are.
+                    decisions. These are the conditions I do my best work in. I&rsquo;m now based in
+                    Lahore, looking for the next set of problems worth solving carefully, wherever they are.
                   </p>
                 </div>
               </AnimateIn>
@@ -152,13 +152,13 @@ export default function Home() {
             <div className="mb-8">
               <div className="flex flex-wrap items-baseline gap-x-2 gap-y-1">
                 <span className="text-lg font-semibold">9 years at Punjab Information Technology Board</span>
-                <span className="text-[var(--color-text-muted)]">&mdash;</span>
+                <span className="text-[var(--color-text-muted)]">&middot;</span>
                 <span className="text-[15px] text-[var(--color-text-muted)] leading-relaxed">
                   from UX Designer to Program Manager, leading design across 10+ government platforms serving 20M+ users
                 </span>
               </div>
               <div className="flex flex-wrap gap-2.5 mt-4">
-                {["UX/UI Designer", "Sr. UX/UI", "Principal UX/UI", "Program Manager — Design"].map((role) => (
+                {["UX/UI Designer", "Sr. UX/UI", "Principal UX/UI", "Program Manager, Design"].map((role) => (
                   <span key={role} className="text-[11px] text-[var(--color-text-subtle)] border border-[var(--color-border)] rounded-full px-3.5 py-1.5">
                     {role}
                   </span>
@@ -227,7 +227,7 @@ export default function Home() {
                 Curious how this portfolio was built?
               </h3>
               <p className="text-sm text-[var(--color-text-muted)] leading-relaxed mb-4 max-w-xl">
-                From content audit to live site &mdash; a human-AI collaboration using Claude, Gemini, ChatGPT, and Google Antigravity.
+                From content audit to live site: a human-AI collaboration using Claude, Gemini, ChatGPT, and Google Antigravity.
               </p>
               <span className="text-sm font-medium text-[var(--color-text)] group-hover:translate-x-1 inline-block transition-transform">
                 Read the story &rarr;

@@ -6,13 +6,13 @@ import Link from "next/link";
 import Image from "next/image";
 
 export const metadata = {
-  title: "Punjab AQI — Case Study | Arsalan Aslam",
+  title: "Punjab AQI · Case Study | Arsalan Aslam",
   description: "Environmental monitoring platform making air quality actionable across 36 districts. Health precautions by condition.",
   openGraph: {
-    title: "Punjab AQI — Case Study | Arsalan Aslam",
+    title: "Punjab AQI · Case Study | Arsalan Aslam",
     description: "Environmental monitoring platform making air quality actionable across 36 districts. Health precautions by condition.",
     type: "article",
-    images: [{ url: "/og/og-aqi.png", width: 1200, height: 630, alt: "Punjab AQI — Environmental monitoring, 36 districts" }],
+    images: [{ url: "/og/og-aqi.png", width: 1200, height: 630, alt: "Punjab AQI: Environmental monitoring, 36 districts" }],
   },
 };
 
@@ -39,14 +39,14 @@ export default function AQICaseStudy() {
 
         <section className="wrapper pt-10 pb-12">
           <AnimateIn delay={0.1}><h1 className="text-4xl md:text-7xl font-semibold tracking-tight leading-[0.95]">Punjab AQI</h1></AnimateIn>
-          <AnimateIn delay={0.2}><p className="text-lg md:text-xl text-[var(--color-text-muted)] mt-6 max-w-xl leading-relaxed">Making invisible air visible &mdash; real-time environmental monitoring for 36 districts</p></AnimateIn>
+          <AnimateIn delay={0.2}><p className="text-lg md:text-xl text-[var(--color-text-muted)] mt-6 max-w-xl leading-relaxed">Making invisible air visible: real-time environmental monitoring for 36 districts</p></AnimateIn>
         </section>
 
         <AnimateIn delay={0.3}>
           <div className="full-bleed aspect-[2.2/1] relative overflow-hidden">
             <Image
               src="/images/aqi/v2/aqi_hero.jpg"
-              alt="Punjab AQI — real-time air quality dashboard for 36 districts"
+              alt="Punjab AQI: real-time air quality dashboard for 36 districts"
               fill
               priority
               sizes="100vw"
@@ -58,7 +58,7 @@ export default function AQICaseStudy() {
         <section className="wrapper py-10">
           <AnimateIn>
             <div className="grid grid-cols-2 md:grid-cols-5 gap-6 border-y border-[var(--color-border)] py-6">
-              {[{ l: "Client", v: "EPD, Government of Punjab" }, { l: "Role", v: "Program Manager — Design" }, { l: "Team", v: "2–5 people" }, { l: "Platform", v: "Web Dashboard" }, { l: "Coverage", v: "36 districts" }].map((m) => (
+              {[{ l: "Client", v: "EPD, Government of Punjab" }, { l: "Role", v: "Program Manager, Design" }, { l: "Team", v: "2–5 people" }, { l: "Platform", v: "Web Dashboard" }, { l: "Coverage", v: "36 districts" }].map((m) => (
                 <div key={m.l}><p className="text-[11px] uppercase tracking-[0.2em] text-[var(--color-text-subtle)] mb-1">{m.l}</p><p className="text-sm font-medium">{m.v}</p></div>
               ))}
             </div>
@@ -69,7 +69,7 @@ export default function AQICaseStudy() {
           <AnimateIn>
             <p className="text-[11px] uppercase tracking-[0.3em] text-[var(--color-text-subtle)] mb-6">The challenge</p>
             <p className="text-xl md:text-2xl text-[var(--color-text)] leading-[1.5] font-medium italic mb-8">
-              Lahore&rsquo;s AQI regularly exceeds 250 &mdash; &ldquo;Very Unhealthy.&rdquo; But what does that mean for a mother deciding whether to send her children to school? For an asthma patient planning their day? Raw numbers don&rsquo;t protect people. Understanding does.
+              Lahore&rsquo;s AQI regularly exceeds 250, &ldquo;Very Unhealthy.&rdquo; But what does that mean for a mother deciding whether to send her children to school? For an asthma patient planning their day? Raw numbers don&rsquo;t protect people. Understanding does.
             </p>
           </AnimateIn>
           <AnimateIn delay={0.1}>
@@ -82,7 +82,7 @@ export default function AQICaseStudy() {
         {/* Data to Action Pipeline */}
         <section className="max-w-3xl mx-auto px-6 md:px-12 py-16 border-t border-[var(--color-border)]">
           <AnimateIn>
-            <p className="text-[11px] uppercase tracking-[0.3em] text-[var(--color-text-subtle)] mb-3">The design challenge &mdash; bridging three gaps</p>
+            <p className="text-[11px] uppercase tracking-[0.3em] text-[var(--color-text-subtle)] mb-3">The design challenge: bridging three gaps</p>
           </AnimateIn>
 
           {/* Three gaps */}
@@ -108,7 +108,7 @@ export default function AQICaseStudy() {
 
           {/* Color severity system */}
           <AnimateIn delay={0.08}>
-            <p className="text-[10px] uppercase tracking-widest text-[var(--color-text-subtle)] mb-3">Color as communication &mdash; the universal language</p>
+            <p className="text-[10px] uppercase tracking-widest text-[var(--color-text-subtle)] mb-3">Color as communication: the universal language</p>
             <div className="grid grid-cols-6 gap-1.5 mb-12">
               {[
                 { label: "Good", range: "0–50", bg: "#9DF9B7", tc: "#173404" },
@@ -128,7 +128,7 @@ export default function AQICaseStudy() {
 
           {/* Health conditions */}
           <AnimateIn delay={0.1}>
-            <p className="text-[10px] uppercase tracking-widest text-[var(--color-text-subtle)] mb-3">Health precautions by condition &mdash; design that protects people</p>
+            <p className="text-[10px] uppercase tracking-widest text-[var(--color-text-subtle)] mb-3">Health precautions by condition: design that protects people</p>
             <div className="grid grid-cols-3 md:grid-cols-6 gap-2 mb-4">
               {["Asthma", "Heart", "Allergies", "Sinus", "Cold/Flu", "COPD"].map((condition) => (
                 <div key={condition} className="border border-[var(--color-border)] rounded-xl px-3 py-3 text-center">
@@ -141,7 +141,7 @@ export default function AQICaseStudy() {
 
           {/* 5 Modules */}
           <AnimateIn delay={0.12}>
-            <p className="text-[10px] uppercase tracking-widest text-[var(--color-text-subtle)] mb-3">5 modules &mdash; layered information disclosure</p>
+            <p className="text-[10px] uppercase tracking-widest text-[var(--color-text-subtle)] mb-3">5 modules: layered information disclosure</p>
             <div className="grid grid-cols-2 md:grid-cols-5 gap-2 mb-8">
               {[
                 { name: "Dashboard", desc: "Real-time map, city cards", audience: "everyone" },
@@ -174,15 +174,15 @@ export default function AQICaseStudy() {
           <AnimateIn><p className="text-[11px] uppercase tracking-[0.3em] text-[var(--color-text-subtle)] mb-10">Key design decisions</p></AnimateIn>
 
           <Decision title="Color as communication">
-            <p>Every AQI reading is wrapped in a severity color (green &rarr; yellow &rarr; orange &rarr; red &rarr; purple &rarr; maroon) following international standards. Applied consistently across every module &mdash; dashboard, statistics, historical calendar, health advisories. A citizen never needs to memorize what &ldquo;194&rdquo; means; the color tells them instantly.</p>
+            <p>Every AQI reading is wrapped in a severity color (green &rarr; yellow &rarr; orange &rarr; red &rarr; purple &rarr; maroon) following international standards. Applied consistently across every module: dashboard, statistics, historical calendar, health advisories. A citizen never needs to memorize what &ldquo;194&rdquo; means; the color tells them instantly.</p>
           </Decision>
 
           <Decision title="The heatmap calendar">
-            <p>365 data points in a single view &mdash; every day of the year colored by AQI severity. Citizens can instantly see that November through February is a wall of red (smog season). Alongside: average AQI, maximum, minimum, and days above standard. Pattern recognition without instruction.</p>
+            <p>365 data points in a single view: every day of the year colored by AQI severity. Citizens can instantly see that November through February is a wall of red (smog season). Alongside: average AQI, maximum, minimum, and days above standard. Pattern recognition without instruction.</p>
           </Decision>
 
           <Decision title="Health precautions by condition">
-            <p>The hardest design challenge. Condition-specific advice for Asthma, Heart Issues, Allergies, Sinus, Cold/Flu, and COPD &mdash; calibrated to current AQI levels. This transforms the platform from a monitoring tool into a health advisory service. Designed with EPD&rsquo;s domain experts to ensure accuracy.</p>
+            <p>The hardest design challenge. Condition-specific advice for Asthma, Heart Issues, Allergies, Sinus, Cold/Flu, and COPD, calibrated to current AQI levels. This transforms the platform from a monitoring tool into a health advisory service. Designed with EPD&rsquo;s domain experts to ensure accuracy.</p>
           </Decision>
         </section>
 
@@ -222,7 +222,7 @@ export default function AQICaseStudy() {
         <section className="max-w-3xl mx-auto px-6 md:px-12 py-16 border-t border-[var(--color-border)]">
           <AnimateIn>
             <p className="text-[11px] uppercase tracking-[0.3em] text-[var(--color-text-subtle)] mb-6">Reflection</p>
-            <p className="text-[15px] text-[var(--color-text-muted)] leading-[1.75]">The gap between data and action is where design lives. Showing someone AQI is 271 is data. Coloring it purple is communication. Telling an asthma patient to keep rescue medication accessible &mdash; that&rsquo;s actionable design. Environmental design carries moral weight: when you&rsquo;re designing for a region with some of the worst air pollution on earth, every decision affects people&rsquo;s respiratory health.</p>
+            <p className="text-[15px] text-[var(--color-text-muted)] leading-[1.75]">The gap between data and action is where design lives. Showing someone AQI is 271 is data. Coloring it purple is communication. Telling an asthma patient to keep rescue medication accessible is actionable design. Environmental design carries moral weight: when you&rsquo;re designing for a region with some of the worst air pollution on earth, every decision affects people&rsquo;s respiratory health.</p>
           </AnimateIn>
         </section>
 

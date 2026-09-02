@@ -6,13 +6,13 @@ import Link from "next/link";
 import Image from "next/image";
 
 export const metadata = {
-  title: "City Watch — Case Study | Arsalan Aslam",
+  title: "City Watch · Case Study | Arsalan Aslam",
   description: "Real-time surveillance and response platform for Punjab Safe City Authority. SUS score 78.25, 8,000+ cameras.",
   openGraph: {
-    title: "City Watch — Case Study | Arsalan Aslam",
+    title: "City Watch · Case Study | Arsalan Aslam",
     description: "Real-time surveillance and response platform for Punjab Safe City Authority. SUS score 78.25, 8,000+ cameras.",
     type: "article",
-    images: [{ url: "/og/og-city-watch.png", width: 1200, height: 630, alt: "City Watch — Surveillance platform, 8,000+ cameras" }],
+    images: [{ url: "/og/og-city-watch.png", width: 1200, height: 630, alt: "City Watch: Surveillance platform, 8,000+ cameras" }],
   },
 };
 
@@ -53,7 +53,7 @@ export default function CityWatchCaseStudy() {
           <div className="full-bleed aspect-[2.2/1] relative overflow-hidden">
             <Image
               src="/images/city-watch/v2/city_watch_hero.jpg"
-              alt="City Watch — operational and admin dashboards"
+              alt="City Watch: operational and admin dashboards"
               fill
               priority
               className="object-cover"
@@ -82,7 +82,7 @@ export default function CityWatchCaseStudy() {
           <AnimateIn delay={0.1}>
             <div className="space-y-5 text-[15px] text-[var(--color-text-muted)] leading-[1.75]">
               <p>PSCA had invested in a modern 8,000+ camera network through a third-party vendor, but that system was expensive and inflexible. Meanwhile, field inspectors coordinated by radio, tracked deployments on spreadsheets, and communicated through WhatsApp. The technology watching the city was modern. The humans coordinating the response were operating like it was 1995.</p>
-              <p>City Watch was built to close that gap &mdash; a purpose-built platform giving PSCA full ownership of event coordination, deployment management, and threat detection without vendor lock-in.</p>
+              <p>City Watch was built to close that gap: a purpose-built platform giving PSCA full ownership of event coordination, deployment management, and threat detection without vendor lock-in.</p>
             </div>
           </AnimateIn>
         </section>
@@ -170,7 +170,7 @@ export default function CityWatchCaseStudy() {
                   <p className="text-[10px] text-[#633806]">Age: Late 20s &middot; Exp: 2-5 yrs &middot; Tech: High</p>
                 </div>
                 <div className="px-5 py-4">
-                  <p className="text-xs text-[var(--color-text-muted)] leading-relaxed mb-3">Young coordinator managing event planning and multi-team deployments. Tech-savvy — frustrated by outdated systems.</p>
+                  <p className="text-xs text-[var(--color-text-muted)] leading-relaxed mb-3">Young coordinator managing event planning and multi-team deployments. Tech-savvy, frustrated by outdated systems.</p>
                   <p className="text-[10px] uppercase tracking-widest text-[var(--color-text-subtle)] mb-1">Goals</p>
                   <div className="text-xs text-[var(--color-text-muted)] leading-relaxed mb-3 space-y-0.5">
                     <p>&bull; Full visibility of all resources during events</p>
@@ -190,7 +190,7 @@ export default function CityWatchCaseStudy() {
                     ))}
                   </div>
                   <div className="bg-[var(--color-bg-card)] rounded-lg p-3 border-l-2 border-[#EF9F27]">
-                    <p className="text-[11px] text-[var(--color-text-muted)] italic leading-relaxed">&ldquo;I manage 15 teams with a spreadsheet and a phone. During a live event, that&rsquo;s not coordination &mdash; that&rsquo;s guessing.&rdquo;</p>
+                    <p className="text-[11px] text-[var(--color-text-muted)] italic leading-relaxed">&ldquo;I manage 15 teams with a spreadsheet and a phone. During a live event, that&rsquo;s not coordination. That&rsquo;s guessing.&rdquo;</p>
                   </div>
                 </div>
               </div>
@@ -210,30 +210,30 @@ export default function CityWatchCaseStudy() {
               </div>
             </div>
             <p className="text-xs text-[var(--color-text-subtle)] italic text-center mb-2">Hybrid card sort: users grouped features by role, not by function</p>
-            <p className="text-sm text-[var(--color-text-muted)] text-center">This shaped the layered dashboard &mdash; map-centric default with role-specific panels</p>
+            <p className="text-sm text-[var(--color-text-muted)] text-center">This shaped the layered dashboard: map-centric default with role-specific panels</p>
           </AnimateIn>
         </section>
 
         <section className="max-w-3xl mx-auto px-6 md:px-12 py-16">
           <AnimateIn><p className="text-[11px] uppercase tracking-[0.3em] text-[var(--color-text-subtle)] mb-10">Key design decisions</p></AnimateIn>
           <Decision title="Layered dashboard, not tabs or a dense single view">
-            <p>84% wanted everything visible, but cognitive overload would be dangerous under pressure. We chose a map-centric default with expandable specialist panels &mdash; context without clutter.</p>
+            <p>84% wanted everything visible, but cognitive overload would be dangerous under pressure. We chose a map-centric default with expandable specialist panels: context without clutter.</p>
           </Decision>
           <Decision title="Two event types: procession vs. venue">
             <p>Stakeholder testing revealed that moving processions and fixed venues need fundamentally different security planning. This split cascaded through deployment templates, map visualizations, and alert logic.</p>
           </Decision>
           <Decision title="Expanded deployment categories">
-            <p>Added contingency deployments (fire brigade, bomb squad, medical) alongside standard police deployments &mdash; rethinking map visualization and resource tracking for fundamentally different unit types.</p>
+            <p>Added contingency deployments (fire brigade, bomb squad, medical) alongside standard police deployments, rethinking map visualization and resource tracking for fundamentally different unit types.</p>
           </Decision>
         </section>
 
         <section className="wrapper pb-16">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
             {[
-              { src: "/images/city-watch/city_watch_tile_1_landing.jpg", alt: "Layered overview — admin landing dashboard with stat cards, Punjab heat map, and event analytics" },
-              { src: "/images/city-watch/city_watch_tile_2_main_route.jpg", alt: "Procession routing — Main Route view with route polyline, distance, and force assignment" },
-              { src: "/images/city-watch/city_watch_tile_3_barricade.jpg", alt: "Expanded deployment categories — barricade placement with basic and contingency deployment options" },
-              { src: "/images/city-watch/city_watch_tile_4_cameras.jpg", alt: "Camera network — color-coded camera pins (PTZ, ANPR, ABC, GSC, ITS) and configuration dialog" },
+              { src: "/images/city-watch/city_watch_tile_1_landing.jpg", alt: "Layered overview: admin landing dashboard with stat cards, Punjab heat map, and event analytics" },
+              { src: "/images/city-watch/city_watch_tile_2_main_route.jpg", alt: "Procession routing: Main Route view with route polyline, distance, and force assignment" },
+              { src: "/images/city-watch/city_watch_tile_3_barricade.jpg", alt: "Expanded deployment categories: barricade placement with basic and contingency deployment options" },
+              { src: "/images/city-watch/city_watch_tile_4_cameras.jpg", alt: "Camera network: color-coded camera pins (PTZ, ANPR, ABC, GSC, ITS) and configuration dialog" },
             ].map((t, i) => (
               <AnimateIn key={t.src} delay={i * 0.06}>
                 <div className="rounded-2xl overflow-hidden aspect-[4/3] relative">
@@ -253,7 +253,7 @@ export default function CityWatchCaseStudy() {
         <section className="max-w-3xl mx-auto px-6 md:px-12 py-16">
           <AnimateIn><p className="text-[11px] uppercase tracking-[0.3em] text-[var(--color-text-subtle)] mb-10">Validation</p></AnimateIn>
           <div className="grid grid-cols-2 gap-x-8 gap-y-6">
-            <AnimateIn><Stat value="78.25" label="SUS score — above-average usability" /></AnimateIn>
+            <AnimateIn><Stat value="78.25" label="SUS score: above-average usability" /></AnimateIn>
             <AnimateIn delay={0.04}><Stat value="87.5%" label="rated usability as high" /></AnimateIn>
           </div>
           <AnimateIn delay={0.08}><p className="text-sm text-[var(--color-text-muted)] mt-6 italic">The platform was in active pilot testing with PSCA when I transitioned, built to integrate with the 8,000+ camera network.</p></AnimateIn>
@@ -262,7 +262,7 @@ export default function CityWatchCaseStudy() {
         <section className="max-w-3xl mx-auto px-6 md:px-12 py-16 border-t border-[var(--color-border)]">
           <AnimateIn>
             <p className="text-[11px] uppercase tracking-[0.3em] text-[var(--color-text-subtle)] mb-6">Reflection</p>
-            <p className="text-[15px] text-[var(--color-text-muted)] leading-[1.75]">Design for stress, not comfort. Institutional complexity is a design material. And navigating stakeholders with competing priorities &mdash; field officers wanting simplicity, coordinators wanting data, leadership wanting visibility &mdash; was the most transferable skill I took from this project.</p>
+            <p className="text-[15px] text-[var(--color-text-muted)] leading-[1.75]">Design for stress, not comfort. Institutional complexity is a design material. And navigating stakeholders with competing priorities (field officers wanting simplicity, coordinators wanting data, leadership wanting visibility) was the most transferable skill I took from this project.</p>
           </AnimateIn>
         </section>
 

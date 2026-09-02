@@ -4,10 +4,10 @@ import Footer from "@/components/Footer";
 import FooterCTA from "@/components/FooterCTA";
 
 export const metadata = {
-  title: "Privacy Policy — Arsalan Aslam",
+  title: "Privacy Policy · Arsalan Aslam",
   description: "What this site collects, how it's used, and your rights as a visitor.",
   openGraph: {
-    title: "Privacy Policy — Arsalan Aslam",
+    title: "Privacy Policy · Arsalan Aslam",
     description: "What this site collects, how it's used, and your rights as a visitor.",
     type: "website",
   },
@@ -49,7 +49,7 @@ export default function Privacy() {
                 <strong className="font-semibold">Contact form submissions.</strong> If you fill out the contact form, I receive your name, email address, optional company name, and your message. These come to my personal Gmail inbox. I read them, respond if appropriate, and keep them in my inbox like any other email correspondence.
               </p>
               <p className="mb-4">
-                <strong className="font-semibold">Anonymous traffic analytics.</strong> This site uses Vercel Analytics, which counts page views, referrers, and country-level locations &mdash; without cookies, without fingerprinting, and without identifying individual visitors. It tells me &ldquo;15 people viewed the Dastak case study this week,&rdquo; not who they were.
+                <strong className="font-semibold">Anonymous traffic analytics.</strong> This site uses Vercel Analytics, which counts page views, referrers, and country-level locations, without cookies, without fingerprinting, and without identifying individual visitors. It tells me &ldquo;15 people viewed the Dastak case study this week,&rdquo; not who they were.
               </p>
               <p>
                 <strong className="font-semibold">Nothing else.</strong> No advertising trackers, no third-party data brokers, no email harvesting. The contact form is the only place where you actively give me your data, and only if you choose to.

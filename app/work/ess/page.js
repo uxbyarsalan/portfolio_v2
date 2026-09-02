@@ -6,13 +6,13 @@ import Link from "next/link";
 import Image from "next/image";
 
 export const metadata = {
-  title: "Employee Self Service — Case Study | Arsalan Aslam",
+  title: "Employee Self Service · Case Study | Arsalan Aslam",
   description: "Workplace community platform for 3,500+ employees. 98% daily adoption, 120K+ leave requests processed.",
   openGraph: {
-    title: "Employee Self Service — Case Study | Arsalan Aslam",
+    title: "Employee Self Service · Case Study | Arsalan Aslam",
     description: "Workplace community platform for 3,500+ employees. 98% daily adoption, 120K+ leave requests processed.",
     type: "article",
-    images: [{ url: "/og/og-ess.png", width: 1200, height: 630, alt: "Employee Self Service — Workplace platform, 3,500+ employees" }],
+    images: [{ url: "/og/og-ess.png", width: 1200, height: 630, alt: "Employee Self Service: Workplace platform, 3,500+ employees" }],
   },
 };
 
@@ -46,7 +46,7 @@ export default function ESSCaseStudy() {
           <div className="full-bleed aspect-[2.2/1] relative overflow-hidden">
             <Image
               src="/images/ess/v2/ess_hero.jpg"
-              alt="Employee Self Service — workplace community platform for 3,500+ PITB employees"
+              alt="Employee Self Service: workplace community platform for 3,500+ PITB employees"
               fill
               priority
               sizes="100vw"
@@ -74,7 +74,7 @@ export default function ESSCaseStudy() {
           </AnimateIn>
           <AnimateIn delay={0.1}>
             <div className="space-y-5 text-[15px] text-[var(--color-text-muted)] leading-[1.75]">
-              <p>We chose to go beyond the brief. Instead of just building a mobile HR tool, we deliberately designed an employee community platform &mdash; handling essential workflows (attendance, leave, tasks, approvals) alongside features that made colleagues&rsquo; daily lives better: carpooling, a marketplace, fundraising, blood donor matching, and lost &amp; found. The goal wasn&rsquo;t just efficiency. It was belonging.</p>
+              <p>We chose to go beyond the brief. Instead of just building a mobile HR tool, we deliberately designed an employee community platform, handling essential workflows (attendance, leave, tasks, approvals) alongside features that made colleagues&rsquo; daily lives better: carpooling, a marketplace, fundraising, blood donor matching, and lost &amp; found. The goal wasn&rsquo;t just efficiency. It was belonging.</p>
             </div>
           </AnimateIn>
         </section>
@@ -123,7 +123,7 @@ export default function ESSCaseStudy() {
                     ))}
                   </div>
                   <div className="bg-[var(--color-bg-card)] rounded-lg p-3 border-l-2 border-[#85B7EB]">
-                    <p className="text-[11px] text-[var(--color-text-muted)] italic leading-relaxed">&ldquo;I build apps for citizens all day &mdash; why is the app I use at work worse than what I build?&rdquo;</p>
+                    <p className="text-[11px] text-[var(--color-text-muted)] italic leading-relaxed">&ldquo;I build apps for citizens all day. Why is the app I use at work worse than what I build?&rdquo;</p>
                   </div>
                 </div>
               </div>
@@ -174,7 +174,7 @@ export default function ESSCaseStudy() {
 
           {/* Role-based views */}
           <AnimateIn delay={0.12}>
-            <p className="text-[10px] uppercase tracking-widest text-[var(--color-text-subtle)] mb-3">Role-based progressive disclosure &mdash; same data, four views</p>
+            <p className="text-[10px] uppercase tracking-widest text-[var(--color-text-subtle)] mb-3">Role-based progressive disclosure: same data, four views</p>
             <div className="grid grid-cols-2 md:grid-cols-4 gap-3 mb-12">
               {[
                 { role: "Employee", desc: "Personal dashboard, own attendance, leave balance" },
@@ -216,7 +216,7 @@ export default function ESSCaseStudy() {
 
           {/* Help Buddy */}
           <AnimateIn delay={0.16}>
-            <p className="text-[10px] uppercase tracking-widest text-[var(--color-text-subtle)] mb-3">Help Buddy &mdash; community features that drove voluntary engagement</p>
+            <p className="text-[10px] uppercase tracking-widest text-[var(--color-text-subtle)] mb-3">Help Buddy: community features that drove voluntary engagement</p>
             <div className="grid grid-cols-3 md:grid-cols-5 gap-3 mb-4">
               {[
                 { name: "Carpooling", desc: "Share rides to work", bg: "bg-[#E1F5EE]", tc: "text-[#04342C]", sc: "text-[#085041]" },
@@ -238,7 +238,7 @@ export default function ESSCaseStudy() {
         <section className="max-w-3xl mx-auto px-6 md:px-12 py-16">
           <AnimateIn><p className="text-[11px] uppercase tracking-[0.3em] text-[var(--color-text-subtle)] mb-10">Key design decisions</p></AnimateIn>
           <Decision title="Community platform, not just HR tool">
-            <p>Carpooling, marketplace, fundraising, blood donors, lost &amp; found &mdash; bundled under &ldquo;Help Buddy.&rdquo; An app that only handles admin tasks gets opened when you have to. One that helps you find a ride to work gets opened because you want to. The 98% check-in rate wasn&rsquo;t just about the mandate.</p>
+            <p>Carpooling, marketplace, fundraising, blood donors, lost &amp; found, all bundled under &ldquo;Help Buddy.&rdquo; An app that only handles admin tasks gets opened when you have to. One that helps you find a ride to work gets opened because you want to. The 98% check-in rate wasn&rsquo;t just about the mandate.</p>
           </Decision>
           <Decision title="Swipe to check-in">
             <p>The simplest possible interaction for the most frequent action. A 10-second improvement per check-in &times; 3,500 employees &times; twice daily = 400+ hours saved monthly.</p>
@@ -251,10 +251,10 @@ export default function ESSCaseStudy() {
         <section className="wrapper pb-16">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
             {[
-              { label: "ESS — Tasks", src: "/images/ess/ess_tile_1_tasks.jpg" },
-              { label: "ESS — Get a Ride", src: "/images/ess/ess_tile_2_get_a_ride.jpg" },
-              { label: "ESS — Meetings & OT Approval", src: "/images/ess/ess_tile_3.jpg" },
-              { label: "ESS — Attendance & Team Listing", src: "/images/ess/ess_tile_4.jpg" },
+              { label: "ESS: Tasks", src: "/images/ess/ess_tile_1_tasks.jpg" },
+              { label: "ESS: Get a Ride", src: "/images/ess/ess_tile_2_get_a_ride.jpg" },
+              { label: "ESS: Meetings & OT Approval", src: "/images/ess/ess_tile_3.jpg" },
+              { label: "ESS: Attendance & Team Listing", src: "/images/ess/ess_tile_4.jpg" },
             ].map((tile, i) => (
               <AnimateIn key={tile.label} delay={i * 0.06}>
                 <div className="bg-[var(--color-bg-card)] rounded-2xl aspect-[4/3] relative overflow-hidden">
@@ -283,7 +283,7 @@ export default function ESSCaseStudy() {
         <section className="max-w-3xl mx-auto px-6 md:px-12 py-16 border-t border-[var(--color-border)]">
           <AnimateIn>
             <p className="text-[11px] uppercase tracking-[0.3em] text-[var(--color-text-subtle)] mb-6">Reflection</p>
-            <p className="text-[15px] text-[var(--color-text-muted)] leading-[1.75]">Mandatory doesn&rsquo;t mean adopted. Attendance was required &mdash; but making the app genuinely useful between check-ins was the real challenge. And internal tools deserve the same design rigor as public products: when you apply user-centered thinking to an internal app, the results speak for themselves.</p>
+            <p className="text-[15px] text-[var(--color-text-muted)] leading-[1.75]">Mandatory doesn&rsquo;t mean adopted. Attendance was required, but making the app genuinely useful between check-ins was the real challenge. And internal tools deserve the same design rigor as public products: when you apply user-centered thinking to an internal app, the results speak for themselves.</p>
           </AnimateIn>
         </section>
 

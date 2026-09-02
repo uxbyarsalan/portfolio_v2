@@ -6,13 +6,13 @@ import Link from "next/link";
 import Image from "next/image";
 
 export const metadata = {
-  title: "Maryam Ki Dastak — Case Study | Arsalan Aslam",
+  title: "Maryam Ki Dastak · Case Study | Arsalan Aslam",
   description: "Delivering government services to the people who need them, at their doorstep. 2.1M+ requests, 87,000+ facilitators, 40 districts.",
   openGraph: {
-    title: "Maryam Ki Dastak — Case Study | Arsalan Aslam",
+    title: "Maryam Ki Dastak · Case Study | Arsalan Aslam",
     description: "Delivering government services to the people who need them, at their doorstep. 2.1M+ requests, 87,000+ facilitators, 40 districts.",
     type: "article",
-    images: [{ url: "/og/og-dastak.png", width: 1200, height: 630, alt: "Maryam Ki Dastak — 2.1M+ government services delivered" }],
+    images: [{ url: "/og/og-dastak.png", width: 1200, height: 630, alt: "Maryam Ki Dastak: 2.1M+ government services delivered" }],
   },
 };
 
@@ -79,7 +79,7 @@ export default function DastakCaseStudy() {
           <div className="full-bleed aspect-[2.2/1] relative overflow-hidden">
             <Image
               src="/images/dastak/v2/dastak_hero.jpg"
-              alt="Maryam ki Dastak — citizen and facilitator apps"
+              alt="Maryam ki Dastak: citizen and facilitator apps"
               fill
               priority
               sizes="100vw"
@@ -115,7 +115,7 @@ export default function DastakCaseStudy() {
             <p className="text-xl md:text-2xl text-[var(--color-text)] leading-[1.5] font-medium italic mb-8">
               What if a single mother who needs a birth certificate didn&rsquo;t
               have to take a day off work, travel miles to a government office,
-              and wait hours &mdash; only to be told she needs another document?
+              and wait hours, only to be told she needs another document?
             </p>
           </AnimateIn>
 
@@ -124,7 +124,7 @@ export default function DastakCaseStudy() {
               <p>
                 Before Dastak, accessing government services in Punjab meant one
                 thing: going to a government office in person. No digital option
-                existed. For 110 million citizens &mdash; especially in rural areas &mdash;
+                existed. For 110 million citizens, especially in rural areas,
                 this was a genuine barrier to accessing their rights.
               </p>
               <p>
@@ -140,7 +140,7 @@ export default function DastakCaseStudy() {
         {/* Ecosystem diagram — between Challenge and Key Decisions */}
         <section className="max-w-3xl mx-auto px-6 md:px-12 py-16 border-t border-[var(--color-border)]">
           <AnimateIn>
-            <p className="text-[11px] uppercase tracking-[0.3em] text-[var(--color-text-subtle)] mb-10">How Dastak works — end-to-end service delivery</p>
+            <p className="text-[11px] uppercase tracking-[0.3em] text-[var(--color-text-subtle)] mb-10">How Dastak works: end-to-end service delivery</p>
           </AnimateIn>
 
           {/* Flow steps */}
@@ -164,7 +164,7 @@ export default function DastakCaseStudy() {
           <AnimateIn delay={0.1}>
             <div className="grid grid-cols-2 md:grid-cols-4 gap-3 mb-8">
               {[
-                { text: "Selects from 76 services. No login required — just CNIC & phone number.", note: "Accessibility-first" },
+                { text: "Selects from 76 services. No login required, just CNIC & phone number.", note: "Accessibility-first" },
                 { text: "Auto-assigns nearest facilitator by district, service type, and load.", note: "Like ride-hailing for government services" },
                 { text: "Receives assignment on mobile app. Visits citizen, collects docs, processes.", note: "No office visit needed" },
                 { text: "Document delivered to citizen's door. Status updated, feedback collected.", note: "No paperwork lost" },
@@ -219,8 +219,8 @@ export default function DastakCaseStudy() {
           <Decision title="Five modules, one design language">
             <p>
               As design strategist across 20+ people, I established a shared
-              framework &mdash; common patterns, consistent terminology, unified
-              information architecture &mdash; so that a citizen&rsquo;s booking
+              framework (common patterns, consistent terminology, unified
+              information architecture) so that a citizen&rsquo;s booking
               flows seamlessly through CRM to facilitator to delivery.
             </p>
           </Decision>
@@ -278,7 +278,7 @@ export default function DastakCaseStudy() {
             <p className="text-[15px] text-[var(--color-text-muted)] leading-[1.75]">
               Design for the ecosystem, not the screen. In complex systems, the
               connections between modules matter more than any individual
-              interface. And accessibility isn&rsquo;t a feature &mdash; it&rsquo;s the
+              interface. And accessibility isn&rsquo;t a feature. It&rsquo;s the
               foundation: the no-login decision, the helpline alternative, the
               SMS verification were all deliberate choices to serve citizens
               who&rsquo;d never used a digital government service.

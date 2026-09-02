@@ -72,7 +72,7 @@ export default function ContactForm() {
           Message sent
         </p>
         <p className="text-2xl md:text-3xl font-semibold tracking-tight leading-[1.15] mb-4">
-          Thanks &mdash; I&rsquo;ll be in touch within 24 hours.
+          Thanks, I&rsquo;ll be in touch within 24 hours.
         </p>
         <p className="text-sm text-[var(--color-text-muted)] leading-relaxed">
           In the meantime, feel free to connect with me on LinkedIn or

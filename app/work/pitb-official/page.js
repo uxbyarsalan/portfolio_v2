@@ -6,13 +6,13 @@ import Link from "next/link";
 import Image from "next/image";
 
 export const metadata = {
-  title: "PITB Official — Project Spotlight | Arsalan Aslam",
+  title: "PITB Official · Project Spotlight | Arsalan Aslam",
   description: "Redesigning the flagship web portal for Punjab's technology authority. 13 screens, 30 hours of focused design.",
   openGraph: {
-    title: "PITB Official — Project Spotlight | Arsalan Aslam",
+    title: "PITB Official · Project Spotlight | Arsalan Aslam",
     description: "Redesigning the flagship web portal for Punjab's technology authority. 13 screens, 30 hours of focused design.",
     type: "article",
-    images: [{ url: "/og/og-pitb-official.png", width: 1200, height: 630, alt: "PITB Official — Government portal redesign" }],
+    images: [{ url: "/og/og-pitb-official.png", width: 1200, height: 630, alt: "PITB Official: Government portal redesign" }],
   },
 };
 
@@ -37,7 +37,7 @@ export default function PITBOfficialCaseStudy() {
           <div className="full-bleed aspect-[2.2/1] relative overflow-hidden">
             <Image
               src="/images/pitb-official/v2/pitb_hero.jpg"
-              alt="PITB Official — flagship web portal for Punjab's technology authority"
+              alt="PITB Official: flagship web portal for Punjab's technology authority"
               fill
               priority
               sizes="100vw"
@@ -49,7 +49,7 @@ export default function PITBOfficialCaseStudy() {
         <section className="wrapper py-10">
           <AnimateIn>
             <div className="grid grid-cols-2 md:grid-cols-5 gap-6 border-y border-[var(--color-border)] py-6">
-              {[{ l: "Client", v: "PITB" }, { l: "Role", v: "Program Manager — Design" }, { l: "Team", v: "2–3 people" }, { l: "Scope", v: "13 screens" }, { l: "Timeline", v: "2025 (30 hours)" }].map((m) => (
+              {[{ l: "Client", v: "PITB" }, { l: "Role", v: "Program Manager, Design" }, { l: "Team", v: "2–3 people" }, { l: "Scope", v: "13 screens" }, { l: "Timeline", v: "2025 (30 hours)" }].map((m) => (
                 <div key={m.l}><p className="text-[11px] uppercase tracking-[0.2em] text-[var(--color-text-subtle)] mb-1">{m.l}</p><p className="text-sm font-medium">{m.v}</p></div>
               ))}
             </div>
@@ -60,8 +60,8 @@ export default function PITBOfficialCaseStudy() {
           <AnimateIn>
             <div className="space-y-5 text-[15px] text-[var(--color-text-muted)] leading-[1.75]">
               <p>PITB is the organization behind City Watch, Maryam Ki Dastak, Punjab Jobs, and dozens of other digital services serving millions. But its own website didn&rsquo;t reflect that ambition. The portal was outdated, with tangled navigation and inconsistent design patterns.</p>
-              <p>The core tension: making a government portal feel genuinely modern without losing institutional gravitas. We chose a bold dark theme anchored by deep navy &mdash; an unusual choice for government that signals technical sophistication. Inter typeface for clean legibility. Periwinkle blue for warmth and interaction. The result is a portal that looks like it belongs to a technology organization, not a bureaucracy.</p>
-              <p>30 hours of focused design work, backed by a decade of institutional knowledge. Speed doesn&rsquo;t mean shallow &mdash; sometimes the best work happens when you already know the institution deeply and can move with precision rather than exploration.</p>
+              <p>The core tension: making a government portal feel genuinely modern without losing institutional gravitas. We chose a bold dark theme anchored by deep navy, an unusual choice for government that signals technical sophistication. Inter typeface for clean legibility. Periwinkle blue for warmth and interaction. The result is a portal that looks like it belongs to a technology organization, not a bureaucracy.</p>
+              <p>30 hours of focused design work, backed by a decade of institutional knowledge. Speed doesn&rsquo;t mean shallow. Sometimes the best work happens when you already know the institution deeply and can move with precision rather than exploration.</p>
             </div>
           </AnimateIn>
         </section>
@@ -71,9 +71,9 @@ export default function PITBOfficialCaseStudy() {
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
             {[
               { label: "Landing hero", src: "/images/pitb-official/pitb_tile_1_landing_hero.jpg" },
-              { label: "Digital Punjab — sector categories", src: "/images/pitb-official/pitb_tile_2_sectors.jpg" },
+              { label: "Digital Punjab: sector categories", src: "/images/pitb-official/pitb_tile_2_sectors.jpg" },
               { label: "Management & leadership", src: "/images/pitb-official/pitb_tile_3_management.jpg" },
-              { label: "About — Board", src: "/images/pitb-official/pitb_tile_4_board.jpg" },
+              { label: "About: Board", src: "/images/pitb-official/pitb_tile_4_board.jpg" },
             ].map((tile, i) => (
               <AnimateIn key={tile.label} delay={i * 0.06}>
                 <div className="bg-[var(--color-bg-card)] rounded-2xl aspect-[4/3] relative overflow-hidden">
