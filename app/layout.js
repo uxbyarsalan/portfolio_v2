@@ -2,12 +2,13 @@ import "./globals.css";
 import { Analytics } from "@vercel/analytics/react";
 
 export const metadata = {
+  metadataBase: new URL("https://www.uxbyarsalan.com"),
   title: "Arsalan Aslam · Lead Product Designer",
   description: "Lead Product Designer with 14+ years building systems used by 20M+ people. Based in Lahore, Pakistan.",
   openGraph: {
     title: "Arsalan Aslam · Lead Product Designer",
     description: "Lead Product Designer with 14+ years building systems used by 20M+ people.",
-    url: "https://uxbyarsalan.com",
+    url: "https://www.uxbyarsalan.com",
     siteName: "Arsalan Aslam",
     locale: "en_US",
     type: "website",
