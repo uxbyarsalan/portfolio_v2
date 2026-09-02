@@ -198,7 +198,18 @@ export default function WorkHorizontalScroll({ projects }) {
       const stageTopAbs = window.scrollY + stage.getBoundingClientRect().top;
       const targetY = stageTopAbs + NAV + targetProgress * scrollableInside;
 
-      window.scrollTo({ top: targetY, behavior: "smooth" });
+      // Instant (not smooth): rapid tabbing can't interrupt an animation and
+      // leave a card resting half-revealed. Then, after the transform settles
+      // (double rAF), clamp vertically — if the card's top is still under the
+      // fixed nav, nudge the scroll so it drops below it. This defeats the clip
+      // regardless of what caused the upward shift.
+      window.scrollTo({ top: targetY, behavior: "auto" });
+      requestAnimationFrame(() =>
+        requestAnimationFrame(() => {
+          const after = card.getBoundingClientRect();
+          if (after.top < NAV) window.scrollBy(0, after.top - NAV);
+        })
+      );
     };
 
     window.addEventListener("keydown", onKeyDown, true);
