@@ -49,7 +49,7 @@ export default function Resume() {
               <Section label="Summary">
                 <div className="text-[15px] text-[var(--color-text-muted)] leading-[1.8] space-y-4">
                   <p>
-                    Lead Product Designer with 14+ years building web and mobile systems used by 20M+ people. Progressed from UX Designer to Program Manager (Design) at Punjab Information Technology Board, leading design strategy across 10+ platforms, including iOS and Android apps, serving 168 departments.
+                    Lead Product Designer with 14+ years building web and mobile systems used by 20M+ people. Progressed from UX Designer into design leadership at Punjab Information Technology Board, leading design strategy across 10+ platforms, including iOS and Android apps, serving 168 departments.
                   </p>
                   <p>
                     Experienced designing AI-powered interfaces, from automated dispatch to environmental health prediction, and integrating AI tools across design and content workflows.
@@ -71,7 +71,8 @@ export default function Resume() {
 
                   {[
                     {
-                      title: "Program Manager, Design",
+                      title: "Lead Product Designer",
+                      officialTitle: "Official title: Program Manager, Design",
                       period: "2023–2025",
                       bullets: [
                         "Led UX strategy and design operations across 10+ government platforms, managing a team of 10–12 designers, researchers, and developers serving 168 government departments.",
@@ -109,7 +110,12 @@ export default function Resume() {
                   ].map((role) => (
                     <div key={role.title} className="mb-8 last:mb-0">
                       <div className="flex flex-col md:flex-row md:items-baseline md:justify-between mb-2">
-                        <h4 className="text-[15px] font-medium">{role.title}</h4>
+                        <div>
+                          <h4 className="text-[15px] font-medium">{role.title}</h4>
+                          {role.officialTitle && (
+                            <p className="text-[11px] italic text-[var(--color-text-subtle)] mt-0.5">{role.officialTitle}</p>
+                          )}
+                        </div>
                         <span className="text-[11px] text-[var(--color-text-subtle)]">{role.period}</span>
                       </div>
                       <ul className="space-y-2">
