@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Stockpilot &middot; connected prototype</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Newsreader:ital@1&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tabler-icons/2.47.0/tabler-icons.min.css">
+<style>
+:root{
+  --surface-1:#f4f3ee;--surface-2:#ffffff;--text-primary:#1a1a1a;--text-secondary:#4a4842;--text-muted:#8b897f;
+  --border:#e9e7e0;--border-strong:#d3d1c8;--bg-accent:#e6f2f0;--text-accent:#0f766e;--fill-accent:#0f766e;--on-accent:#fff;
+  --fill-primary:#1a1a1a;--on-primary:#fff;--bg-warning:#fbeede;--text-warning:#b45309;--text-success:#15803d;
+  --border-accent:#a7d5cf;--font-voice:'Newsreader',Georgia,serif;--radius:8px;
+}
+*{box-sizing:border-box}
+body{margin:0;background:#e8e6e0;font-family:'Inter',system-ui,sans-serif;display:flex;flex-direction:column;align-items:center;min-height:100vh;padding:24px 12px;color:var(--text-primary)}
+.hint-top{font-size:13px;color:#77746c;margin:0 0 14px;text-align:center;max-width:360px;line-height:1.5}
+#app{position:relative;width:380px;height:760px;background:var(--surface-2);border:0.5px solid var(--border);border-radius:26px;overflow:hidden;box-shadow:0 20px 60px rgba(0,0,0,.14);display:flex;flex-direction:column}
+#screen{flex:1;overflow-y:auto;overflow-x:hidden}
+#screen::-webkit-scrollbar{width:0}
+#nav{flex:none;display:flex;border-top:0.5px solid var(--border);background:var(--surface-2)}
+#nav button{flex:1;border:none;background:none;padding:10px 0 12px;cursor:pointer;color:var(--text-muted);font-family:inherit;display:flex;flex-direction:column;align-items:center;gap:2px;font-size:10.5px}
+#nav button.on{color:var(--text-accent)}
+#nav button i{font-size:21px}
+.card{background:var(--surface-2);border:0.5px solid var(--border);border-radius:12px;padding:13px 14px;transition:opacity .2s}
+.card.demoted{opacity:.6}
+.pill{font-size:11px;font-weight:500;padding:3px 8px;border-radius:20px;white-space:nowrap;display:inline-flex;align-items:center;gap:4px}
+.tag{font-size:10px;font-weight:500;padding:2px 7px;border-radius:20px;white-space:nowrap;display:inline-flex;align-items:center;gap:3px}
+.btnp{height:33px;padding:0 15px;font-size:13px;border-radius:var(--radius);background:var(--fill-primary);color:var(--on-primary);border:none;cursor:pointer;font-family:inherit}
+.btns{height:33px;padding:0 15px;font-size:13px;border-radius:var(--radius);background:var(--surface-2);color:var(--text-primary);border:0.5px solid var(--border-strong);cursor:pointer;font-family:inherit}
+.btng{height:33px;padding:0 12px;font-size:13px;border:0.5px solid var(--border-strong);border-radius:var(--radius);background:none;color:var(--text-secondary);cursor:pointer;font-family:inherit}
+.chev{border:none;background:none;color:var(--text-muted);cursor:pointer;padding:2px;font-size:17px;line-height:1;flex:none}
+.dots{border:none;background:none;color:var(--text-muted);cursor:pointer;padding:0;font-size:18px;line-height:1}
+.why{max-height:0;overflow:hidden;transition:max-height .22s}
+.why.show{max-height:110px}
+.hdr{display:flex;align-items:center;gap:10px;padding:15px 16px 10px}
+.backhdr{display:flex;align-items:center;gap:8px;padding:15px 16px 10px;cursor:pointer}
+.chip{font-size:12.5px;padding:6px 12px;border:0.5px solid var(--border-strong);border-radius:20px;background:var(--surface-2);color:var(--text-secondary);cursor:pointer;font-family:inherit}
+.chip.on{background:var(--fill-primary);color:var(--on-primary);border-color:var(--fill-primary)}
+input[type=range]{-webkit-appearance:none;appearance:none;width:100%;height:5px;border-radius:3px;background:var(--border-strong);outline:none;margin:0}
+input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:22px;height:22px;border-radius:50%;background:var(--fill-accent);cursor:pointer;border:3px solid var(--surface-2);box-shadow:0 1px 4px rgba(0,0,0,.2)}
+.stp{display:flex;align-items:center;gap:7px}
+.stp button{width:26px;height:26px;border:0.5px solid var(--border-strong);border-radius:50%;background:var(--surface-2);color:var(--text-primary);font-size:15px;cursor:pointer;line-height:1;display:flex;align-items:center;justify-content:center}
+.stp span{min-width:22px;text-align:center;font-size:13px;font-weight:500}
+.add{font-size:12px;color:var(--text-accent);cursor:pointer;border:none;background:none;white-space:nowrap;font-family:inherit}
+.exp{background:var(--surface-1);border-radius:10px;padding:12px;margin-top:10px}
+.hintbox{display:flex;align-items:flex-start;gap:9px;background:var(--bg-accent);border:0.5px solid var(--border-accent);border-radius:12px;padding:11px 13px}
+.lbtn{font-size:12px;color:var(--text-accent);border:none;background:none;cursor:pointer;display:inline-flex;align-items:center;gap:3px;padding:0;font-family:inherit}
+.gbtn{font-size:12.5px;padding:6px 12px;border:0.5px solid var(--border-strong);border-radius:20px;background:var(--surface-2);color:var(--text-primary);cursor:pointer;font-family:inherit}
+.scrim{position:absolute;inset:0;background:rgba(0,0,0,.4);opacity:0;pointer-events:none;transition:.2s;z-index:20}
+.scrim.show{opacity:1;pointer-events:auto}
+.sheet{position:absolute;left:0;right:0;bottom:0;background:var(--surface-2);border-top-left-radius:20px;border-top-right-radius:20px;padding:16px 18px 20px;transform:translateY(110%);transition:transform .25s;z-index:21}
+.sheet.open{transform:translateY(0)}
+.mrow{display:flex;align-items:center;gap:11px;padding:11px 6px;border-radius:9px;cursor:pointer;font-size:13.5px}
+#toast{position:absolute;left:16px;right:16px;bottom:74px;background:var(--fill-primary);color:var(--on-primary);font-size:12.5px;padding:11px 13px;border-radius:10px;opacity:0;transform:translateY(8px);transition:.2s;pointer-events:none;z-index:30;line-height:1.4}
+#toast.show{opacity:1;transform:translateY(0)}
+.voice{font-family:var(--font-voice);font-style:italic}
+
+@media(max-width:520px){
+  body{padding:0;background:var(--surface-2);}
+  .hint-top{display:none;}
+  #app{width:100vw;height:100dvh;max-width:none;border:none;border-radius:0;box-shadow:none;}
+}
+</style>
+</head>
+<body>
+<p class="hint-top">Connected prototype. Reorder the black tote from Today, then check the Planner and Reorders, the app remembers.</p>
+<div id="app">
+  <div id="screen"></div>
+  <div id="nav">
+    <button data-go="today"><i class="ti ti-home"></i>Today</button>
+    <button data-go="reorders"><i class="ti ti-truck-delivery"></i>Reorders</button>
+  </div>
+  <div class="scrim" data-a="scrim"></div>
+  <div class="sheet" id="menu">
+    <div style="width:34px;height:4px;border-radius:3px;background:var(--border-strong);margin:0 auto 10px;"></div>
+    <div class="mrow" data-a="m-reordered"><i class="ti ti-checks" style="font-size:18px;color:var(--text-secondary);"></i>I've already reordered</div>
+    <div class="mrow" data-a="m-stop"><i class="ti ti-eye-off" style="font-size:18px;color:var(--text-secondary);"></i>Stop tracking this item</div>
+    <div class="mrow" data-a="m-week"><i class="ti ti-clock-pause" style="font-size:18px;color:var(--text-secondary);"></i>Snooze for a week</div>
+  </div>
+  <div class="sheet" id="info">
+    <div style="width:34px;height:4px;border-radius:3px;background:var(--border-strong);margin:0 auto 12px;"></div>
+    <div style="display:flex;align-items:center;gap:8px;margin-bottom:8px;"><i class="ti ti-bulb" style="font-size:19px;color:var(--text-accent);"></i><span id="info-title" style="font-size:15px;font-weight:600;"></span></div>
+    <p id="info-body" style="font-size:13.5px;color:var(--text-secondary);line-height:1.55;margin:0 0 12px;"></p>
+    <div><span style="display:inline-block;font-size:10.5px;font-weight:500;letter-spacing:.03em;text-transform:uppercase;color:var(--text-muted);background:var(--surface-1);border:0.5px solid var(--border);padding:4px 9px;border-radius:20px;margin-bottom:16px;">Out of scope for this exploration</span></div>
+    <button data-a="info-close" style="display:block;width:100%;height:40px;font-size:13.5px;background:var(--fill-primary);color:var(--on-primary);border:none;border-radius:var(--radius);cursor:pointer;font-family:inherit;">Got it</button>
+  </div>
+  <div id="toast"></div>
+</div>
+
+<script>
+var TOTE="Black tote, Medium";
+var cat=[
+  {n:TOTE,s:"black totes",u:120,t:10,fc:28,h:[16,19,21,24,27],tag:"Running low",ti:"ti-trending-up",tc:"var(--text-warning)",tb:"var(--bg-warning)",slow:false},
+  {n:"Linen dress",s:"linen dresses",u:90,t:10,fc:16,h:[13,15,14,16,16],tag:"Fast mover",ti:"ti-trending-up",tc:"var(--text-accent)",tb:"var(--bg-accent)",slow:false},
+  {n:"Silk scarf",s:"silk scarves",u:45,t:12,fc:21,h:[4,6,9,13,18],tag:"Trending up",ti:"ti-trending-up",tc:"var(--text-accent)",tb:"var(--bg-accent)",slow:false},
+  {n:"Cotton top",s:"cotton tops",u:40,t:8,fc:9,h:[9,8,9,8,9],tag:"Steady",ti:"ti-arrow-right",tc:"var(--text-muted)",tb:"var(--surface-1)",slow:false},
+  {n:"Beaded clutch",s:"beaded clutches",u:80,t:4,fc:2,h:[7,6,4,3,2],tag:"Slowing",ti:"ti-trending-down",tc:"var(--text-muted)",tb:"var(--surface-1)",slow:true}
+];
+var S={view:'today',onOrder:[],toteMode:'',cashMode:'',menuTarget:null,rStep:1,rQty:30,budget:3000,mult:1,pQty:{},pOpen:{},arr:'',planList:[],weeklyPlanned:false,weeklyCount:0,weeklyTf:'week',odMode:'',odEta:'',standing:''};
+var screen=document.getElementById('screen'),navEl=document.getElementById('nav'),scrim=document.querySelector('.scrim'),menu=document.getElementById('menu'),toastEl=document.getElementById('toast'),tt=null;
+function money(n){return 'AED '+Math.round(n).toLocaleString();}
+function etaLabel(v){return v==='2 to 3 days'?'in 2 to 3 days':(v==='this week'?'this week':null);}
+function etaShort(e){return e==='in 2 to 3 days'?'In 2-3 days':(e==='this week'?'This week':'Arrival TBD');}
+function demotedRow(name,mode,who){var icon,txt;if(mode==='stop'){icon='ti-eye-off';txt='No longer tracking';}else if(mode==='snoozew'){icon='ti-zzz';txt='Snoozed, back in about a week';}else{icon='ti-zzz';txt='Snoozed, back in about a day';}return '<div class="card demoted"><div style="display:flex;align-items:center;gap:9px;"><i class="ti '+icon+'" style="font-size:18px;color:var(--text-muted);"></i><div style="flex:1;min-width:0;"><p style="font-size:14px;font-weight:500;margin:0;">'+name+'</p><p style="font-size:11.5px;color:var(--text-muted);margin:1px 0 0;">'+txt+'</p></div><button class="lbtn" data-a="unsnooze-'+who+'">Undo</button></div></div>';}
+function isOn(name){return S.onOrder.some(function(o){return o.n===name;});}
+function toast(m){toastEl.textContent=m;toastEl.classList.add('show');clearTimeout(tt);tt=setTimeout(function(){toastEl.classList.remove('show');},3000);}
+function tItem(){return cat[0];}
+function trend(a){var f=a[0],l=a[a.length-1];return l>f*1.12?'climbing':(l<f*0.9?'slowing':'steady');}
+function chart(it){var a=it.h.concat([it.fc]),w=290,h=54,pad=6;var mn=Math.min.apply(null,a),mx=Math.max.apply(null,a),r=(mx-mn)||1;function X(i){return (i/(a.length-1))*w;}function Y(v){return h-pad-((v-mn)/r)*(h-2*pad);}var hp=it.h.map(function(v,i){return X(i).toFixed(1)+','+Y(v).toFixed(1);}).join(' ');var lx=X(it.h.length-1),ly=Y(it.h[it.h.length-1]),fx=X(a.length-1),fy=Y(it.fc);return '<svg width="100%" viewBox="0 0 '+w+' '+h+'"><polyline points="'+hp+'" fill="none" stroke="'+it.tc+'" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><line x1="'+lx.toFixed(1)+'" y1="'+ly.toFixed(1)+'" x2="'+fx.toFixed(1)+'" y2="'+fy.toFixed(1)+'" stroke="'+it.tc+'" stroke-width="2" stroke-dasharray="3 3" opacity=".7"/><circle cx="'+fx.toFixed(1)+'" cy="'+fy.toFixed(1)+'" r="3.5" fill="'+it.tc+'"/></svg>';}
+
+var INFO={
+  review:{t:'Review the ones running low',b:'In the full product, this opens a focused list of just the 3 items running low, each with its own trend and a one-tap reorder. A filtered view, not the whole budget planner.'},
+  dead:{t:'Free up trapped cash',b:'This opens your 3 slow movers with the cash each one is tying up, and lets you free it with a markdown. The other half of the money story: not just what to buy, but what to stop holding.'},
+  ask:{t:'Ask Stockpilot',b:'A conversational way to ask anything, like what to restock this week, and drop into the planner from your own words. The proactive feed stays the default, conversation is the depth on demand.'},
+  reviewdone:{t:'The items running low',b:'In the full product, this shows the items that were running low and are now on order, so you can confirm exactly what got reordered.'},
+  reagain:{t:'Reorder from a past order',b:'In the full product, this starts a reorder pre-filled with the same items and quantities as this past order, which you can adjust before sending.'}
+};
+var V={};
+V.today=function(){
+  var toteActive=!isOn(TOTE)&&!S.toteMode;
+  var h='<div class="hdr"><span style="display:flex;align-items:center;gap:7px;font-size:15px;font-weight:500;flex:1;"><i class="ti ti-compass" style="font-size:19px;color:var(--text-accent);"></i>Stockpilot</span><span style="width:30px;height:30px;border-radius:50%;background:var(--bg-accent);color:var(--text-accent);display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:500;">R</span></div>';
+  h+='<p class="voice" style="font-size:17px;line-height:1.45;margin:4px 18px;">'+(toteActive?"Morning, Rina. One thing's a bit urgent today, the rest can wait.":"Nice, Rina. The urgent one is handled. Nothing else is pressing.")+'</p>';
+  h+='<p style="font-size:12px;color:var(--text-muted);margin:14px 18px 8px;">Needs you today</p><div style="margin:0 14px;display:flex;flex-direction:column;gap:10px;">';
+  if(toteActive){
+    h+='<div class="card" data-card="tote"><div style="display:flex;align-items:flex-start;gap:8px;"><div style="flex:1;min-width:0;"><div style="display:flex;align-items:center;gap:8px;margin-bottom:7px;"><span class="pill" style="background:var(--bg-warning);color:var(--text-warning);"><i class="ti ti-clock-exclamation" style="font-size:13px;"></i>2 days left</span><span style="font-size:11px;color:var(--text-muted);display:inline-flex;align-items:center;gap:2px;"><i class="ti ti-trending-up" style="font-size:12px;"></i>Top earner</span></div><div style="display:flex;align-items:center;gap:6px;"><p style="font-size:15px;font-weight:500;margin:0;line-height:1.35;flex:1;">Black tote, Medium</p><button class="chev" data-a="why-t"><i class="ti ti-chevron-down"></i></button></div></div><button class="dots" data-a="menu-t"><i class="ti ti-dots-vertical"></i></button></div><div class="why" data-why><p style="font-size:12.5px;color:var(--text-secondary);margin:9px 0 0;line-height:1.5;">Selling about 4 a day, one of your top earners. Two days of stock left at the current pace.</p></div><div style="display:flex;align-items:center;gap:8px;margin-top:11px;"><button class="btnp" data-a="plan-tote">Plan reorder</button><button class="btng" data-a="remind-t">Remind me later</button></div></div>';
+  }else if(isOn(TOTE)){
+    var o=S.onOrder.filter(function(x){return x.n===TOTE;})[0];
+    h+='<div class="card demoted"><div style="display:flex;align-items:center;gap:9px;"><i class="ti ti-truck-delivery" style="font-size:18px;color:var(--text-success);"></i><div style="flex:1;"><p style="font-size:14px;font-weight:500;margin:0;">Black tote reordered</p><p style="font-size:11.5px;color:var(--text-muted);margin:1px 0 0;">'+o.q+' on the way, '+(o.eta?('arriving '+o.eta):'arrival not set yet')+'</p></div></div></div>';
+  }else{h+=demotedRow('Black tote, Medium',S.toteMode,'t');}
+  if(S.weeklyPlanned){h+='<div style="display:flex;align-items:center;gap:9px;padding:11px 14px;border:0.5px solid var(--border);border-radius:12px;background:var(--surface-1);"><i class="ti ti-circle-check" style="font-size:16px;color:var(--text-success);"></i><span style="font-size:13.5px;color:var(--text-secondary);flex:1;">The items running low are now on the way</span><button class="lbtn" data-a="info" data-k="reviewdone">View</button></div>';}
+  else{h+='<div style="display:flex;align-items:center;gap:9px;padding:11px 14px;border:0.5px solid var(--border);border-radius:12px;background:var(--surface-1);"><i class="ti ti-clock-hour-4" style="font-size:16px;color:var(--text-secondary);"></i><span style="font-size:13.5px;color:var(--text-secondary);flex:1;">3 more running low, but not urgent yet</span><button class="lbtn" data-a="info" data-k="review">Review <i class="ti ti-chevron-right" style="font-size:15px;"></i></button></div>';}
+  if(!S.cashMode){h+='<div class="card" data-card="cash"><div style="display:flex;align-items:flex-start;gap:8px;"><div style="flex:1;min-width:0;"><span class="pill" style="background:var(--surface-1);border:0.5px solid var(--border);color:var(--text-secondary);"><i class="ti ti-wallet" style="font-size:13px;"></i>AED 1,200 stuck</span><div style="display:flex;align-items:center;gap:6px;margin-top:7px;"><p style="font-size:15px;font-weight:500;margin:0;line-height:1.35;flex:1;">3 items haven\'t sold in 3+ weeks</p><button class="chev" data-a="why-c"><i class="ti ti-chevron-down"></i></button></div></div><button class="dots" data-a="menu-c"><i class="ti ti-dots-vertical"></i></button></div><div class="why" data-why><p style="font-size:12.5px;color:var(--text-secondary);margin:9px 0 0;line-height:1.5;">These three have had no sales in over three weeks, tying up roughly AED 1,200 you could put toward restocking.</p></div><div style="display:flex;align-items:center;gap:8px;margin-top:11px;"><button class="btns" data-a="info" data-k="dead">See them</button><button class="btng" data-a="remind-c">Remind me later</button></div></div>';}else{h+=demotedRow('3 slow-moving items',S.cashMode,'c');}
+  h+='</div>';
+  if(S.weeklyPlanned){h+='<div style="margin:12px 14px 4px;border:0.5px solid var(--border);background:var(--surface-1);border-radius:12px;padding:13px 14px;"><div style="display:flex;align-items:center;gap:8px;margin-bottom:4px;"><i class="ti ti-circle-check" style="font-size:17px;color:var(--text-success);"></i><span style="font-size:14.5px;font-weight:500;color:var(--text-primary);">'+(S.weeklyTf==='week'?'This week\'s restock is on the way':'Your 2-week restock is on the way')+'</span></div><p style="font-size:13px;color:var(--text-secondary);margin:0 0 10px 25px;line-height:1.5;">'+S.weeklyCount+' items reordered. I\'ll update your stock as they arrive.</p><div style="margin-left:25px;"><button data-go="reorders" style="height:32px;padding:0 14px;font-size:13px;border-radius:var(--radius);background:var(--surface-2);color:var(--text-primary);border:0.5px solid var(--border-strong);cursor:pointer;font-family:inherit;">View in Reorders</button></div></div>';}
+  else{h+='<div style="margin:12px 14px 4px;border:2px solid var(--border-accent);background:var(--bg-accent);border-radius:12px;padding:13px 14px;"><div style="display:flex;align-items:center;gap:8px;margin-bottom:4px;"><i class="ti ti-target-arrow" style="font-size:17px;color:var(--text-accent);"></i><span style="font-size:14.5px;font-weight:500;color:var(--text-accent);">Plan this week\'s smartest restocks</span></div><p style="font-size:13px;color:var(--text-accent);opacity:.85;margin:0 0 10px 25px;line-height:1.5;">Set a budget and I\'ll suggest the mix likely to earn the most.</p><div style="margin-left:25px;"><button data-go="planner" style="height:32px;padding:0 14px;font-size:13px;border-radius:var(--radius);background:var(--fill-accent);color:var(--on-accent);border:none;cursor:pointer;font-family:inherit;">Plan restocks</button></div></div>';}
+  h+='<div style="padding:14px 16px 18px;"><button data-a="info" data-k="ask" style="display:flex;align-items:center;gap:10px;width:100%;height:42px;padding:0 14px;border:0.5px solid var(--border-strong);border-radius:21px;background:var(--surface-1);cursor:pointer;font-family:inherit;"><i class="ti ti-sparkles" style="font-size:17px;color:var(--text-accent);"></i><span style="font-size:13.5px;color:var(--text-muted);flex:1;text-align:left;">Ask Stockpilot anything</span><i class="ti ti-microphone" style="font-size:18px;color:var(--text-secondary);"></i></button></div>';
+  return h;
+};
+
+V.reorder=function(){
+  var it=tItem(),cost=S.rQty*it.u,usual=3500;
+  var aff,ac;
+  if(cost<=usual*1.05){ac='var(--text-secondary)';aff='<i class="ti ti-wallet" style="font-size:14px;"></i>In line with your usual restock spend.';}
+  else if(cost<=usual*1.3){ac='var(--text-warning)';aff='<i class="ti ti-alert-triangle" style="font-size:14px;"></i>A bit above your usual restock spend.';}
+  else{ac='var(--text-warning)';aff='<i class="ti ti-alert-triangle" style="font-size:14px;"></i>Well above your usual, consider trimming.';}
+  var h='<div class="backhdr" data-go="today"><i class="ti ti-chevron-left" style="font-size:20px;color:var(--text-secondary);"></i><span style="font-size:15px;font-weight:500;">Plan reorder</span></div><div style="padding:6px 18px 18px;">';
+  if(S.rStep===1){
+    h+='<p style="font-size:15px;font-weight:500;margin:8px 0 2px;">Black tote, Medium</p><div style="margin-bottom:14px;"><span class="tag" style="color:var(--text-warning);background:var(--bg-warning);"><i class="ti ti-trending-up" style="font-size:11px;"></i>Selling fast</span> <span style="font-size:11px;color:var(--text-muted);margin-left:4px;">Top earner</span></div>';
+    h+='<div style="background:var(--surface-1);border-radius:10px;padding:12px;margin-bottom:16px;"><div style="display:flex;justify-content:space-between;font-size:10.5px;color:var(--text-muted);margin-bottom:4px;"><span>Last 5 weeks</span><span>Next week</span></div>'+chart(it)+'<p style="font-size:12.5px;color:var(--text-secondary);margin:8px 0 0;line-height:1.5;">Sales are <b style="color:var(--text-warning);">climbing</b>. You\'ll likely sell about <b>'+it.fc+'</b> next week.</p></div>';
+    h+='<p style="font-size:12px;color:var(--text-muted);margin:0 0 8px;">Reorder quantity</p><div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:8px;"><div class="stp" style="gap:10px;"><button data-a="rdec" style="width:36px;height:36px;font-size:18px;">&minus;</button><span style="font-size:19px;min-width:34px;">'+S.rQty+'</span><button data-a="rinc" style="width:36px;height:36px;font-size:18px;">+</button></div><div style="text-align:right;"><div style="font-size:16px;font-weight:600;">'+money(cost)+'</div><div style="font-size:11px;color:var(--text-muted);">'+S.rQty+' &times; AED 120</div></div></div>';
+    h+='<p style="font-size:12px;color:var(--text-secondary);margin:0 0 6px;line-height:1.5;">At about 28 a week, I suggest 30: a week plus a small buffer.</p><p style="font-size:12px;margin:0 0 16px;display:flex;align-items:center;gap:6px;color:'+ac+';">'+aff+'</p><button class="btnp" data-a="rconfirm" style="width:100%;height:44px;font-size:14px;">Confirm reorder</button>';
+  }else{
+    h+='<div style="display:flex;align-items:center;gap:8px;margin:10px 0 14px;"><i class="ti ti-circle-check" style="font-size:20px;color:var(--text-success);"></i><span style="font-size:15px;font-weight:500;">Reorder logged</span></div>';
+    h+='<p style="font-size:13px;color:var(--text-secondary);margin:0 0 8px;">When will it arrive? <span style="color:var(--text-muted);">(optional)</span></p><div style="display:flex;gap:7px;flex-wrap:wrap;margin-bottom:8px;"><button class="chip'+(S.arr==='2 to 3 days'?' on':'')+'" data-a="arr" data-v="2 to 3 days">In 2 to 3 days</button><button class="chip'+(S.arr==='this week'?' on':'')+'" data-a="arr" data-v="this week">This week</button><button class="chip'+(S.arr==='soon'?' on':'')+'" data-a="arr" data-v="soon">Not sure yet</button></div><p style="font-size:12px;color:var(--text-muted);margin:0 0 16px;display:flex;align-items:center;gap:6px;"><i class="ti ti-bell-off" style="font-size:14px;"></i>I\'ll pause the alert and check back when it\'s due.</p>';
+    h+='<p style="font-size:12px;color:var(--text-muted);margin:0 0 6px;">Your reorder list</p><div style="background:var(--surface-1);border:0.5px solid var(--border);border-radius:10px;padding:12px;font-size:13px;margin-bottom:6px;"><div style="color:var(--text-muted);font-size:11px;margin-bottom:4px;">REORDER</div>'+S.rQty+' x Black tote (M)</div><p style="font-size:11px;color:var(--text-muted);margin:0 0 12px;">Tag this item\'s supplier to group future orders (optional).</p>';
+    h+='<div style="display:flex;gap:8px;margin-bottom:14px;"><button class="gbtn" style="flex:1;" data-a="hand" data-v="Copied to clipboard."><i class="ti ti-copy"></i> Copy</button><button class="gbtn" style="flex:1;" data-a="hand" data-v="Opening share sheet, pick how to send."><i class="ti ti-share"></i> Share</button><button class="gbtn" style="flex:1;" data-a="hand" data-v="Saved as a file."><i class="ti ti-download"></i> Download</button></div>';
+    h+='<button data-a="rdone" style="width:100%;height:44px;font-size:14px;background:var(--fill-accent);color:var(--on-accent);border:none;border-radius:var(--radius);cursor:pointer;font-family:inherit;">Done</button>';
+  }
+  h+='</div>';
+  return h;
+};
+
+function propose(){var b=S.budget,rem=b;cat.forEach(function(it,i){if(isOn(it.n)){S.pQty[i]=0;return;}var want=Math.round(it.t*S.mult);var q=Math.min(want,Math.floor(rem/it.u));if(q<0)q=0;S.pQty[i]=q;rem-=q*it.u;});}
+function plannerMix(){
+  var html='',total=0,b=S.budget;
+  cat.forEach(function(it,i){
+    if(isOn(it.n)){var o=S.onOrder.filter(function(x){return x.n===it.n;})[0];html+='<div class="card" style="opacity:.62;border-radius:0;border:none;border-bottom:0.5px solid var(--border);padding:11px 0;"><div style="display:flex;gap:10px;align-items:center;"><div style="flex:1;"><div style="display:flex;align-items:center;gap:7px;margin-bottom:3px;"><span style="font-size:13.5px;font-weight:500;">'+it.n+'</span><span class="tag" style="color:var(--text-success);background:var(--surface-1);border:0.5px solid var(--border);"><i class="ti ti-truck-delivery" style="font-size:11px;"></i>On order</span></div><span style="font-size:11.5px;color:var(--text-muted);">'+o.q+' on the way, arriving '+o.eta+'</span></div><i class="ti ti-check" style="font-size:17px;color:var(--text-success);"></i></div></div>';return;}
+    var q=S.pQty[i]||0,cost=q*it.u;total+=cost;var skip=q===0;
+    html+='<div style="padding:11px 0;border-bottom:0.5px solid var(--border);"><div style="display:flex;gap:10px;"><div data-a="pexp" data-i="'+i+'" style="flex:1;min-width:0;cursor:pointer;'+(skip?'opacity:.55;':'')+'"><div style="display:flex;align-items:center;gap:7px;margin-bottom:3px;"><span style="font-size:13.5px;font-weight:500;">'+it.n+'</span><span class="tag" style="color:'+it.tc+';background:'+it.tb+';"><i class="ti '+it.ti+'" style="font-size:11px;"></i>'+it.tag+'</span><i class="ti ti-chevron-'+(S.pOpen[i]?'up':'down')+'" style="font-size:14px;color:var(--text-muted);margin-left:auto;"></i></div><span style="font-size:11.5px;color:var(--text-muted);">'+(skip?'Skipped this week':(q+' &times; '+money(it.u)+' = '+money(cost)))+'</span></div>'+(skip?'<button class="add" data-a="padd" data-i="'+i+'">+ Add</button>':'<div class="stp"><button data-a="pdec" data-i="'+i+'">&minus;</button><span>'+q+'</span><button data-a="pinc" data-i="'+i+'">+</button></div>')+'</div>';
+    if(S.pOpen[i]){var want=Math.round(it.t*S.mult);html+='<div class="exp"><div style="display:flex;justify-content:space-between;font-size:10.5px;color:var(--text-muted);margin-bottom:4px;"><span>Last 5 weeks</span><span>Next week</span></div>'+chart(it)+'<p style="font-size:12px;color:var(--text-secondary);margin:8px 0 0;line-height:1.5;">Sales are <b style="color:'+it.tc+';">'+trend(it.h)+'</b>. Likely about <b>'+it.fc+'</b> next week, so I suggest around <b>'+want+'</b>.</p></div>';}
+    html+='</div>';
+  });
+  document.getElementById('pl-mix').innerHTML=html;
+  document.getElementById('pl-total').textContent=money(total);
+  document.getElementById('pl-total').style.color=total>b+40?'var(--text-warning)':'var(--text-primary)';
+  document.getElementById('pl-budget').textContent=money(b);
+  var under=null;for(var j=0;j<cat.length;j++){var it=cat[j];if(!isOn(it.n)&&!it.slow&&(S.pQty[j]||0)<Math.round(it.t*S.mult)){under=it;break;}}
+  var hint;if(under){var k=Math.round(under.t*S.mult)-(S.pQty[cat.indexOf(under)]||0),d=k*under.u;hint='Stretch to about '+money(b+d)+' and I\'d add '+k+' more '+under.s+', one of your stronger earners.';}
+  else{var left=b-total;hint=left>=120?('You\'ve covered your best movers. I\'d keep about '+money(left)+' in reserve.'):'This spreads your budget across your strongest movers, and leaves the slow stock alone.';}
+  document.getElementById('pl-hint').textContent=hint;
+}
+V.planner=function(){
+  var covered=isOn(TOTE);
+  var h='<div class="backhdr" data-go="today"><i class="ti ti-chevron-left" style="font-size:20px;color:var(--text-secondary);"></i><span style="font-size:15px;font-weight:500;">Plan restocks</span></div>';
+  h+='<p class="voice" style="font-size:16px;line-height:1.4;margin:2px 16px 14px;">'+(covered?"Your black tote is already on order, so here's the mix for the rest of your budget.":"Here's where I'd put your money this week. Slide to set your budget, tap a row for why.")+'</p>';
+  h+='<div style="padding:0 16px;"><div style="display:flex;align-items:baseline;justify-content:space-between;margin-bottom:4px;"><span style="font-size:12px;color:var(--text-muted);">Budget (about)</span><span id="pl-budget" style="font-size:30px;font-weight:600;letter-spacing:-.02em;"></span></div><input id="pl-slider" type="range" min="800" max="5500" step="100" value="'+S.budget+'"><div style="display:flex;gap:7px;margin-top:12px;"><button class="chip'+(S.mult===1?' on':'')+'" data-a="ptf" data-v="1">This week</button><button class="chip'+(S.mult!==1?' on':'')+'" data-a="ptf" data-v="1.8">Next 2 weeks</button></div></div>';
+  h+='<div style="padding:14px 16px 0;"><p style="font-size:12px;color:var(--text-muted);margin:0 0 2px;">Suggested mix, tap a row for why</p><div id="pl-mix"></div><div style="display:flex;align-items:center;justify-content:space-between;padding:12px 0 4px;"><span style="font-size:13px;color:var(--text-secondary);">Allocated</span><span id="pl-total" style="font-size:16px;font-weight:600;"></span></div></div>';
+  h+='<div style="padding:0 16px;"><div class="hintbox"><i class="ti ti-bulb" style="font-size:17px;color:var(--text-accent);flex:none;margin-top:1px;"></i><p id="pl-hint" style="font-size:12.5px;color:var(--text-accent);margin:0;line-height:1.45;"></p></div></div>';
+  h+='<div style="padding:14px 16px 22px;"><button data-a="pconfirm" style="width:100%;height:42px;font-size:14px;background:var(--fill-accent);color:var(--on-accent);border:none;border-radius:var(--radius);cursor:pointer;font-family:inherit;">Confirm restock plan</button></div>';
+  return h;
+};
+
+V.reorders=function(){
+  var h='<div class="hdr"><span style="font-size:16px;font-weight:600;">Reorders</span></div><div style="padding:0 16px;">';
+  h+='<p style="font-size:12px;color:var(--text-muted);margin:4px 0 8px;">On the way</p><div style="display:flex;flex-direction:column;gap:9px;">';
+  if(S.onOrder.length===0){h+='<p style="font-size:13px;color:var(--text-muted);padding:8px 0 4px;">Nothing on the way yet. Plan a reorder from your Today screen.</p>';}
+  S.onOrder.forEach(function(o){h+='<div class="card"><div style="display:flex;justify-content:space-between;align-items:flex-start;gap:10px;"><div style="flex:1;min-width:0;"><p style="font-size:14px;font-weight:500;margin:0 0 3px;">'+o.n+'</p><p style="font-size:11.5px;color:var(--text-muted);margin:0;">'+o.q+' units &middot; '+money(o.q*o.u)+'</p></div><span class="pill" style="color:var(--text-warning);background:var(--bg-warning);"><i class="ti ti-truck-delivery" style="font-size:12px;"></i>'+etaShort(o.eta)+'</span></div></div>';});
+  if(S.odMode==='revised'){var rt=S.odEta==='still not sure'?'Cotton top x12, still no firm date':('Cotton top x12, now expected '+S.odEta);h+='<div class="card" style="background:var(--surface-1);"><div style="display:flex;align-items:flex-start;gap:9px;"><i class="ti ti-clock-hour-4" style="font-size:18px;color:var(--text-secondary);flex:none;margin-top:1px;"></i><div style="flex:1;"><p style="font-size:13.5px;font-weight:500;margin:0 0 2px;">'+rt+'</p><p style="font-size:11.5px;color:var(--text-muted);margin:0;">Thanks, I\'ll keep watching and update your stock when it lands.</p></div></div></div>';}
+  else if(S.odMode==='asking'){h+='<div class="card" style="background:var(--surface-1);"><div style="display:flex;align-items:flex-start;gap:9px;"><i class="ti ti-help-circle" style="font-size:18px;color:var(--text-warning);flex:none;margin-top:1px;"></i><div style="flex:1;"><p style="font-size:13.5px;font-weight:500;margin:0 0 7px;">When do you now expect the cotton tops? <span style="color:var(--text-muted);font-weight:400;">(optional)</span></p><div style="display:flex;gap:7px;flex-wrap:wrap;"><button class="gbtn" data-a="od-eta" data-v="in a few days">In a few days</button><button class="gbtn" data-a="od-eta" data-v="later this week">Later this week</button><button class="gbtn" data-a="od-eta" data-v="still not sure">Still not sure</button></div></div></div></div>';}
+  else if(S.odMode!=='gone'){h+='<div class="card" id="od-card" style="background:var(--surface-1);"><div style="display:flex;align-items:flex-start;gap:9px;"><i class="ti ti-help-circle" style="font-size:18px;color:var(--text-warning);flex:none;margin-top:1px;"></i><div style="flex:1;"><p style="font-size:13.5px;font-weight:500;margin:0 0 2px;">Cotton top x12 was due Monday</p><p style="font-size:11.5px;color:var(--text-muted);margin:0 0 9px;">I don\'t see it in your stock yet. Still on the way?</p><div style="display:flex;gap:8px;"><button class="gbtn" data-a="rr-wait">Still waiting</button></div><div id="od-manual" style="display:none;margin-top:10px;padding-top:10px;border-top:0.5px solid var(--border);"><button class="lbtn" data-a="rr-arr">It arrived, add to stock (manual)</button></div></div><button class="dots" data-a="od-menu"><i class="ti ti-dots-vertical"></i></button></div></div>';}
+  h+='</div>';
+  if(S.standing===''){h+='<div style="display:flex;align-items:flex-start;gap:9px;background:var(--bg-accent);border:0.5px solid var(--border-accent);border-radius:12px;padding:11px 13px;margin:14px 0 4px;"><i class="ti ti-repeat" style="font-size:16px;color:var(--text-accent);flex:none;margin-top:1px;"></i><div style="flex:1;"><p style="font-size:12.5px;color:var(--text-accent);margin:0 0 8px;line-height:1.45;">You reorder black totes about every 3 weeks. Want a heads-up before the next one?</p><div style="display:flex;gap:14px;"><button class="lbtn" data-a="rr-yes" style="font-weight:500;">Yes, remind me</button><button class="lbtn" data-a="rr-no" style="color:var(--text-muted);">No thanks</button></div></div></div>';}
+  else if(S.standing==='yes'){h+='<div style="display:flex;align-items:center;gap:9px;background:var(--surface-1);border:0.5px solid var(--border);border-radius:12px;padding:11px 13px;margin:14px 0 4px;"><i class="ti ti-bell-check" style="font-size:16px;color:var(--text-success);flex:none;"></i><p style="font-size:12.5px;color:var(--text-secondary);margin:0;line-height:1.45;">You\'re all set. I\'ll remind you before your next black-tote reorder.</p></div>';}
+  h+='<p style="font-size:12px;color:var(--text-muted);margin:16px 0 8px;">Past reorders</p><div>';
+  [['Linen dress x15','12 Sep','AED 1,350'],['Black tote x25, Cotton top x10','28 Aug','AED 3,400'],['Silk scarf x20','14 Aug','AED 900']].forEach(function(r){h+='<div style="padding:11px 0;border-bottom:0.5px solid var(--border);display:flex;justify-content:space-between;align-items:flex-start;gap:10px;"><div style="flex:1;min-width:0;"><p style="font-size:13.5px;font-weight:500;margin:0 0 2px;">'+r[0]+'</p><p style="font-size:11px;color:var(--text-muted);margin:0;">'+r[1]+' &middot; '+r[2]+' &middot; <span style="color:var(--text-success);">Arrived</span></p></div><button class="lbtn" data-a="info" data-k="reagain">Reorder</button></div>';});
+  h+='</div><div style="height:18px;"></div></div>';
+  return h;
+};
+
+V.planhandoff=function(){
+  var h='<div class="backhdr" data-go="today"><i class="ti ti-chevron-left" style="font-size:20px;color:var(--text-secondary);"></i><span style="font-size:15px;font-weight:500;">Restock plan</span></div><div style="padding:6px 18px 20px;">';
+  h+='<div style="display:flex;align-items:center;gap:8px;margin:10px 0 14px;"><i class="ti ti-circle-check" style="font-size:20px;color:var(--text-success);"></i><span style="font-size:15px;font-weight:500;">Restock plan confirmed</span></div>';
+  h+='<p style="font-size:13px;color:var(--text-secondary);margin:0 0 14px;line-height:1.5;">'+S.planList.length+' items to reorder. I\'ll sense each arrival from your stock and keep your Today screen updated, no dates to set.</p>';
+  h+='<p style="font-size:12px;color:var(--text-muted);margin:0 0 6px;">Your reorder list</p><div style="background:var(--surface-1);border:0.5px solid var(--border);border-radius:10px;padding:12px;font-size:13px;line-height:1.75;margin-bottom:6px;"><div style="color:var(--text-muted);font-size:11px;margin-bottom:5px;">REORDER</div>';
+  S.planList.forEach(function(p){h+=p.q+' x '+p.n+'<br>';});
+  h+='</div><p style="font-size:11px;color:var(--text-muted);margin:0 0 14px;">Tag suppliers to group these by supplier (optional).</p>';
+  h+='<div style="display:flex;gap:8px;margin-bottom:14px;"><button class="gbtn" style="flex:1;" data-a="hand" data-v="Copied to clipboard."><i class="ti ti-copy"></i> Copy</button><button class="gbtn" style="flex:1;" data-a="hand" data-v="Opening share sheet, pick how to send."><i class="ti ti-share"></i> Share</button><button class="gbtn" style="flex:1;" data-a="hand" data-v="Saved as a file."><i class="ti ti-download"></i> Download</button></div>';
+  h+='<button data-a="pdone" style="width:100%;height:44px;font-size:14px;background:var(--fill-accent);color:var(--on-accent);border:none;border-radius:var(--radius);cursor:pointer;font-family:inherit;">Done</button></div>';
+  return h;
+};
+
+function paint(){
+  screen.innerHTML=V[S.view]();
+  var top=(S.view==='today'||S.view==='reorders');
+  navEl.style.display=top?'flex':'none';
+  navEl.querySelectorAll('button').forEach(function(b){b.classList.toggle('on',b.dataset.go===S.view);});
+  if(S.view==='planner'){propose();plannerMix();}
+  screen.scrollTop=0;
+}
+function go(v){S.view=v;if(v==='reorder'){}paint();}
+
+document.getElementById('app').addEventListener('input',function(e){
+  if(e.target.id==='pl-slider'){S.budget=+e.target.value;propose();plannerMix();}
+});
+document.getElementById('app').addEventListener('click',function(e){
+  var g=e.target.closest('[data-go]');if(g){go(g.dataset.go);return;}
+  var el=e.target.closest('[data-a]');if(!el)return;var a=el.dataset.a,card=e.target.closest('[data-card]');
+  if(a==='why-t'||a==='why-c'){var w=card.querySelector('[data-why]');if(w)w.classList.toggle('show');var ic=el.querySelector('i');if(ic&&w)ic.className=w.classList.contains('show')?'ti ti-chevron-up':'ti ti-chevron-down';return;}
+  if(a==='plan-tote'){S.rStep=1;S.rQty=30;S.arr='';go('reorder');return;}
+  if(a==='remind-t'){S.toteMode='snooze1';toast("Okay, I'll bring the tote back in a day, while there's still time.");paint();return;}
+  if(a==='remind-c'){S.cashMode='snooze1';toast("Okay, I'll remind you about the tied-up cash later.");paint();return;}
+  if(a==='unsnooze-t'){S.toteMode='';toast('Back on your list.');paint();return;}
+  if(a==='unsnooze-c'){S.cashMode='';toast('Back on your list.');paint();return;}
+  if(a==='menu-t'){S.menuTarget='tote';scrim.classList.add('show');menu.classList.add('open');return;}
+  if(a==='menu-c'){S.menuTarget='cash';scrim.classList.add('show');menu.classList.add('open');return;}
+  if(a==='scrim'){scrim.classList.remove('show');menu.classList.remove('open');document.getElementById('info').classList.remove('open');return;}
+  if(a==='info'){var inf=INFO[el.dataset.k];document.getElementById('info-title').textContent=inf.t;document.getElementById('info-body').textContent=inf.b;scrim.classList.add('show');document.getElementById('info').classList.add('open');return;}
+  if(a==='info-close'){scrim.classList.remove('show');document.getElementById('info').classList.remove('open');return;}
+  if(a==='m-reordered'){scrim.classList.remove('show');menu.classList.remove('open');if(S.menuTarget==='tote'){S.onOrder.push({n:TOTE,q:30,u:120,eta:null});}else{S.cashMode='snooze1';}toast('Marked as reordered.');paint();return;}
+  if(a==='m-stop'){scrim.classList.remove('show');menu.classList.remove('open');if(S.menuTarget==='tote')S.toteMode='stop';else S.cashMode='stop';toast('Stopped tracking this item.');paint();return;}
+  if(a==='m-week'){scrim.classList.remove('show');menu.classList.remove('open');if(S.menuTarget==='tote')S.toteMode='snoozew';else S.cashMode='snoozew';toast('Snoozed for a week.');paint();return;}
+  if(a==='rinc'){S.rQty++;paint();return;}
+  if(a==='rdec'){if(S.rQty>1)S.rQty--;paint();return;}
+  if(a==='rconfirm'){S.onOrder.push({n:TOTE,q:S.rQty,u:120,eta:null});S.rStep=2;paint();return;}
+  if(a==='arr'){S.arr=el.dataset.v;var ao=S.onOrder.filter(function(x){return x.n===TOTE;}).pop();if(ao)ao.eta=etaLabel(el.dataset.v);paint();return;}
+  if(a==='hand'){toast(el.dataset.v);return;}
+  if(a==='rdone'){toast('Done. The tote is now on order everywhere.');go('today');return;}
+  if(a==='pexp'){var i=+el.dataset.i;S.pOpen[i]=!S.pOpen[i];plannerMix();return;}
+  if(a==='pinc'){S.pQty[+el.dataset.i]=(S.pQty[+el.dataset.i]||0)+1;plannerMix();return;}
+  if(a==='pdec'){var i2=+el.dataset.i;if((S.pQty[i2]||0)>0)S.pQty[i2]--;plannerMix();return;}
+  if(a==='padd'){var i3=+el.dataset.i;S.pQty[i3]=Math.max(1,Math.round(cat[i3].t*S.mult/2));plannerMix();return;}
+  if(a==='ptf'){S.mult=+el.dataset.v;propose();paint();return;}
+  if(a==='pconfirm'){S.planList=[];cat.forEach(function(it,i){if(!isOn(it.n)&&(S.pQty[i]||0)>0){S.planList.push({n:it.n,q:S.pQty[i]});S.onOrder.push({n:it.n,q:S.pQty[i],u:it.u,eta:null});}});if(!S.planList.length){toast('Nothing to reorder in this plan.');go('today');return;}S.weeklyPlanned=true;S.weeklyCount=S.planList.length;S.weeklyTf=S.mult===1?'week':'2week';S.view='planhandoff';paint();return;}
+  if(a==='pdone'){toast('Plan saved. Arrivals will update as stock comes in.');go('today');return;}
+  if(a==='rr-wait'){S.odMode='asking';paint();return;}
+  if(a==='od-eta'){S.odEta=el.dataset.v;S.odMode='revised';toast("Got it, I'll keep watching.");paint();return;}
+  if(a==='rr-arr'){S.odMode='gone';toast('Added to stock and resumed tracking.');paint();return;}
+  if(a==='od-menu'){var odm=document.getElementById('od-manual');if(odm)odm.style.display=(odm.style.display==='none'?'block':'none');return;}
+  if(a==='rr-yes'){S.standing='yes';toast("Done. I'll remind you before your black totes are due.");paint();return;}
+  if(a==='rr-no'){S.standing='no';paint();return;}
+});
+paint();
+</script>
+</body>
+</html>
