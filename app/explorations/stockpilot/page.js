@@ -35,8 +35,6 @@ function Eyebrow({ children }) {
 export default function StockpilotCaseStudy() {
   return (
     <>
-      {/* Tabler icons for the inline planner demo; React hoists this to <head>. */}
-      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tabler-icons/2.47.0/tabler-icons.min.css" />
       <Nav />
       <main>
         <div className="wrapper pt-28 md:pt-36">
