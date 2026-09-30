@@ -5,14 +5,39 @@ import { useEffect, useRef } from "react";
  * PlannerDemo — the small live restock-planner embedded inline in the
  * Stockpilot case study, at the "one number, not a range" decision.
  *
- * It's a self-contained widget: the markup shell is rendered by React, its
- * styles are scoped under .sp-planner so they don't touch the rest of the
- * site, and the (framework-free) interaction logic runs once in useEffect
- * against this component's own DOM node. Drag the budget and the AI re-thinks
- * the mix live; tap a row to see the forecast behind a suggestion.
- *
+ * Self-contained: markup shell rendered by React, styles scoped under
+ * .sp-planner, icons inlined as SVG (no icon font), and the interaction
+ * logic runs once in useEffect against this component's own DOM node.
  * The full, connected version lives at /explorations/stockpilot/prototype.
  */
+const ICON = {
+  "chevron-left": '<path d="M15 6l-6 6l6 6" />',
+  "chevron-up": '<path d="M6 15l6 -6l6 6" />',
+  "chevron-down": '<path d="M6 9l6 6l6 -6" />',
+  bulb: '<path d="M3 12h1m8 -9v1m8 8h1m-15.4 -6.4l.7 .7m12.1 -.7l-.7 .7" /><path d="M9 16a5 5 0 1 1 6 0a3.5 3.5 0 0 0 -1 3a2 2 0 0 1 -4 0a3.5 3.5 0 0 0 -1 -3" /><path d="M9.7 17l4.6 0" />',
+  "trending-up": '<path d="M3 17l6 -6l4 4l8 -8" /><path d="M14 7l7 0l0 7" />',
+  "trending-down": '<path d="M3 7l6 6l4 -4l8 8" /><path d="M21 10l0 7l-7 0" />',
+  "arrow-right": '<path d="M5 12l14 0" /><path d="M13 18l6 -6" /><path d="M13 6l6 6" />',
+};
+
+function Icon({ name, size = 16, color, style }) {
+  return (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      width={size}
+      height={size}
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth={2}
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      style={{ display: "inline-block", verticalAlign: "middle", flexShrink: 0, color, ...style }}
+      dangerouslySetInnerHTML={{ __html: ICON[name] }}
+    />
+  );
+}
+
 export default function PlannerDemo() {
   const ref = useRef(null);
 
@@ -20,6 +45,17 @@ export default function PlannerDemo() {
     const root = ref.current;
     if (!root) return;
     const $ = (s) => root.querySelector(s);
+
+    // inline-SVG icon helper for the strings built during render()
+    const sic = (name, size, extra) => {
+      const k = name.replace("ti-", "");
+      const inner = ICON[k] || "";
+      return (
+        '<svg xmlns="http://www.w3.org/2000/svg" width="' + size + '" height="' + size +
+        '" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display:inline-block;vertical-align:middle;flex-shrink:0;' +
+        (extra || "") + '">' + inner + "</svg>"
+      );
+    };
 
     const items = [
       { n: "Black tote, Medium", s: "black totes", u: 120, t: 10, fc: 28, h: [16, 19, 21, 24, 27], tag: "Running low", ti: "ti-trending-up", tc: "var(--sp-warning)", tb: "var(--sp-bg-warning)", slow: false },
@@ -46,7 +82,7 @@ export default function PlannerDemo() {
       let html = "", total = 0;
       items.forEach((it, i) => {
         const cost = it.qty * it.u; total += cost; const skip = it.qty === 0;
-        html += '<div class="sp-row"><div style="display:flex;gap:10px;"><div data-sp="' + i + '" style="flex:1;min-width:0;cursor:pointer;' + (skip ? "opacity:.55;" : "") + '"><div style="display:flex;align-items:center;gap:7px;margin-bottom:3px;"><span style="font-size:13.5px;font-weight:500;">' + it.n + '</span><span class="sp-tag" style="color:' + it.tc + ";background:" + it.tb + ';"><i class="ti ' + it.ti + '" style="font-size:11px;"></i>' + it.tag + '</span><i class="ti ti-chevron-' + (open[i] ? "up" : "down") + '" style="font-size:14px;color:var(--sp-muted);margin-left:auto;"></i></div><span style="font-size:11.5px;color:var(--sp-muted);">' + (skip ? "Skipped this week" : it.qty + " &times; " + money(it.u) + " = " + money(cost)) + '</span></div>' + (skip ? '<button class="sp-add" data-add="' + i + '">+ Add</button>' : '<div class="sp-stp"><button data-dec="' + i + '">&minus;</button><span>' + it.qty + '</span><button data-inc="' + i + '">+</button></div>') + "</div>";
+        html += '<div class="sp-row"><div style="display:flex;gap:10px;"><div data-sp="' + i + '" style="flex:1;min-width:0;cursor:pointer;' + (skip ? "opacity:.55;" : "") + '"><div style="display:flex;align-items:center;gap:7px;margin-bottom:3px;"><span style="font-size:13.5px;font-weight:500;">' + it.n + '</span><span class="sp-tag" style="color:' + it.tc + ";background:" + it.tb + ';">' + sic(it.ti, 11) + it.tag + '</span>' + sic("ti-chevron-" + (open[i] ? "up" : "down"), 14, "color:var(--sp-muted);margin-left:auto;") + '</div><span style="font-size:11.5px;color:var(--sp-muted);">' + (skip ? "Skipped this week" : it.qty + " &times; " + money(it.u) + " = " + money(cost)) + '</span></div>' + (skip ? '<button class="sp-add" data-add="' + i + '">+ Add</button>' : '<div class="sp-stp"><button data-dec="' + i + '">&minus;</button><span>' + it.qty + '</span><button data-inc="' + i + '">+</button></div>') + "</div>";
         if (open[i]) { const want = Math.round(it.t * mult); html += '<div class="sp-exp"><div style="display:flex;justify-content:space-between;font-size:10.5px;color:var(--sp-muted);margin-bottom:4px;"><span>Last 5 weeks</span><span>Next week</span></div>' + chart(it) + '<p style="font-size:12px;color:var(--sp-secondary);margin:8px 0 0;line-height:1.5;">Sales are <b style="color:' + it.tc + ';">' + trend(it.h) + "</b>. Likely about <b>" + it.fc + "</b> next week, so I suggest around <b>" + want + "</b>.</p></div>"; }
         html += "</div>";
       });
@@ -95,7 +131,7 @@ export default function PlannerDemo() {
       `}</style>
       <div id="sp-pl">
         <div style={{ display: "flex", alignItems: "center", gap: "10px", padding: "15px 16px 10px" }}>
-          <i className="ti ti-chevron-left" style={{ fontSize: "20px", color: "var(--sp-secondary)" }} />
+          <Icon name="chevron-left" size={20} color="var(--sp-secondary)" />
           <span style={{ fontSize: "15px", fontWeight: 500 }}>Plan restocks</span>
         </div>
         <p style={{ fontFamily: "Georgia, serif", fontStyle: "italic", fontSize: "15px", lineHeight: 1.4, margin: "2px 16px 14px" }}>Here&rsquo;s where I&rsquo;d put your money this week. Slide to set your budget, tap a row to see why.</p>
@@ -119,7 +155,7 @@ export default function PlannerDemo() {
           </div>
         </div>
         <div className="sp-hint">
-          <i className="ti ti-bulb" style={{ fontSize: "17px", color: "var(--sp-accent)", flex: "none", marginTop: "1px" }} />
+          <Icon name="bulb" size={17} color="var(--sp-accent)" style={{ marginTop: "1px" }} />
           <p id="sp-hint" style={{ fontSize: "12.5px", color: "var(--sp-accent)", margin: 0, lineHeight: 1.45 }} />
         </div>
         <div style={{ padding: "14px 16px 18px" }}>
