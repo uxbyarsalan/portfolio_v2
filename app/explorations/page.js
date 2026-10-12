@@ -18,9 +18,16 @@ export const metadata = {
 
 const explorations = [
   {
+    slug: "sambhal",
+    title: "Sambhal",
+    meta: "2026 · AI-native · Working prototype",
+    blurb:
+      "A second brain for a design lead who holds too many threads. Intake, triage and a project memory, built from nine years in the chair, and built to be for the people it watches. The hard part was what the AI should refuse to pretend.",
+  },
+  {
     slug: "stockpilot",
     title: "Stockpilot",
-    meta: "2026 \u00b7 AI-native \u00b7 Working prototype",
+    meta: "2026 · AI-native · Working prototype",
     blurb:
       "A mobile copilot that helps a cash-strapped merchant make the smartest restock bets with limited money. An exploration into designing with AI, and for AI, where the model moved fast and the judgement stayed mine.",
   },
