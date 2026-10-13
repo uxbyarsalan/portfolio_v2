@@ -55,17 +55,18 @@ export default function ExplorationsIndex() {
         </section>
 
         <section className="wrapper py-10">
-          <div className="grid grid-cols-1 gap-5">
+          {/* Two columns now; becomes three per row once a third exploration lands. */}
+          <div className={`grid grid-cols-1 gap-5 ${explorations.length >= 3 ? "md:grid-cols-2 lg:grid-cols-3" : "md:grid-cols-2"}`}>
             {explorations.map((e, i) => (
-              <AnimateIn key={e.slug} delay={0.05 * i}>
+              <AnimateIn key={e.slug} delay={0.05 * i} className="h-full">
                 <Link
                   href={`/explorations/${e.slug}`}
-                  className="group block border border-[var(--color-border)] rounded-2xl p-8 md:p-10 hover:border-[var(--color-border-hover)] transition-colors"
+                  className="group flex flex-col h-full border border-[var(--color-border)] rounded-2xl p-7 md:p-8 hover:border-[var(--color-border-hover)] transition-colors"
                 >
                   <p className="text-[11px] uppercase tracking-[0.2em] text-[var(--color-text-subtle)] mb-4">{e.meta}</p>
-                  <h2 className="text-2xl md:text-4xl font-semibold tracking-tight mb-4">{e.title}</h2>
-                  <p className="text-[15px] text-[var(--color-text-muted)] leading-relaxed max-w-2xl">{e.blurb}</p>
-                  <span className="inline-flex items-center gap-2 text-[11px] uppercase tracking-[0.2em] mt-7 group-hover:gap-3 transition-all">
+                  <h2 className="text-2xl md:text-3xl font-semibold tracking-tight mb-3">{e.title}</h2>
+                  <p className="text-[15px] text-[var(--color-text-muted)] leading-relaxed">{e.blurb}</p>
+                  <span className="inline-flex items-center gap-2 text-[11px] uppercase tracking-[0.2em] mt-auto pt-7 group-hover:gap-3 transition-all">
                     Read the exploration <span aria-hidden="true">&rarr;</span>
                   </span>
                 </Link>
