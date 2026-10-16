@@ -49,7 +49,7 @@ export default function Resume() {
               <Section label="Summary">
                 <div className="text-[15px] text-[var(--color-text-muted)] leading-[1.8] space-y-4">
                   <p>
-                    Lead Product Designer with 14+ years building web and mobile systems used by 20M+ people. Progressed from UX Designer into design leadership at Punjab Information Technology Board, leading design strategy across 10+ platforms, including iOS and Android apps, serving 168 departments.
+                    Lead Product Designer with 14+ years building web and mobile systems used by 20M+ people. Progressed from UX Designer into design leadership at Punjab Information Technology Board, leading design strategy across 10+ platforms, including iOS and Android apps, serving 168 departments. Now leading product design at Trade Unleashed, a retail and e-commerce ERP live across 1,000+ locations.
                   </p>
                   <p>
                     Experienced designing AI-powered interfaces, from automated dispatch to environmental health prediction, and integrating AI tools across design and content workflows.
@@ -64,6 +64,52 @@ export default function Resume() {
             <AnimateIn delay={0.05}>
               <Section label="Experience">
                 <div className="mb-12">
+                  <div className="flex flex-col md:flex-row md:items-baseline md:justify-between mb-1">
+                    <h3 className="text-lg font-semibold">Trade Unleashed</h3>
+                    <span className="text-xs text-[var(--color-text-subtle)]">Lahore, Pakistan &middot; Remote</span>
+                  </div>
+
+                  {[
+                    {
+                      title: "Lead Product Designer",
+                      period: "Sep 2025–Present",
+                      bullets: [
+                        "Lead product design for a multi-tenant retail and e-commerce ERP, live across 1,000+ branches, warehouses and locations, processing tens of thousands of orders a day, with a typical go-live of 1–4 weeks.",
+                        "Own the product end to end: POS, inventory, order fulfilment, storefront and analytics. Currently leading a visual restyle of the core ERP screens and designing the inventory analytics layer.",
+                        "In parallel, publishing AI-native design explorations (Stockpilot, Sambhal) with live prototypes at uxbyarsalan.com/explorations.",
+                      ],
+                    },
+                    {
+                      title: "Co-Founder, Design",
+                      officialTitle: "Part-time, alongside PITB",
+                      period: "Sep 2020–Sep 2025",
+                      bullets: [
+                        "Co-founded the company and shaped the early product and design foundations of the ERP, from the first POS and inventory flows to the design system the platform still runs on.",
+                      ],
+                    },
+                  ].map((role) => (
+                    <div key={role.title} className="mb-8 last:mb-0">
+                      <div className="flex flex-col md:flex-row md:items-baseline md:justify-between mb-2">
+                        <div>
+                          <h4 className="text-[15px] font-medium">{role.title}</h4>
+                          {role.officialTitle && (
+                            <p className="text-[11px] italic text-[var(--color-text-subtle)] mt-0.5">{role.officialTitle}</p>
+                          )}
+                        </div>
+                        <span className="text-[11px] text-[var(--color-text-subtle)]">{role.period}</span>
+                      </div>
+                      <ul className="space-y-2">
+                        {role.bullets.map((b, i) => (
+                          <li key={i} className="text-sm text-[var(--color-text-muted)] leading-[1.7] pl-4 relative before:content-[''] before:absolute before:left-0 before:top-[10px] before:w-1.5 before:h-1.5 before:rounded-full before:bg-[var(--color-border-hover)]">
+                            {b}
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+                  ))}
+                </div>
+
+                <div className="mb-12 pt-8 border-t border-[var(--color-border)]">
                   <div className="flex flex-col md:flex-row md:items-baseline md:justify-between mb-1">
                     <h3 className="text-lg font-semibold">Punjab Information Technology Board</h3>
                     <span className="text-xs text-[var(--color-text-subtle)]">Lahore, Pakistan</span>
