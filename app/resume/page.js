@@ -52,7 +52,7 @@ export default function Resume() {
                     Lead Product Designer with 14+ years building web and mobile systems used by 20M+ people. Progressed from UX Designer into design leadership at Punjab Information Technology Board, leading design strategy across 10+ platforms, including iOS and Android apps, serving 168 departments. Now leading product design at Trade Unleashed, a retail and e-commerce ERP live across 1,000+ locations.
                   </p>
                   <p>
-                    Experienced designing AI-powered interfaces, from automated dispatch to environmental health prediction, and integrating AI tools across design and content workflows.
+                    Experienced designing data-heavy, decision-support interfaces, from real-time surveillance dispatch to environmental health advisories, and building AI-native product explorations with working prototypes.
                   </p>
                   <p>
                     Based in Lahore, open to senior product design roles (remote or relocation) where complexity meets scale.
@@ -268,7 +268,7 @@ export default function Resume() {
                     <span key={t} className="text-[11px] text-[var(--color-text-muted)] border border-[var(--color-border)] rounded-full px-3 py-1.5">{t}</span>
                   ))}
                 </div>
-                <p className="text-xs text-[var(--color-text-subtle)] mt-3 leading-relaxed">Integrated AI tools across content strategy, design exploration, and code implementation. Designed interfaces for AI-powered systems including automated dispatch and environmental health prediction.</p>
+                <p className="text-xs text-[var(--color-text-subtle)] mt-3 leading-relaxed">Integrated AI tools across content strategy, design exploration, and code implementation. Designed and published AI-native product explorations with working prototypes.</p>
               </Section>
             </AnimateIn>
 
