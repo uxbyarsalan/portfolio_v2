@@ -72,7 +72,7 @@ export default function Resume() {
                   {[
                     {
                       title: "Lead Product Designer",
-                      period: "Sep 2025–Present",
+                      period: "Jul 2026–Present",
                       bullets: [
                         "Lead product design for a multi-tenant retail and e-commerce ERP, live across 1,000+ branches, warehouses and locations, processing tens of thousands of orders a day, with a typical go-live of 1–4 weeks.",
                         "Own the product end to end: POS, inventory, order fulfilment, storefront and analytics. Currently leading a visual restyle of the core ERP screens and designing the inventory analytics layer.",
@@ -81,7 +81,7 @@ export default function Resume() {
                     {
                       title: "Co-Founder, Design",
                       officialTitle: "Part-time, alongside PITB",
-                      period: "Sep 2020–Sep 2025",
+                      period: "Sep 2020–Jul 2026",
                       bullets: [
                         "Co-founded the company and shaped the early product and design foundations of the ERP, from the first POS and inventory flows to the design system the platform still runs on.",
                       ],
