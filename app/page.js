@@ -131,8 +131,10 @@ export default function Home() {
                   <p>
                     What that taught me was how to find clarity inside systems that resist it. Stakeholders
                     with competing priorities, legacy constraints, scale that doesn&rsquo;t forgive sloppy
-                    decisions. These are the conditions I do my best work in. I&rsquo;m now based in
-                    Lahore, looking for the next set of problems worth solving carefully, wherever they are.
+                    decisions. These are the conditions I do my best work in.
+                  </p>
+                  <p>
+                    Today I lead product design at Trade Unleashed, a retail and e-commerce ERP I co-founded on the design side in 2020, now live across 1,000+ locations. Based in Lahore, and open to the next set of problems worth solving carefully, wherever they are.
                   </p>
                 </div>
               </AnimateIn>
@@ -149,6 +151,26 @@ export default function Home() {
           </AnimateIn>
 
           <AnimateIn delay={0.05}>
+            <div className="mb-8">
+              <div className="flex flex-wrap items-baseline gap-x-2 gap-y-1">
+                <span className="text-lg font-semibold">Now at Trade Unleashed</span>
+                <span className="text-[var(--color-text-muted)]">&middot;</span>
+                <span className="text-[15px] text-[var(--color-text-muted)] leading-relaxed">
+                  leading product design for a retail and e-commerce ERP live across 1,000+ locations; co-founded the design side in 2020
+                </span>
+              </div>
+              <div className="flex flex-wrap gap-2.5 mt-4">
+                {["Lead Product Designer, 2026–", "Co-Founder, Design, 2020–26"].map((role) => (
+                  <span key={role} className="text-[11px] text-[var(--color-text-subtle)] border border-[var(--color-border)] rounded-full px-3.5 py-1.5">
+                    {role}
+                  </span>
+                ))}
+              </div>
+            </div>
+          </AnimateIn>
+
+          <AnimateIn delay={0.08}>
+            <div className="h-[1px] bg-[var(--color-border)] mb-8" />
             <div className="mb-8">
               <div className="flex flex-wrap items-baseline gap-x-2 gap-y-1">
                 <span className="text-lg font-semibold">9 years at Punjab Information Technology Board</span>
