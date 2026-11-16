@@ -66,24 +66,17 @@ export default function Resume() {
                 <div className="mb-12">
                   <div className="flex flex-col md:flex-row md:items-baseline md:justify-between mb-1">
                     <h3 className="text-lg font-semibold">Trade Unleashed</h3>
-                    <span className="text-xs text-[var(--color-text-subtle)]">Lahore, Pakistan &middot; Remote</span>
+                    <span className="text-xs text-[var(--color-text-subtle)]">Lahore, Pakistan &middot; Hybrid</span>
                   </div>
 
                   {[
                     {
                       title: "Lead Product Designer",
-                      period: "Jul 2026–Present",
+                      officialTitle: "Part-time",
+                      period: "Oct 2025–Present",
                       bullets: [
                         "Lead product design for a multi-tenant retail and e-commerce ERP, live across 1,000+ branches, warehouses and locations, processing tens of thousands of orders a day, with a typical go-live of 1–4 weeks.",
-                        "Own the product end to end: POS, inventory, order fulfilment, storefront and analytics. Currently leading a visual restyle of the core ERP screens and designing the inventory analytics layer.",
-                      ],
-                    },
-                    {
-                      title: "Co-Founder, Design",
-                      officialTitle: "Part-time, alongside PITB",
-                      period: "Sep 2020–Jul 2026",
-                      bullets: [
-                        "Co-founded the company and shaped the early product and design foundations of the ERP, from the first POS and inventory flows to the design system the platform still runs on.",
+                        "Lead design across POS, inventory, order fulfilment, storefront and analytics. Currently leading a visual restyle of the core ERP screens and designing the inventory analytics layer.",
                       ],
                     },
                   ].map((role) => (
