@@ -134,7 +134,7 @@ export default function Home() {
                     decisions. These are the conditions I do my best work in.
                   </p>
                   <p>
-                    Today I lead product design at Trade Unleashed, a retail and e-commerce ERP I co-founded on the design side in 2020, now live across 1,000+ locations. Based in Lahore, and open to the next set of problems worth solving carefully, wherever they are.
+                    Today I lead product design at Trade Unleashed, a retail and e-commerce ERP now live across 1,000+ locations. Based in Lahore, and open to the next set of problems worth solving carefully, wherever they are.
                   </p>
                 </div>
               </AnimateIn>
@@ -156,11 +156,11 @@ export default function Home() {
                 <span className="text-lg font-semibold">Now at Trade Unleashed</span>
                 <span className="text-[var(--color-text-muted)]">&middot;</span>
                 <span className="text-[15px] text-[var(--color-text-muted)] leading-relaxed">
-                  leading product design for a retail and e-commerce ERP live across 1,000+ locations; co-founded the design side in 2020
+                  leading product design for a retail and e-commerce ERP live across 1,000+ locations
                 </span>
               </div>
               <div className="flex flex-wrap gap-2.5 mt-4">
-                {["Lead Product Designer, 2026–", "Co-Founder, Design, 2020–26"].map((role) => (
+                {["Lead Product Designer, 2025–"].map((role) => (
                   <span key={role} className="text-[11px] text-[var(--color-text-subtle)] border border-[var(--color-border)] rounded-full px-3.5 py-1.5">
                     {role}
                   </span>
