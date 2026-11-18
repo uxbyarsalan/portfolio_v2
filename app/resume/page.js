@@ -1,265 +1,310 @@
 import Nav from "@/components/Nav";
-import Footer from "@/components/Footer";
-import FooterCTA from "@/components/FooterCTA";
 import AnimateIn from "@/components/AnimateIn";
-import WorkHorizontalScroll from "@/components/WorkHorizontalScroll";
 import Link from "next/link";
-import Image from "next/image";
-import { projects } from "@/lib/projects";
-
-// Using .wrapper class from globals.css
 
 export const metadata = {
-  title: "Arsalan Aslam · Lead Product Designer",
-  description: "Designing systems that serve 20M+ people, where complexity becomes clarity, and clarity becomes trust. 14+ years across 7 case studies. Based in Lahore, Pakistan.",
+  title: "Resume · Arsalan Aslam",
+  description: "Lead Product Designer with 14+ years building systems used by 20M+ people.",
   openGraph: {
-    title: "Arsalan Aslam · Lead Product Designer",
-    description: "Designing systems that serve 20M+ people, where complexity becomes clarity, and clarity becomes trust.",
-    url: "https://uxbyarsalan.com",
-    siteName: "Arsalan Aslam",
-    locale: "en_US",
+    title: "Resume · Arsalan Aslam",
+    description: "Lead Product Designer with 14+ years building systems used by 20M+ people.",
     type: "website",
-    images: [{ url: "/og/og-home.png", width: 1200, height: 630, alt: "Arsalan Aslam · Lead Product Designer" }],
+    images: [{ url: "/og/og-resume.png", width: 1200, height: 630, alt: "Resume · Arsalan Aslam" }],
   },
 };
 
-export default function Home() {
+function Section({ label, children }) {
+  return (
+    <div className="mb-14">
+      <p className="text-[11px] uppercase tracking-[0.3em] text-[var(--color-text-subtle)] mb-6">{label}</p>
+      {children}
+    </div>
+  );
+}
+
+export default function Resume() {
   return (
     <>
       <Nav />
-      <main>
-        {/* ============================================ */}
-        {/* HERO — Marquee + value prop, one viewport    */}
-        {/* ============================================ */}
-        <section className="min-h-[calc(100vh-4rem)] flex flex-col justify-center pt-[4.5rem] pb-6">
-          <div className="overflow-hidden mb-6">
-            <div className="marquee-track">
-              {Array.from({ length: 6 }).map((_, i) => (
-                <span key={i} className="marquee-text">
-                  I&rsquo;m Arsalan Aslam,&nbsp;
-                </span>
-              ))}
+      <main className="wrapper pt-28 pb-20 md:pt-36">
+        <AnimateIn>
+          <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-6 mb-16">
+            <div>
+              <h1 className="text-4xl md:text-6xl font-semibold tracking-tight leading-[0.95]">Arsalan Aslam</h1>
+              <p className="text-lg text-[var(--color-text-muted)] mt-3">Lead Product Designer &middot; Design Strategist</p>
+              <p className="text-sm text-[var(--color-text-subtle)] mt-2">Lahore, Pakistan &middot; arsalanaslam.se@gmail.com</p>
+            </div>
+            <div className="flex gap-3">
+              <a href="/Arsalan-Aslam-Resume.pdf" download className="btn-fill text-[11px] uppercase tracking-[0.2em] border border-[var(--color-text)] px-6 py-3">Download PDF</a>
+              <Link href="/contact" className="text-[11px] uppercase tracking-[0.2em] border border-[var(--color-border)] px-6 py-3 text-[var(--color-text-muted)] hover:border-[var(--color-text)] hover:text-[var(--color-text)] transition-all">Contact</Link>
             </div>
           </div>
+        </AnimateIn>
 
-          <div className="wrapper">
+        <div className="h-[1px] bg-[var(--color-border)] mb-14" />
+
+        <div className="grid grid-cols-1 md:grid-cols-12 gap-12 md:gap-20">
+          <div className="md:col-span-8">
             <AnimateIn>
-              <h1 className="hero-heading max-w-4xl">
-                Designing systems that serve 20M+ people, where complexity becomes clarity, and clarity becomes trust.
-              </h1>
-            </AnimateIn>
-
-            <AnimateIn delay={0.15}>
-              <div className="flex flex-wrap items-center gap-x-8 gap-y-3 mt-8">
-                {[
-                  { n: "14+", l: "years in design" },
-                  { n: "76", l: "services digitized" },
-                  { n: "20+", l: "platforms shipped" },
-                ].map((s) => (
-                  <div key={s.l} className="flex items-baseline gap-1.5">
-                    <span className="text-base font-semibold tracking-tight stat-number">{s.n}</span>
-                    <span className="text-[12px] text-[var(--color-text-muted)]">{s.l}</span>
-                  </div>
-                ))}
-              </div>
-            </AnimateIn>
-          </div>
-        </section>
-
-        {/* ============================================ */}
-        {/* WORK — Horizontal-scroll-pin (desktop)        */}
-        {/* Falls back to .project-grid-3 on mobile/      */}
-        {/* tablet and for prefers-reduced-motion users.  */}
-        {/* ============================================ */}
-        <WorkHorizontalScroll projects={projects} />
-
-        {/* ============================================ */}
-        {/* DARK STATEMENT — Right-aligned, green dot    */}
-        {/* ============================================ */}
-        <section className="full-bleed bg-[var(--color-bg-dark)] py-20 md:py-28">
-          <div className="wrapper">
-            <AnimateIn>
-              <div className="md:ml-auto md:max-w-2xl">
-                <p className="text-2xl md:text-4xl font-semibold text-[var(--color-text-inv)] leading-[1.25] tracking-tight">
-                  When 20 million people use what you designed, every pixel carries responsibility.
-                </p>
-
-                <div className="w-full h-[1px] bg-white/20 mt-10 mb-6" />
-
-                <div className="flex items-start gap-4">
-                  <div className="w-3 h-3 rounded-full bg-[#A3E635] mt-1 shrink-0" />
-                  <p className="text-sm text-white/50 leading-[1.75]">
-                    I pursue opportunities where my work can create real impact, bringing full focus, passion, and relentless drive to every project.
-                  </p>
-                </div>
-              </div>
-            </AnimateIn>
-          </div>
-        </section>
-
-        {/* ============================================ */}
-        {/* MY STORY — Photo + text                      */}
-        {/* ============================================ */}
-        <section id="my-story" className="wrapper py-28 md:py-32">
-          <div className="grid grid-cols-1 md:grid-cols-12 gap-12 md:gap-16 items-center">
-            <div className="md:col-span-5 order-2 md:order-1">
-              <AnimateIn>
-                <div className="bg-[var(--color-bg-card)] rounded-2xl aspect-[3/4] overflow-hidden relative">
-                  <Image
-                    src="/images/profile/v2/profile.jpg"
-                    alt="Arsalan Aslam"
-                    fill
-                    sizes="(min-width: 768px) 42vw, 100vw"
-                    className="object-cover"
-                  />
-                </div>
-              </AnimateIn>
-            </div>
-            <div className="md:col-span-7 order-1 md:order-2">
-              <AnimateIn>
-                <h2 className="text-2xl md:text-3xl font-semibold tracking-tight leading-[1.2] mb-8">
-                  Born curious. Trained restless.<br />Designing for millions.
-                </h2>
-              </AnimateIn>
-              <AnimateIn delay={0.1}>
-                <div className="space-y-5 text-[var(--color-text-muted)] leading-[1.8] text-[15px]">
+              <Section label="Summary">
+                <div className="text-[15px] text-[var(--color-text-muted)] leading-[1.8] space-y-4">
                   <p>
-                    I started my career building web interfaces in Lahore, and over the years grew into
-                    leading design strategy at Punjab&rsquo;s Information Technology Board. There I led UX across 10+ platforms, from police operations to
-                    employment services to environmental monitoring, all serving over 20 million people.
+                    Lead Product Designer with 14+ years building web and mobile systems used by 20M+ people. Progressed from UX Designer into design leadership at Punjab Information Technology Board, leading design strategy across 10+ platforms, including iOS and Android apps, serving 168 departments. Now leading product design at Trade Unleashed, a retail and e-commerce ERP live across 1,000+ locations.
                   </p>
                   <p>
-                    What that taught me was how to find clarity inside systems that resist it. Stakeholders
-                    with competing priorities, legacy constraints, scale that doesn&rsquo;t forgive sloppy
-                    decisions. These are the conditions I do my best work in.
+                    Experienced designing data-heavy, decision-support interfaces, from real-time surveillance dispatch to environmental health advisories, and building AI-native product explorations with working prototypes.
                   </p>
                   <p>
-                    Today I lead product design at Trade Unleashed, a retail and e-commerce ERP now live across 1,000+ locations. Based in Lahore, and open to the next set of problems worth solving carefully, wherever they are.
+                    Based in Lahore, open to senior product design roles (remote or relocation) where complexity meets scale.
                   </p>
                 </div>
-              </AnimateIn>
-            </div>
-          </div>
-        </section>
-
-        {/* ============================================ */}
-        {/* EXPERIENCE — Compressed, two bold lines       */}
-        {/* ============================================ */}
-        <section id="experience" className="wrapper pb-32">
-          <AnimateIn>
-            <h2 className="text-3xl md:text-4xl font-semibold tracking-tight mb-12">Experience</h2>
-          </AnimateIn>
-
-          <AnimateIn delay={0.05}>
-            <div className="mb-8">
-              <div className="flex flex-wrap items-baseline gap-x-2 gap-y-1">
-                <span className="text-lg font-semibold">Now at Trade Unleashed</span>
-                <span className="text-[var(--color-text-muted)]">&middot;</span>
-                <span className="text-[15px] text-[var(--color-text-muted)] leading-relaxed">
-                  leading product design for a retail and e-commerce ERP live across 1,000+ locations
-                </span>
-              </div>
-              <div className="flex flex-wrap gap-2.5 mt-4">
-                {["Lead Product Designer, 2025–"].map((role) => (
-                  <span key={role} className="text-[11px] text-[var(--color-text-subtle)] border border-[var(--color-border)] rounded-full px-3.5 py-1.5">
-                    {role}
-                  </span>
-                ))}
-              </div>
-            </div>
-          </AnimateIn>
-
-          <AnimateIn delay={0.08}>
-            <div className="h-[1px] bg-[var(--color-border)] mb-8" />
-            <div className="mb-8">
-              <div className="flex flex-wrap items-baseline gap-x-2 gap-y-1">
-                <span className="text-lg font-semibold">9 years at Punjab Information Technology Board</span>
-                <span className="text-[var(--color-text-muted)]">&middot;</span>
-                <span className="text-[15px] text-[var(--color-text-muted)] leading-relaxed">
-                  from UX Designer to Program Manager, leading design across 10+ government platforms serving 20M+ people
-                </span>
-              </div>
-              <div className="flex flex-wrap gap-2.5 mt-4">
-                {["UX/UI Designer", "Sr. UX/UI", "Principal UX/UI", "Program Manager, Design"].map((role) => (
-                  <span key={role} className="text-[11px] text-[var(--color-text-subtle)] border border-[var(--color-border)] rounded-full px-3.5 py-1.5">
-                    {role}
-                  </span>
-                ))}
-              </div>
-            </div>
-          </AnimateIn>
-
-          <AnimateIn delay={0.1}>
-            <div className="h-[1px] bg-[var(--color-border)] mb-6" />
-            <div className="flex flex-wrap items-baseline gap-x-2 gap-y-1">
-              <span className="text-[13px] uppercase tracking-[0.15em] text-[var(--color-text-subtle)]">Previously</span>
-              <span className="text-[14px] text-[var(--color-text-muted)]">Sport.CC, Denmark (2012–16)</span>
-            </div>
-          </AnimateIn>
-        </section>
-
-        {/* ============================================ */}
-        {/* TESTIMONIALS — Dark, featured quote           */}
-        {/* ============================================ */}
-        <section className="full-bleed bg-[var(--color-bg-dark)] py-20 md:py-28">
-          <div className="wrapper">
-            <AnimateIn>
-              <h2 className="text-3xl md:text-4xl font-semibold tracking-tight text-[var(--color-text-inv)] mb-14">Endorsements</h2>
+              </Section>
             </AnimateIn>
 
             <AnimateIn delay={0.05}>
-              <div className="mb-14">
-                <p className="text-xl md:text-2xl font-medium text-[var(--color-text-inv)] leading-[1.4] max-w-3xl italic">
-                  &ldquo;Arsalan&rsquo;s thoughtful leadership and focus on user-centered design have elevated our projects.
-                  His dedication has been vital to our team&rsquo;s success.&rdquo;
-                </p>
-                <div className="mt-5">
-                  <p className="text-sm font-medium text-[var(--color-text-inv)]">Adil Iqbal Khan</p>
-                  <p className="text-xs text-[var(--color-text-subtle)] mt-0.5">Chief Technology Officer, PITB</p>
+              <Section label="Experience">
+                <div className="mb-12">
+                  <div className="flex flex-col md:flex-row md:items-baseline md:justify-between mb-1">
+                    <h3 className="text-lg font-semibold">Trade Unleashed</h3>
+                    <span className="text-xs text-[var(--color-text-subtle)]">Lahore, Pakistan &middot; Hybrid</span>
+                  </div>
+
+                  {[
+                    {
+                      title: "Lead Product Designer",
+                      period: "Oct 2025–Present",
+                      bullets: [
+                        "Lead product design for a multi-tenant retail and e-commerce ERP, live across 1,000+ branches, warehouses and locations, processing tens of thousands of orders a day, with a typical go-live of 1–4 weeks.",
+                        "Lead design across POS, inventory, order fulfilment, storefront and analytics. Currently leading a visual restyle of the core ERP screens and designing the inventory analytics layer.",
+                      ],
+                    },
+                  ].map((role) => (
+                    <div key={role.title} className="mb-8 last:mb-0">
+                      <div className="flex flex-col md:flex-row md:items-baseline md:justify-between mb-2">
+                        <div>
+                          <h4 className="text-[15px] font-medium">{role.title}</h4>
+                          {role.officialTitle && (
+                            <p className="text-[11px] italic text-[var(--color-text-subtle)] mt-0.5">{role.officialTitle}</p>
+                          )}
+                        </div>
+                        <span className="text-[11px] text-[var(--color-text-subtle)]">{role.period}</span>
+                      </div>
+                      <ul className="space-y-2">
+                        {role.bullets.map((b, i) => (
+                          <li key={i} className="text-sm text-[var(--color-text-muted)] leading-[1.7] pl-4 relative before:content-[''] before:absolute before:left-0 before:top-[10px] before:w-1.5 before:h-1.5 before:rounded-full before:bg-[var(--color-border-hover)]">
+                            {b}
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+                  ))}
                 </div>
-              </div>
+
+                <div className="mb-12 pt-8 border-t border-[var(--color-border)]">
+                  <div className="flex flex-col md:flex-row md:items-baseline md:justify-between mb-1">
+                    <h3 className="text-lg font-semibold">Punjab Information Technology Board</h3>
+                    <span className="text-xs text-[var(--color-text-subtle)]">Lahore, Pakistan</span>
+                  </div>
+
+                  {[
+                    {
+                      title: "Lead Product Designer",
+                      officialTitle: "Official title: Program Manager, Design",
+                      period: "2023–2025",
+                      bullets: [
+                        "Led UX strategy and design operations across 10+ government platforms, managing a team of 10–12 designers, researchers, and developers serving 168 government departments.",
+                        "Drove Maryam Ki Dastak from concept to 2.1M+ service requests: a 5-module mobile-first ecosystem (citizen iOS/Android app, facilitator app, web portal, CRM, company registration) built in 3 months, scaled from 1 to 40 districts with 87,000+ facilitators and 76 services.",
+                        "Directed Punjab Jobs redesign for a platform with 500,000+ registered users and 2M+ job applications: redesigned job cards with salary data, built a recruitment module replacing spreadsheet-based hiring, and designed a native mobile app.",
+                        "Managed Punjab AQI environmental monitoring platform for 36 districts: designed condition-specific health advisories (Asthma, Heart Issues, COPD), heatmap calendar visualization, and real-time dashboard tracking 6 pollutants.",
+                        "Led PITB Official website redesign: 13 screens in 30 hours, bold dark theme anchored by a custom design system.",
+                      ],
+                    },
+                    {
+                      title: "Principal UX/UI Designer",
+                      period: "2020–2023",
+                      bullets: [
+                        "Designed City Watch, a real-time surveillance platform for Punjab Safe City Authority integrating 8,000+ cameras, achieving an SUS score of 78.25 with 87.5% of users rating usability as high.",
+                        "Created Employee Self Service cross-platform mobile app for 3,500+ employees: 98% daily check-in adoption, 120,000+ leave requests processed in 2 years, 10,000+ Play Store downloads, plus community features (carpooling, marketplace, blood donors).",
+                        "Introduced PITB\u2019s first design system, reducing visual inconsistencies and developer revision cycles across all products.",
+                      ],
+                    },
+                    {
+                      title: "Sr. UX/UI Designer",
+                      period: "2019–2020",
+                      bullets: [
+                        "Conducted 50+ user interviews, heuristic evaluations, and contextual inquiries across citizen-facing services.",
+                        "Implemented A/B testing and usability evaluations, improving form completion rates and reducing task completion times.",
+                      ],
+                    },
+                    {
+                      title: "UX/UI Designer",
+                      period: "2016–2018",
+                      bullets: [
+                        "Designed 200+ responsive screens across 20+ government applications serving 20M+ people.",
+                        "Produced interactive prototypes that accelerated stakeholder approvals and reduced design iteration cycles.",
+                      ],
+                    },
+                  ].map((role) => (
+                    <div key={role.title} className="mb-8 last:mb-0">
+                      <div className="flex flex-col md:flex-row md:items-baseline md:justify-between mb-2">
+                        <div>
+                          <h4 className="text-[15px] font-medium">{role.title}</h4>
+                          {role.officialTitle && (
+                            <p className="text-[11px] italic text-[var(--color-text-subtle)] mt-0.5">{role.officialTitle}</p>
+                          )}
+                        </div>
+                        <span className="text-[11px] text-[var(--color-text-subtle)]">{role.period}</span>
+                      </div>
+                      <ul className="space-y-2">
+                        {role.bullets.map((b, i) => (
+                          <li key={i} className="text-sm text-[var(--color-text-muted)] leading-[1.7] pl-4 relative before:content-[''] before:absolute before:left-0 before:top-[10px] before:w-1.5 before:h-1.5 before:rounded-full before:bg-[var(--color-border-hover)]">
+                            {b}
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+                  ))}
+                </div>
+
+                <div className="pt-8 border-t border-[var(--color-border)]">
+                  <div className="mb-6">
+                    <div className="flex flex-col md:flex-row md:items-baseline md:justify-between mb-1">
+                      <h4 className="text-[15px] font-medium">Sport.CC &middot; Web &amp; UX/UI Designer</h4>
+                      <span className="text-[11px] text-[var(--color-text-subtle)]">Denmark &middot; 2012–2016</span>
+                    </div>
+                    <p className="text-sm text-[var(--color-text-muted)] leading-relaxed">Designed live sports scoring platforms and a live cricket scoring app for a Denmark-based sports media company. Owned UX research, wireframing, and prototyping for web and mobile experiences serving an international cricket audience.</p>
+                  </div>
+                </div>
+              </Section>
             </AnimateIn>
 
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-8 pt-10 border-t border-white/10">
-              {[
-                { q: "Arsalan\u2019s design expertise enhanced the Safe City project, improving both system effectiveness and user experience.", n: "M. Ahsan Younas", t: "Managing Director, PSCA" },
-                { q: "Arsalan\u2019s contributions have been instrumental in translating complex environmental challenges into clear, actionable solutions.", n: "Imran Hamid Sheikh", t: "Director General, EPD" },
-                { q: "Arsalan and his team delivered a seamless online hall booking system that has greatly improved accessibility and efficiency.", n: "Razi Ahmed", t: "Chairman, Lahore Arts Council" },
-              ].map((t, i) => (
-                <AnimateIn key={t.n} delay={i * 0.06}>
-                  <div>
-                    <p className="text-sm text-white/60 leading-[1.75] italic mb-4">&ldquo;{t.q}&rdquo;</p>
-                    <p className="text-sm font-medium text-[var(--color-text-inv)]">{t.n}</p>
-                    <p className="text-[11px] text-[var(--color-text-subtle)] mt-0.5">{t.t}</p>
-                  </div>
-                </AnimateIn>
-              ))}
-            </div>
+            <AnimateIn delay={0.1}>
+              <Section label="Key projects">
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                  {[
+                    { name: "Maryam Ki Dastak", slug: "dastak", stat: "2.1M+ service requests", desc: "Mobile-first doorstep services, citizen iOS/Android app + facilitator app + web portal, 40 districts" },
+                    { name: "City Watch", slug: "city-watch", stat: "SUS 78.25", desc: "Surveillance platform, 8,000+ cameras" },
+                    { name: "Punjab Jobs", slug: "punjab-jobs", stat: "500K+ users", desc: "Employment platform redesign, 168 departments" },
+                    { name: "Employee Self Service", slug: "ess", stat: "98% adoption", desc: "Cross-platform mobile workplace app, 3,500+ employees, 10,000+ Play Store downloads" },
+                    { name: "PITB Official", slug: "pitb-official", stat: "13 screens", desc: "Government portal redesign, 30 hours" },
+                    { name: "Punjab AQI", slug: "aqi", stat: "36 districts", desc: "Environmental monitoring, health advisories" },
+                    { name: "eBiz Punjab", slug: "ebiz", stat: "100K+ registrations", desc: "Multi-department business portal" },
+                  ].map((p) => (
+                    <Link key={p.slug} href={`/work/${p.slug}`} className="group bg-[var(--color-bg-card)] rounded-xl p-4 hover:bg-[var(--color-bg-card-hover)] transition-colors">
+                      <div className="flex items-baseline justify-between mb-1">
+                        <h4 className="text-sm font-medium group-hover:opacity-70 transition-opacity">{p.name}</h4>
+                        <span className="text-[11px] font-semibold text-[var(--color-text)]">{p.stat}</span>
+                      </div>
+                      <p className="text-xs text-[var(--color-text-muted)]">{p.desc}</p>
+                    </Link>
+                  ))}
+                </div>
+              </Section>
+            </AnimateIn>
           </div>
-        </section>
 
-        {/* ============================================ */}
-        {/* MAKING OF — Above footer                     */}
-        {/* ============================================ */}
-        <section className="wrapper pt-16 pb-0">
-          <AnimateIn>
-            <Link href="/making-of" className="group block bg-[var(--color-bg-card)] hover:bg-[var(--color-bg-card-hover)] rounded-2xl p-8 md:p-10 transition-all duration-500">
-              <p className="text-[11px] uppercase tracking-[0.25em] text-[var(--color-text-subtle)] mb-3">Behind the scenes</p>
-              <h3 className="text-xl md:text-2xl font-semibold tracking-tight mb-2 group-hover:opacity-70 transition-opacity">
-                Curious how this portfolio was built?
-              </h3>
-              <p className="text-sm text-[var(--color-text-muted)] leading-relaxed mb-4 max-w-xl">
-                From content audit to live site: a human-AI collaboration using Claude, Gemini, ChatGPT, and Google Antigravity.
-              </p>
-              <span className="text-sm font-medium text-[var(--color-text)] group-hover:translate-x-1 inline-block transition-transform">
-                Read the story &rarr;
-              </span>
-            </Link>
-          </AnimateIn>
-        </section>
+          <div className="md:col-span-4">
+            <AnimateIn delay={0.05}>
+              <Section label="Impact at a glance">
+                <div className="space-y-4">
+                  {[
+                    { n: "2.1M", l: "Dastak service requests" },
+                    { n: "SUS 78.25", l: "City Watch operator usability" },
+                    { n: "98%", l: "ESS daily adoption" },
+                    { n: "8,000+", l: "cameras integrated" },
+                    { n: "14+ years", l: "in design" },
+                  ].map((s) => (
+                    <div key={s.l} className="flex items-baseline gap-2">
+                      <span className="text-xl font-semibold tracking-tight stat-number">{s.n}</span>
+                      <span className="text-xs text-[var(--color-text-muted)]">{s.l}</span>
+                    </div>
+                  ))}
+                </div>
+              </Section>
+            </AnimateIn>
+
+            <AnimateIn delay={0.1}>
+              <Section label="Design skills">
+                <div className="flex flex-wrap gap-2">
+                  {["UX Strategy", "Product Design", "Mobile Design", "Design Systems", "User Research", "Information Architecture", "Interaction Design", "Prototyping", "Usability Testing", "Conversion Optimization", "Data Visualization", "Responsive Design", "Accessibility"].map((s) => (
+                    <span key={s} className="text-[11px] text-[var(--color-text-muted)] border border-[var(--color-border)] rounded-full px-3 py-1.5">{s}</span>
+                  ))}
+                </div>
+              </Section>
+            </AnimateIn>
+
+            <AnimateIn delay={0.12}>
+              <Section label="Leadership">
+                <div className="flex flex-wrap gap-2">
+                  {["Team Management", "Stakeholder Alignment", "Cross-Functional Collaboration", "Agile & Scrum", "Design Ops", "Workshop Facilitation"].map((s) => (
+                    <span key={s} className="text-[11px] text-[var(--color-text-muted)] border border-[var(--color-border)] rounded-full px-3 py-1.5">{s}</span>
+                  ))}
+                </div>
+              </Section>
+            </AnimateIn>
+
+            <AnimateIn delay={0.15}>
+              <Section label="Tools">
+                <div className="flex flex-wrap gap-2">
+                  {["Figma", "Adobe XD", "Illustrator", "Photoshop", "After Effects", "Miro", "Webflow", "Lovable", "Jira"].map((t) => (
+                    <span key={t} className="text-[11px] text-[var(--color-text-muted)] border border-[var(--color-border)] rounded-full px-3 py-1.5">{t}</span>
+                  ))}
+                </div>
+              </Section>
+            </AnimateIn>
+
+            <AnimateIn delay={0.17}>
+              <Section label="AI & emerging tools">
+                <div className="flex flex-wrap gap-2">
+                  {["Claude", "ChatGPT", "Gemini", "Midjourney", "GitHub Copilot"].map((t) => (
+                    <span key={t} className="text-[11px] text-[var(--color-text-muted)] border border-[var(--color-border)] rounded-full px-3 py-1.5">{t}</span>
+                  ))}
+                </div>
+                <p className="text-xs text-[var(--color-text-subtle)] mt-3 leading-relaxed">Integrated AI tools across content strategy, design exploration, and code implementation. Designed and published AI-native product explorations with working prototypes.</p>
+              </Section>
+            </AnimateIn>
+
+            <AnimateIn delay={0.2}>
+              <Section label="Education">
+                <div className="space-y-4">
+                  <div>
+                    <p className="text-sm font-medium">Bachelor of Fine Arts in Graphic Design</p>
+                    <p className="text-xs text-[var(--color-text-muted)] mt-0.5">University of the Punjab, Lahore &middot; 2009&ndash;2014</p>
+                  </div>
+                  <div>
+                    <p className="text-sm font-medium">Diploma in Fine Arts</p>
+                    <p className="text-xs text-[var(--color-text-muted)] mt-0.5">Naqsh School of Arts, Lahore &middot; 2006&ndash;2008</p>
+                  </div>
+                </div>
+              </Section>
+            </AnimateIn>
+
+            <AnimateIn delay={0.22}>
+              <Section label="Languages">
+                <p className="text-sm text-[var(--color-text-muted)]">English: Fluent</p>
+                <p className="text-sm text-[var(--color-text-muted)]">Urdu, Hindi, Punjabi: Native</p>
+              </Section>
+            </AnimateIn>
+
+            <AnimateIn delay={0.25}>
+              <Section label="Links">
+                <div className="space-y-2">
+                  {[
+                    { label: "Portfolio", href: "/" },
+                    { label: "LinkedIn", href: "https://www.linkedin.com/in/arsalanaslam1/" },
+                    { label: "Behance", href: "https://www.behance.net/arslanaslam" },
+                    { label: "Instagram", href: "https://www.instagram.com/3arslan.aslam/" },
+                  ].map((l) => (
+                    <a key={l.label} href={l.href} className="block text-sm text-[var(--color-text-muted)] hover:text-[var(--color-text)] transition-colors">
+                      {l.label} &rarr;
+                    </a>
+                  ))}
+                </div>
+              </Section>
+            </AnimateIn>
+          </div>
+        </div>
       </main>
-      <FooterCTA />
-      <Footer />
     </>
   );
 }
